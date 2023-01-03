@@ -29,7 +29,7 @@
   "typings": "./types/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp -r dist/* ../webpage/ && cd ../webpage/ && git add . && git commit -am 'Updated to last version' && git push",
+    "build": "vite build",
     "preview": "vite preview",
     "build:library": "vite build --config library.config.js",
     "lint": "eslint --ext .js,.jsx .",
