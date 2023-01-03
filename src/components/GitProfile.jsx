@@ -19,7 +19,7 @@ import {
   setupHotjar,
   tooManyRequestError,
   sanitizeConfig,
-  skeleton,
+  //skeleton,
 } from '../helpers/utils';
 import { HelmetProvider } from 'react-helmet-async';
 import PropTypes from 'prop-types';
@@ -180,6 +180,12 @@ const GitProfile = ({ config }) => {
                       <Skill
                         loading={loading}
                         skills={sanitizedConfig.skills}
+                        title={'Tech Stack'}
+                      />
+                      <Skill
+                        loading={loading}
+                        skills={sanitizedConfig.some_experience_with}
+                        title={'Some experience with...'}
                       />
                       <Experience
                         loading={loading}

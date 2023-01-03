@@ -17,16 +17,16 @@ const config = {
   resume: {
     fileUrl: '',
   },
-  skills: [
-    'Rust',
-    'Python',
-    'C#',
-    'C',
+  skills: ['Rust', 'C', 'C#', 'Python', 'Linux', 'Unity', 'Godot'],
+  some_experience_with: [
     'C++',
-    'Linux',
+    'JavaScript',
+    'TypeScript',
+    'Haskell',
+    'SQL',
+    'React',
     'Embedded',
-    'Unity',
-    'Godot',
+    'Unreal Engine',
   ],
   /*
   experiences: [
@@ -107,7 +107,7 @@ const config = {
 
     // Hides the switch in the navbar
     // Useful if you want to support a single color mode
-    disableSwitch: false,
+    disableSwitch: true,
 
     // Should use the prefers-color-scheme media-query,
     // using user system preferences, instead of the hardcoded defaultTheme
@@ -117,7 +117,7 @@ const config = {
     hideAvatarRing: true,
 
     // Available themes. To remove any theme, exclude from here.
-    themes: ['light', 'dark'],
+    themes: ['dark'],
   },
 };
 

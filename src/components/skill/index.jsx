@@ -1,7 +1,7 @@
 import { skeleton } from '../../helpers/utils';
 import PropTypes from 'prop-types';
 
-const Skill = ({ loading, skills }) => {
+const Skill = ({ loading, skills, title }) => {
   const renderSkeleton = () => {
     let array = [];
     for (let index = 0; index < 12; index++) {
@@ -25,9 +25,7 @@ const Skill = ({ loading, skills }) => {
                 {loading ? (
                   skeleton({ width: 'w-32', height: 'h-8' })
                 ) : (
-                  <span className="text-base-content opacity-70">
-                    Tech Stack
-                  </span>
+                  <span className="text-base-content opacity-70">{title}</span>
                 )}
               </h5>
             </div>
@@ -55,6 +53,7 @@ const Skill = ({ loading, skills }) => {
 Skill.propTypes = {
   loading: PropTypes.bool.isRequired,
   skills: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default Skill;
