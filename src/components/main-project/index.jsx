@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { ga, skeleton } from '../../helpers/utils';
+import { skeleton } from '../../helpers/utils';
 import LazyImage from '../lazy-image';
 
 const displaySection = (externalProjects) => {
@@ -15,7 +15,7 @@ const displaySection = (externalProjects) => {
   }
 };
 
-const MainProject = ({ mainProjects, loading, googleAnalytics }) => {
+const MainProject = ({ mainProjects, loading }) => {
   const renderSkeleton = () => {
     let array = [];
     for (let index = 0; index < mainProjects.length; index++) {
@@ -74,24 +74,8 @@ const MainProject = ({ mainProjects, loading, googleAnalytics }) => {
         className="card shadow-lg compact bg-base-100 cursor-pointer"
         key={index}
         href={item.link}
-        onClick={(e) => {
-          e.preventDefault();
-
-          try {
-            if (googleAnalytics?.id) {
-              ga.event({
-                action: 'Click Main Project',
-                params: {
-                  post: item.title,
-                },
-              });
-            }
-          } catch (error) {
-            console.error(error);
-          }
-
-          window?.open(item.link, '_blank');
-        }}
+        target="_blank"
+        rel="noreferrer"
       >
         <div className="p-6 h-full w-full">
           <div className="flex items-center flex-col">

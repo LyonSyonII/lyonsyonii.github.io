@@ -76,7 +76,7 @@ const config = {
         'An installer for a collection of tools and utilities to enhance the experience with the Steam Deck.',
       imageUrl:
         'https://raw.githubusercontent.com/LyonSyonII/lyon-deck-toolbox/main/assets/icon.png',
-      link: '/projects/lyon-deck-toolbox.html',
+      link: 'https://github.com/LyonSyonII/lyon-deck-toolbox',
     },
   ],
   externalProjects: [
@@ -126,7 +126,7 @@ const config = {
     hideAvatarRing: true,
 
     // Available themes. To remove any theme, exclude from here.
-    themes: ['dark'],
+    themes: ['light'],
   },
 };
 
