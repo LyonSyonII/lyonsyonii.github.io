@@ -69,7 +69,16 @@ const config = {
       to: '2014',
     },*/
   ],
-  // To hide the `Other Projects` section, keep it empty.
+  mainProjects: [
+    {
+      title: "Lyon's Deck Toolbox",
+      description:
+        'An installer for a collection of tools and utilities to enhance the experience with the Steam Deck.',
+      imageUrl:
+        'https://raw.githubusercontent.com/LyonSyonII/lyon-deck-toolbox/main/assets/icon.png',
+      link: '/projects/lyon-deck-toolbox.html',
+    },
+  ],
   externalProjects: [
     {
       title: 'Motley',

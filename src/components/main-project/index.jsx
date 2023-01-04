@@ -15,13 +15,13 @@ const displaySection = (externalProjects) => {
   }
 };
 
-const ExternalProject = ({ externalProjects, loading, googleAnalytics }) => {
+const MainProject = ({ mainProjects, loading, googleAnalytics }) => {
   const renderSkeleton = () => {
     let array = [];
-    for (let index = 0; index < externalProjects.length; index++) {
+    for (let index = 0; index < mainProjects.length; index++) {
       array.push(
         <div className="card shadow-lg compact bg-base-100" key={index}>
-          <div className="p-4 h-full w-full">
+          <div className="p-6 h-full w-full">
             <div className="flex items-center flex-col">
               <div className="w-full">
                 <div className="flex items-start px-4">
@@ -68,8 +68,8 @@ const ExternalProject = ({ externalProjects, loading, googleAnalytics }) => {
     return array;
   };
 
-  const renderExternalProjects = () => {
-    return externalProjects.map((item, index) => (
+  const renderMainProjects = () => {
+    return mainProjects.map((item, index) => (
       <a
         className="card shadow-lg compact bg-base-100 cursor-pointer"
         key={index}
@@ -80,7 +80,7 @@ const ExternalProject = ({ externalProjects, loading, googleAnalytics }) => {
           try {
             if (googleAnalytics?.id) {
               ga.event({
-                action: 'Click External Project',
+                action: 'Click Main Project',
                 params: {
                   post: item.title,
                 },
@@ -93,7 +93,7 @@ const ExternalProject = ({ externalProjects, loading, googleAnalytics }) => {
           window?.open(item.link, '_blank');
         }}
       >
-        <div className="p-4 h-full w-full">
+        <div className="p-6 h-full w-full">
           <div className="flex items-center flex-col">
             <div className="w-full">
               <div className="px-4">
@@ -103,7 +103,7 @@ const ExternalProject = ({ externalProjects, loading, googleAnalytics }) => {
                   </h2>
                   {item.imageUrl && (
                     <div className="avatar opacity-90">
-                      <div className="w-16 h-16 mask mask-squircle">
+                      <div className="w-16 h-16">
                         <LazyImage
                           src={item.imageUrl}
                           alt={'thumbnail'}
@@ -130,7 +130,7 @@ const ExternalProject = ({ externalProjects, loading, googleAnalytics }) => {
 
   return (
     <Fragment>
-      {displaySection(externalProjects) && (
+      {displaySection(mainProjects) && (
         <div className="col-span-1 lg:col-span-2">
           <div className="grid grid-cols-2 gap-6">
             <div className="col-span-2">
@@ -142,14 +142,14 @@ const ExternalProject = ({ externalProjects, loading, googleAnalytics }) => {
                         skeleton({ width: 'w-40', height: 'h-8' })
                       ) : (
                         <span className="text-base-content opacity-70">
-                          Other Projects
+                          Main Projects
                         </span>
                       )}
                     </h5>
                   </div>
                   <div className="col-span-2">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {loading ? renderSkeleton() : renderExternalProjects()}
+                      {loading ? renderSkeleton() : renderMainProjects()}
                     </div>
                   </div>
                 </div>
@@ -162,10 +162,10 @@ const ExternalProject = ({ externalProjects, loading, googleAnalytics }) => {
   );
 };
 
-ExternalProject.propTypes = {
-  externalProjects: PropTypes.array,
+MainProject.propTypes = {
+  mainProjects: PropTypes.array,
   loading: PropTypes.bool.isRequired,
   googleAnalytics: PropTypes.object,
 };
 
-export default ExternalProject;
+export default MainProject;

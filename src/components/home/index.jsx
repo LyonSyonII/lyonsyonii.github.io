@@ -1,16 +1,16 @@
 import axios from 'axios';
 import { Fragment, useCallback, useEffect, useState } from 'react';
-import HeadTagEditor from './head-tag-editor';
-import ErrorPage from './error-page';
-import ThemeChanger from './theme-changer';
-import AvatarCard from './avatar-card';
-import Details from './details';
-import Skill from './skill';
-import Experience from './experience';
-import Certification from './certification';
-import Education from './education';
-import Project from './project';
-import Blog from './blog';
+import HeadTagEditor from '../head-tag-editor';
+import ErrorPage from '../error-page';
+import ThemeChanger from '../theme-changer';
+import AvatarCard from '../avatar-card';
+import Details from '../details';
+import Skill from '../skill';
+import Experience from '../experience';
+import Certification from '../certification';
+import Education from '../education';
+import Project from '../project';
+import Blog from '../blog';
 import {
   genericError,
   getInitialTheme,
@@ -20,16 +20,17 @@ import {
   tooManyRequestError,
   sanitizeConfig,
   //skeleton,
-} from '../helpers/utils';
+} from '../../helpers/utils';
 import { HelmetProvider } from 'react-helmet-async';
 import PropTypes from 'prop-types';
-import '../assets/index.css';
+import '../../assets/index.css';
 import { formatDistance } from 'date-fns';
-import ExternalProject from './external-project';
+import ExternalProject from '../external-project';
+import MainProject from '../main-project';
 
 const bgColor = 'bg-base-300';
 
-const GitProfile = ({ config }) => {
+const Home = ({ config }) => {
   const [error, setError] = useState(
     typeof config === 'undefined' && !config ? noConfigError : null
   );
@@ -203,6 +204,11 @@ const GitProfile = ({ config }) => {
                   </div>
                   <div className="lg:col-span-2 col-span-1">
                     <div className="grid grid-cols-1 gap-6">
+                      <MainProject
+                        loading={loading}
+                        mainProjects={sanitizedConfig.mainProjects}
+                        googleAnalytics={sanitizedConfig.googleAnalytics}
+                      />
                       <Project
                         repo={repo}
                         loading={loading}
@@ -231,7 +237,7 @@ const GitProfile = ({ config }) => {
   );
 };
 
-GitProfile.propTypes = {
+Home.propTypes = {
   config: PropTypes.shape({
     github: PropTypes.shape({
       username: PropTypes.string.isRequired,
@@ -320,4 +326,4 @@ GitProfile.propTypes = {
   }).isRequired,
 };
 
-export default GitProfile;
+export default Home;
