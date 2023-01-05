@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { ga, languageColor, skeleton } from '../../helpers/utils';
 import { MdInsertLink } from 'react-icons/md';
 
-const Project = ({ repo, loading, github, googleAnalytics }) => {
+const GithubProject = ({ repo, loading, github, googleAnalytics }) => {
   if (!loading && Array.isArray(repo) && repo.length === 0) {
     return <></>;
   }
@@ -166,11 +166,11 @@ const Project = ({ repo, loading, github, googleAnalytics }) => {
   );
 };
 
-Project.propTypes = {
+GithubProject.propTypes = {
   repo: PropTypes.array,
   loading: PropTypes.bool.isRequired,
   github: PropTypes.object.isRequired,
   googleAnalytics: PropTypes.object.isRequired,
 };
 
-export default Project;
+export default GithubProject;

@@ -5,11 +5,11 @@ import ErrorPage from '../error-page';
 import ThemeChanger from '../theme-changer';
 import AvatarCard from '../avatar-card';
 import Details from '../details';
-import Skill from '../skill';
+import Skills from '../skill';
 import Experience from '../experience';
 import Certification from '../certification';
 import Education from '../education';
-import Project from '../project';
+import GithubProjects from '../github-project';
 import Blog from '../blog';
 import {
   genericError,
@@ -25,8 +25,9 @@ import { HelmetProvider } from 'react-helmet-async';
 import PropTypes from 'prop-types';
 import '../../assets/index.css';
 import { formatDistance } from 'date-fns';
-import ExternalProject from '../external-project';
-import MainProject from '../main-project';
+import OtherProjects from '../other-project';
+import MainProjects from '../main-project';
+import CardContainer from '../card-container';
 
 const bgColor = 'bg-base-300';
 
@@ -178,16 +179,18 @@ const Home = ({ config }) => {
                         github={sanitizedConfig.github}
                         social={sanitizedConfig.social}
                       />
-                      <Skill
-                        loading={loading}
-                        skills={sanitizedConfig.skills}
-                        title={'Tech Stack'}
-                      />
-                      <Skill
-                        loading={loading}
-                        skills={sanitizedConfig.some_experience_with}
-                        title={'Some experience with...'}
-                      />
+                      <CardContainer loading={loading}>
+                        <Skills
+                          loading={loading}
+                          skills={sanitizedConfig.skills}
+                          title={'Tech Stack'}
+                        />
+                        <Skills
+                          loading={loading}
+                          skills={sanitizedConfig.some_experience_with}
+                          title={'Some experience with...'}
+                        />
+                      </CardContainer>
                       <Experience
                         loading={loading}
                         experiences={sanitizedConfig.experiences}
@@ -204,20 +207,20 @@ const Home = ({ config }) => {
                   </div>
                   <div className="lg:col-span-2 col-span-1">
                     <div className="grid grid-cols-1 gap-6">
-                      <MainProject
+                      <MainProjects
                         loading={loading}
                         mainProjects={sanitizedConfig.mainProjects}
                         googleAnalytics={sanitizedConfig.googleAnalytics}
                       />
-                      <Project
+                      <OtherProjects
+                        loading={loading}
+                        otherProjects={sanitizedConfig.otherProjects}
+                        googleAnalytics={sanitizedConfig.googleAnalytics}
+                      />
+                      <GithubProjects
                         repo={repo}
                         loading={loading}
                         github={sanitizedConfig.github}
-                        googleAnalytics={sanitizedConfig.googleAnalytics}
-                      />
-                      <ExternalProject
-                        loading={loading}
-                        externalProjects={sanitizedConfig.externalProjects}
                         googleAnalytics={sanitizedConfig.googleAnalytics}
                       />
                       <Blog
