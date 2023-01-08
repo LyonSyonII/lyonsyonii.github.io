@@ -1,7 +1,6 @@
 import { skeleton } from '../../helpers/utils';
 import PropTypes from 'prop-types';
 import LazyImage from '../lazy-image';
-import Tooltip from '../tooltip';
 
 const Skill = ({ loading, skills, title }) => {
   const renderSkeleton = () => {
@@ -36,7 +35,13 @@ const Skill = ({ loading, skills, title }) => {
                 {loading
                   ? renderSkeleton()
                   : skills.map((skill, index) => (
-                      <div title={skill.name} key={index}>
+                      <a
+                        href={skill.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        title={skill.name}
+                        key={index}
+                      >
                         {skill.imageUrl && (
                           <LazyImage
                             src={skill.imageUrl}
@@ -54,7 +59,7 @@ const Skill = ({ loading, skills, title }) => {
                             {skill.name}
                           </div>
                         )}
-                      </div>
+                      </a>
                     ))}
               </div>
             </div>
@@ -70,6 +75,7 @@ Skill.propTypes = {
   skills: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
+      url: PropTypes.string,
       imageUrl: PropTypes.string,
     })
   ),

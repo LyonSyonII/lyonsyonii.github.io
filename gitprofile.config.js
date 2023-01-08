@@ -20,27 +20,96 @@ const config = {
   skills: [
     {
       name: 'Rust',
-      imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg',
+      imageUrl:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg',
+      url: 'https://www.rust-lang.org/',
     },
     {
       name: 'C',
-      imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg',
+      imageUrl:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg',
+      url: 'https://en.wikipedia.org/wiki/C_(programming_language)',
     },
-    { name: 'Python', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-    { name: 'Linux', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-plain.svg' },
-    { name: 'Unity', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg' },
-    { name: 'Godot', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg' },
+    {
+      name: 'Python',
+      imageUrl:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      url: 'https://www.python.org/',
+    },
+    {
+      name: 'Linux',
+      imageUrl:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-plain.svg',
+      url: 'https://en.wikipedia.org/wiki/Linux',
+    },
+    {
+      name: 'Unity',
+      imageUrl:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg',
+      url: 'https://unity.com/',
+    },
+    {
+      name: 'Godot',
+      imageUrl:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg',
+      url: 'https://godotengine.org/',
+    },
   ],
   some_experience_with: [
-    { name: 'C#', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg' },
-    { name: 'C++', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
-    { name: 'JavaScript', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-    { name: 'TypeScript', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
-    { name: 'Haskell', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg' },
-    { name: 'SQL', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg' },
-    { name: 'React', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-    { name: 'Embedded', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/embeddedc/embeddedc-original.svg' },
-    { name: 'Unreal Engine', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg' },
+    {
+      name: 'C#',
+      imageUrl:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg',
+      url: 'https://learn.microsoft.com/en-us/dotnet/csharp/',
+    },
+    {
+      name: 'C++',
+      imageUrl:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg',
+      url: 'https://isocpp.org/',
+    },
+    {
+      name: 'JavaScript',
+      imageUrl:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+      url: 'https://www.javascript.com/',
+    },
+    {
+      name: 'TypeScript',
+      imageUrl:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+      url: 'https://www.typescriptlang.org/',
+    },
+    {
+      name: 'Haskell',
+      imageUrl:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg',
+      url: 'https://www.haskell.org/',
+    },
+    {
+      name: 'PostgreSQL',
+      imageUrl:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg',
+      url: 'https://www.postgresql.org/',
+    },
+    {
+      name: 'React',
+      imageUrl:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+      url: 'https://reactjs.org/',
+    },
+    {
+      name: 'Embedded',
+      imageUrl:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/embeddedc/embeddedc-original.svg',
+      url: 'https://en.wikipedia.org/wiki/Embedded_system',
+    },
+    {
+      name: 'Unreal Engine',
+      imageUrl:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg',
+      url: 'https://www.unrealengine.com/en-US',
+    },
   ],
   /*
   experiences: [

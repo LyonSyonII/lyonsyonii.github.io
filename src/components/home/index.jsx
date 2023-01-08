@@ -262,6 +262,7 @@ Home.propTypes = {
       PropTypes.shape({
         name: PropTypes.string.isRequired,
         imageUrl: PropTypes.string,
+        url: PropTypes.string,
       })
     ),
     externalProjects: PropTypes.arrayOf(
@@ -296,11 +297,6 @@ Home.propTypes = {
         to: PropTypes.string,
       })
     ),
-    blog: PropTypes.shape({
-      source: PropTypes.string,
-      username: PropTypes.string,
-      limit: PropTypes.number,
-    }),
     googleAnalytics: PropTypes.shape({
       id: PropTypes.string,
     }),
