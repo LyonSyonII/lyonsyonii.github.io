@@ -1,5 +1,7 @@
 import { skeleton } from '../../helpers/utils';
 import PropTypes from 'prop-types';
+import LazyImage from '../lazy-image';
+import Tooltip from '../tooltip';
 
 const Skill = ({ loading, skills, title }) => {
   const renderSkeleton = () => {
@@ -30,15 +32,28 @@ const Skill = ({ loading, skills, title }) => {
               </h5>
             </div>
             <div className="p-3 flow-root">
-              <div className="-m-1 flex flex-wrap justify-center">
+              <div className="-m-1 flex flex-wrap justify-center gap-2">
                 {loading
                   ? renderSkeleton()
                   : skills.map((skill, index) => (
-                      <div
-                        key={index}
-                        className="m-1 text-xs inline-flex items-center font-bold leading-sm px-3 py-1 badge-primary bg-opacity-90 rounded-full"
-                      >
-                        {skill}
+                      <div title={skill.name} key={index}>
+                        {skill.imageUrl && (
+                          <LazyImage
+                            src={skill.imageUrl}
+                            className="w-10 h-10"
+                            alt={'thumbnail'}
+                            placeholder={skeleton({
+                              width: 'w-full',
+                              height: 'h-full',
+                              shape: '',
+                            })}
+                          />
+                        )}
+                        {!skill.imageUrl && (
+                          <div className="m-1 text-xs inline-flex items-center font-bold leading-sm px-3 py-1 badge-primary bg-opacity-90 rounded-full">
+                            {skill.name}
+                          </div>
+                        )}
                       </div>
                     ))}
               </div>
@@ -52,7 +67,12 @@ const Skill = ({ loading, skills, title }) => {
 
 Skill.propTypes = {
   loading: PropTypes.bool.isRequired,
-  skills: PropTypes.array.isRequired,
+  skills: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      imageUrl: PropTypes.string,
+    })
+  ),
   title: PropTypes.string.isRequired,
 };
 

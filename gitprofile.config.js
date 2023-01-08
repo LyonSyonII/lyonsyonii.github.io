@@ -17,16 +17,30 @@ const config = {
   resume: {
     fileUrl: '',
   },
-  skills: ['Rust', 'C', 'C#', 'Python', 'Linux', 'Unity', 'Godot'],
+  skills: [
+    {
+      name: 'Rust',
+      imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg',
+    },
+    {
+      name: 'C',
+      imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg',
+    },
+    { name: 'Python', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+    { name: 'Linux', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-plain.svg' },
+    { name: 'Unity', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg' },
+    { name: 'Godot', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg' },
+  ],
   some_experience_with: [
-    'C++',
-    'JavaScript',
-    'TypeScript',
-    'Haskell',
-    'SQL',
-    'React',
-    'Embedded',
-    'Unreal Engine',
+    { name: 'C#', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg' },
+    { name: 'C++', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
+    { name: 'JavaScript', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+    { name: 'TypeScript', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+    { name: 'Haskell', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg' },
+    { name: 'SQL', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg' },
+    { name: 'React', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+    { name: 'Embedded', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/embeddedc/embeddedc-original.svg' },
+    { name: 'Unreal Engine', imageUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg' },
   ],
   /*
   experiences: [
@@ -61,13 +75,6 @@ const config = {
       from: '2020',
       to: 'Present',
     },
-    /*
-    {
-      institution: 'Institution Name',
-      degree: 'Degree',
-      from: '2012',
-      to: '2014',
-    },*/
   ],
   mainProjects: [
     {
@@ -83,7 +90,7 @@ const config = {
     {
       title: 'Motley',
       description: 'Fast-paced game developed with the Unity Game Engine.',
-      imageUrl: '/motley.png',
+      imageUrl: '/assets/icons/motley.png',
       link: 'https://slimystudios.itch.io/motley',
     },
     {
@@ -95,22 +102,6 @@ const config = {
       link: 'https://assetstore.unity.com/publishers/48993',
     },
   ],
-  /*
-  // Display blog posts from your medium or dev account. (Optional)
-  blog: {
-    source: 'dev', // medium | dev
-    username: 'arifszn', // to hide blog section, keep it empty
-    limit: 2, // How many posts to display. Max is 10.
-  },
-  googleAnalytics: {
-    id: '', // GA3 tracking id/GA4 tag id UA-XXXXXXXXX-X | G-XXXXXXXXXX
-  },
-  // Track visitor interaction and behavior. https://www.hotjar.com
-  hotjar: {
-    id: '',
-    snippetVersion: 6,
-  },
-  */
   themeConfig: {
     defaultTheme: 'dark',
 

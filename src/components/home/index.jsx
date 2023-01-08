@@ -10,7 +10,6 @@ import Experience from '../experience';
 import Certification from '../certification';
 import Education from '../education';
 import GithubProjects from '../github-project';
-import Blog from '../blog';
 import {
   genericError,
   getInitialTheme,
@@ -19,7 +18,6 @@ import {
   setupHotjar,
   tooManyRequestError,
   sanitizeConfig,
-  //skeleton,
 } from '../../helpers/utils';
 import { HelmetProvider } from 'react-helmet-async';
 import PropTypes from 'prop-types';
@@ -223,11 +221,6 @@ const Home = ({ config }) => {
                         github={sanitizedConfig.github}
                         googleAnalytics={sanitizedConfig.googleAnalytics}
                       />
-                      <Blog
-                        loading={loading}
-                        googleAnalytics={sanitizedConfig.googleAnalytics}
-                        blog={sanitizedConfig.blog}
-                      />
                     </div>
                   </div>
                 </div>
@@ -265,7 +258,12 @@ Home.propTypes = {
       phone: PropTypes.string,
       email: PropTypes.string,
     }),
-    skills: PropTypes.array,
+    skills: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        imageUrl: PropTypes.string,
+      })
+    ),
     externalProjects: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,
