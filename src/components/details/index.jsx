@@ -8,7 +8,7 @@ import { SiTwitter } from 'react-icons/si';
 import { GrLinkedinOption } from 'react-icons/gr';
 import { CgDribbble } from 'react-icons/cg';
 import { RiPhoneFill } from 'react-icons/ri';
-import { Fragment } from 'react';
+import { Fragment } from 'preact';
 import {
   FaBehanceSquare,
   FaBuilding,

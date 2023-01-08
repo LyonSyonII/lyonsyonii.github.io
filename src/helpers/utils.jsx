@@ -1,5 +1,4 @@
 import colors from '../data/colors.json';
-import { hotjar } from 'react-hotjar';
 
 export const getInitialTheme = (themeConfig) => {
   if (themeConfig.disableSwitch) {
@@ -80,14 +79,6 @@ export const isDarkishTheme = (theme) => {
   return ['dark', 'halloween', 'forest', 'black', 'luxury', 'dracula'].includes(
     theme
   );
-};
-
-export const setupHotjar = (hotjarConfig) => {
-  if (hotjarConfig?.id) {
-    let snippetVersion = hotjarConfig?.snippetVersion || 6;
-
-    hotjar.initialize(hotjarConfig.id, snippetVersion);
-  }
 };
 
 export const sanitizeConfig = (config) => {
@@ -175,10 +166,6 @@ export const sanitizeConfig = (config) => {
     },
     googleAnalytics: {
       id: config?.googleAnalytics?.id,
-    },
-    hotjar: {
-      id: config?.hotjar?.id,
-      snippetVersion: config?.hotjar?.snippetVersion || 6,
     },
     themeConfig: {
       defaultTheme: config?.themeConfig?.defaultTheme || themes[0],

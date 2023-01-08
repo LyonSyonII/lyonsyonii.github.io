@@ -1,14 +1,12 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Router from 'preact-router';
 import config from '../gitprofile.config';
 import Home from './components/home';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route exact path="/" element={<Home config={config} />} />
-      </Routes>
-    </BrowserRouter>
+    <Router>
+      <Home path="/" config={config} />
+    </Router>
   );
 }
 

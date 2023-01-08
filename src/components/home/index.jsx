@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { Fragment, useCallback, useEffect, useState } from 'react';
+import { Fragment } from 'preact';
+import { useCallback, useEffect, useState } from 'preact/hooks';
 import HeadTagEditor from '../head-tag-editor';
 import ErrorPage from '../error-page';
 import ThemeChanger from '../theme-changer';
@@ -15,11 +16,9 @@ import {
   getInitialTheme,
   noConfigError,
   notFoundError,
-  setupHotjar,
   tooManyRequestError,
   sanitizeConfig,
 } from '../../helpers/utils';
-import { HelmetProvider } from 'react-helmet-async';
 import PropTypes from 'prop-types';
 import '../../assets/index.css';
 import { formatDistance } from 'date-fns';
@@ -44,7 +43,6 @@ const Home = ({ config }) => {
   useEffect(() => {
     if (sanitizedConfig) {
       setTheme(getInitialTheme(sanitizedConfig.themeConfig));
-      setupHotjar(sanitizedConfig.hotjar);
       loadData();
     }
   }, [sanitizedConfig]);
@@ -134,7 +132,7 @@ const Home = ({ config }) => {
   };
 
   return (
-    <HelmetProvider>
+    <div>
       {sanitizedConfig && (
         <HeadTagEditor
           profile={profile}
@@ -229,7 +227,7 @@ const Home = ({ config }) => {
           )
         )}
       </div>
-    </HelmetProvider>
+    </div>
   );
 };
 
@@ -299,10 +297,6 @@ Home.propTypes = {
     ),
     googleAnalytics: PropTypes.shape({
       id: PropTypes.string,
-    }),
-    hotjar: PropTypes.shape({
-      id: PropTypes.string,
-      snippetVersion: PropTypes.number,
     }),
     themeConfig: PropTypes.shape({
       defaultTheme: PropTypes.string,

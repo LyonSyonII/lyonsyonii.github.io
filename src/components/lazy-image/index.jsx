@@ -1,4 +1,5 @@
-import { useState, Fragment, useEffect } from 'react';
+import { Fragment } from 'preact';
+import { useState, useEffect } from 'preact/hooks';
 import PropTypes from 'prop-types';
 
 const LazyImage = ({ placeholder, src, alt, ...rest }) => {

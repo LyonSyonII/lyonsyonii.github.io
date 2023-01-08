@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment } from 'preact';
 import { AiOutlineStar, AiOutlineFork } from 'react-icons/ai';
 import PropTypes from 'prop-types';
 import { ga, languageColor, skeleton } from '../../helpers/utils';

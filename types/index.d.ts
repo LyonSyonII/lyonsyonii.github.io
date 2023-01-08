@@ -2,7 +2,7 @@
 // Project https://github.com/arifszn/gitprofile
 // Author: Ariful Alam <arifulalamszn@gmail.com>
 
-import { Component } from 'react';
+import { Component } from 'preact';
 
 export interface Github {
   /**
@@ -124,18 +124,6 @@ export interface GoogleAnalytics {
    * GA3 tracking id/GA4 tag id UA-XXXXXXXXX-X | G-XXXXXXXXXX
    */
   id?: string;
-}
-
-export interface Hotjar {
-  /**
-   * Hotjar id
-   */
-  id?: string;
-
-  /**
-   * Snippet Version
-   */
-  snippetVersion?: number;
 }
 
 export interface CustomTheme {

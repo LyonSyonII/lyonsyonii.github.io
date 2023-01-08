@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment } from 'preact';
 import PropTypes from 'prop-types';
 import { skeleton } from '../../helpers/utils';
 import LazyImage from '../lazy-image';
