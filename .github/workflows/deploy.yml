@@ -22,7 +22,7 @@ jobs:
     - name: Yarn setup
       uses: DerYeger/yarn-setup-action@master
       with:
-      node-version: 19
+        node-version: 19.4
     
     - name: Build
       run: yarn && yarn build
