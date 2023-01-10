@@ -44,7 +44,7 @@ function Text({ children }) {
 
 function SecondaryCard({ title, children }) {
   return (
-    <div className="flex-initial mx-auto w-1/2 min-w-fit max-w-full py-3 justify-center">
+    <div className="flex-initial mx-auto w-2/3 min-w-min max-w-full py-3 justify-center">
       <CardContainer loading={false}>
         <div className="px-8 py-4">
           <div className="text-center">
@@ -59,7 +59,7 @@ function SecondaryCard({ title, children }) {
 
 function MainCard() {
   return (
-    <div className="pt-16 pb-20 flex-initial mx-auto w-1/2 min-w-fit max-w-full justify-center">
+    <div className="pt-16 pb-20 flex-initial mx-auto w-2/3 min-w-min max-w-full justify-center">
       <CardContainer loading={false}>
         <div className="mx-auto px-4 py-4">
           <div className="text-center">
@@ -95,24 +95,24 @@ function MainCard() {
 function InstallCard() {
   return (
     <SecondaryCard title="How to install">
-      <div className='max-w-8xl'>
-      <H3>Easy</H3>
-      <Text>
-        Download the <code>Lyon&apos;s Deck Toolbox.desktop</code> executable
-        file and double click it in the file explorer. <br />
-        It will automatically update itself, so no need to download it again.
-      </Text>
-      <H3>For nerds</H3>
-      <Text>
-        Clone the repository and run the <code>lyon-deck-toolbox</code>{' '}
-        executable.
-      </Text>
-      <div className="py-2" />
-      <div className="text-lg py-3 px-3 font-bold font-mono bg-black text-white rounded-lg">
-        git clone https://github.com/LyonSyonII/lyon-deck-toolbox <br />
-        cd lyon-deck-toolbox <br />
-        ./lyon-deck-toolbox <br />
-      </div>
+      <div className="max-w-8xl">
+        <H3>Easy</H3>
+        <Text>
+          Download the <code>Lyon&apos;s Deck Toolbox.desktop</code> executable
+          file and double click it in the file explorer. <br />
+          It will automatically update itself, so no need to download it again.
+        </Text>
+        <H3>For nerds</H3>
+        <Text>
+          Clone the repository and run the <code>lyon-deck-toolbox</code>{' '}
+          executable.
+        </Text>
+        <div className="py-2" />
+        <div className="text-lg py-3 px-3 font-bold font-mono bg-black text-white rounded-lg">
+          git clone https://github.com/LyonSyonII/lyon-deck-toolbox <br />
+          cd lyon-deck-toolbox <br />
+          ./lyon-deck-toolbox <br />
+        </div>
       </div>
     </SecondaryCard>
   );
