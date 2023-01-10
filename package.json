@@ -39,8 +39,7 @@
   },
   "dependencies": {
     "preact": "^10.11.3",
-    "preact-router": "^4.1.0",
-    "react-code-blocks": "^0.0.9-0"
+    "preact-router": "^4.1.0"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.5.0",

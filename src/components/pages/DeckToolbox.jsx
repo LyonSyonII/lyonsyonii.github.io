@@ -2,7 +2,6 @@ import { AiFillGithub } from 'react-icons/ai';
 import PropTypes from 'prop-types';
 import CardContainer from '../card-container';
 import Page from '../page';
-import { CopyBlock, dracula } from 'react-code-blocks';
 
 function H1({ children }) {
   return (
@@ -107,14 +106,11 @@ function InstallCard() {
         Clone the repository and run the <code>lyon-deck-toolbox</code>{' '}
         executable.
       </Text>
-      <div className="text-lg pt-3 font-bold font-mono">
-        <CopyBlock
-          language="bash"
-          theme={dracula}
-          text={
-            'git clone https://github.com/LyonSyonII/lyon-deck-toolbox\ncd lyon-deck-toolbox\n./lyon-deck-toolbox'
-          }
-        />
+      <div className="py-2" />
+      <div className="text-lg py-3 px-3 font-bold font-mono bg-black text-white rounded-lg">
+        git clone https://github.com/LyonSyonII/lyon-deck-toolbox <br />
+        cd lyon-deck-toolbox <br />
+        ./lyon-deck-toolbox <br />
       </div>
     </SecondaryCard>
   );
@@ -128,14 +124,16 @@ function ToolsCard() {
           Currently the Toolbox can install:
         </p>
         <H3 link="https://github.com/ValShaped/rwfus">Rwfus</H3>
-        
+
         <Text>
-          Like a vinyl couch cover for your filesystem, Rwfus covers your Deck's
-          /usr/ directory (and some others) allowing you to initialize and use
-          pacman (the Arch Linux package manager) on the Steam Deck without
-          losing packages when the next update comes out.
+          Like a vinyl couch cover for your filesystem, Rwfus covers your
+          Deck&apos;s /usr/ directory (and some others) allowing you to
+          initialize and use pacman (the Arch Linux package manager) on the
+          Steam Deck without losing packages when the next update comes out.
         </Text>
-        <H3 link="https://github.com/CryoByte33/steam-deck-utilities">CryoUtilities</H3>
+        <H3 link="https://github.com/CryoByte33/steam-deck-utilities">
+          CryoUtilities
+        </H3>
         <Text>
           Scripts and utilities to enhance the Steam Deck experience,
           particularly performance.
@@ -147,7 +145,9 @@ function ToolsCard() {
           downloads all of the needed Emulators for you along with the best
           configurations for each of them.
         </Text>
-        <H3 link="https://github.com/SteamDeckHomebrew/decky-loader">Decky-loader</H3>
+        <H3 link="https://github.com/SteamDeckHomebrew/decky-loader">
+          Decky-loader
+        </H3>
         <Text>
           Decky Loader is a homebrew plugin launcher for the Steam Deck.
         </Text>
