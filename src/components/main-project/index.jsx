@@ -2,6 +2,7 @@ import { Fragment } from 'preact';
 import PropTypes from 'prop-types';
 import { skeleton } from '../../helpers/utils';
 import LazyImage from '../lazy-image';
+import { route } from 'preact-router';
 
 const displaySection = (externalProjects) => {
   if (
@@ -73,9 +74,9 @@ const MainProject = ({ mainProjects, loading }) => {
       <a
         className="card shadow-lg compact bg-base-100 cursor-pointer"
         key={index}
-        href={item.link}
-        target="_blank"
-        rel="noreferrer"
+        onClick={() => {
+          route(item.link);
+        }}
       >
         <div className="p-6 h-full w-full">
           <div className="flex items-center flex-col">
