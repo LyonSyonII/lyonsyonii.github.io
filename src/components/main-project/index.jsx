@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { skeleton } from '../../helpers/utils';
 import LazyImage from '../lazy-image';
 import { route } from 'preact-router';
+import { Link } from 'react-router-dom';
 
 const displaySection = (externalProjects) => {
   if (
@@ -71,12 +72,9 @@ const MainProject = ({ mainProjects, loading }) => {
 
   const renderMainProjects = () => {
     return mainProjects.map((item, index) => (
-      <a
+      <Link to={item.link}
         className="card shadow-lg compact bg-base-100 cursor-pointer"
         key={index}
-        onClick={() => {
-          route(item.link);
-        }}
         target="_blank"
       >
         <div className="p-6 h-full w-full">
@@ -110,7 +108,7 @@ const MainProject = ({ mainProjects, loading }) => {
             </div>
           </div>
         </div>
-      </a>
+      </Link>
     ));
   };
 

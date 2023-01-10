@@ -5,7 +5,7 @@ import Page from '../page';
 
 function H1({ children }) {
   return (
-    <h1 className="mt-3 lg:text-5xl text-3xl font-bold leading-[4rem] tracking-tight text-black">
+    <h1 className="mt-3 lg:text-6xl text-4xl font-bold leading-[4rem] tracking-tight text-black">
       {children}
     </h1>
   );
@@ -13,7 +13,7 @@ function H1({ children }) {
 
 function H2({ children }) {
   return (
-    <h2 className="mt-3 lg:text-4xl text-2xl font-bold leading-[4rem] tracking-tight text-black">
+    <h2 className="mt-3 lg:text-5xl text-3xl font-bold leading-[4rem] tracking-tight text-black">
       {children}
     </h2>
   );
@@ -21,7 +21,7 @@ function H2({ children }) {
 
 function H3({ children, link }) {
   return (
-    <h3 className="pt-3 lg:text-2xl text-xl font-bold leading-[4rem] tracking-tight">
+    <h3 className="pt-3 lg:text-3xl text-2xl font-bold leading-[4rem] tracking-tight">
       {link ? (
         <a
           href={link}
