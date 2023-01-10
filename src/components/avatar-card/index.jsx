@@ -19,7 +19,7 @@ const AvatarCard = ({ profile, loading, avatarRing, resume }) => {
         ) : (
           <div className="avatar opacity-90">
             <div
-              className={`mb-8 rounded-full w-32 h-20 ${
+              className={`mb-8 rounded-full w-32 h-24 ${
                 avatarRing
                   ? 'ring ring-primary ring-offset-base-100 ring-offset-2'
                   : ''

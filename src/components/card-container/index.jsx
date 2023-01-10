@@ -4,7 +4,7 @@ import { skeleton } from '../../helpers/utils';
 // import LazyImage from '../lazy-image';
 
 const displaySection = (children) => {
-  if (children && Array.isArray(children) && children.length) {
+  if (children) {
     return true;
   } else {
     return false;
@@ -15,7 +15,7 @@ const CardContainer = ({ title, loading, children }) => {
   return (
     <Fragment>
       {displaySection(children) && (
-        <div className="col-span-1 lg:col-span-1">
+        <div className={'py-2 col-span-1 lg:col-span-1'}>
           <div className="grid grid-cols-1 gap-6">
             <div className="col-span-1">
               <div className="card compact bg-base-100 shadow bg-opacity-70">
@@ -48,7 +48,10 @@ const CardContainer = ({ title, loading, children }) => {
 
 CardContainer.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.arrayOf(PropTypes.node),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.object,
+  ]).isRequired,
   loading: PropTypes.bool.isRequired,
 };
 

@@ -152,7 +152,7 @@ const config = {
         'An installer for a collection of tools and utilities to enhance the experience with the Steam Deck.',
       imageUrl:
         'https://raw.githubusercontent.com/LyonSyonII/lyon-deck-toolbox/main/assets/icon.png',
-      link: 'https://github.com/LyonSyonII/lyon-deck-toolbox',
+      link: '/deck-toolbox',
     },
   ],
   externalProjects: [

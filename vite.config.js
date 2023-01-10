@@ -11,9 +11,16 @@ export default defineConfig({
   // If you are deploying to https://<USERNAME>.github.io/<REPO>/, for example your repository is at https://github.com/<USERNAME>/<REPO>, then set base to '/<REPO>/'.
   base: '/',
   plugins: [preact(), visualizer()],
+  alias: {
+    react: 'preact/compat',
+    'react-dom': 'preact/compat',
+  },
   css: {
     postcss: {
       plugins: [tailwind(tailwindConfig), autoprefixer],
     },
+  },
+  define: {
+    global: {},
   },
 });
