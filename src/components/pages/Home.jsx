@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'preact/hooks';
-import Helmet from 'preact-helmet';
 import HeadTagEditor from '../head-tag-editor';
 import ErrorPage from '../error-page';
 import ThemeChanger from '../theme-changer';
@@ -45,7 +44,7 @@ const Home = ({ config }) => {
       loadData();
     }
   }, [sanitizedConfig]);
-  
+
   useEffect(() => {
     theme && document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
@@ -81,9 +80,9 @@ const Home = ({ config }) => {
         let query = `user:${
           sanitizedConfig.github.username
         }+fork:${!sanitizedConfig.github.exclude.forks}${excludeRepo}`;
-        
+
         let url = `https://api.github.com/search/repositories?q=${query}&sort=${sanitizedConfig.github.sortBy}&per_page=${sanitizedConfig.github.limit}&type=Repositories`;
-        
+
         axios
           .get(url, {
             headers: {
@@ -106,7 +105,7 @@ const Home = ({ config }) => {
         setLoading(false);
       });
   }, [setLoading]);
-  
+
   const handleError = (error) => {
     console.error('Error:', error);
     try {
@@ -132,7 +131,6 @@ const Home = ({ config }) => {
 
   return (
     <div>
-      <Helmet bodyAttributes={{ style: 'background-color: #f1f1f1' }} />
       {sanitizedConfig && (
         <HeadTagEditor
           profile={profile}

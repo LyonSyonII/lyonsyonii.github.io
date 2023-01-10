@@ -81,6 +81,63 @@ export const isDarkishTheme = (theme) => {
   );
 };
 
+export const loadTheme = (config) => {
+  const customTheme = config?.themeConfig?.customTheme || {
+    primary: '#fc055b',
+    secondary: '#219aaf',
+    accent: '#e8d03a',
+    neutral: '#2A2730',
+    'base-100': '#E3E3ED',
+    '--rounded-box': '3rem',
+    '--rounded-btn': '3rem',
+  };
+
+  const themes = config?.themeConfig?.themes || [
+    'light',
+    'dark',
+    'cupcake',
+    'bumblebee',
+    'emerald',
+    'corporate',
+    'synthwave',
+    'retro',
+    'cyberpunk',
+    'valentine',
+    'halloween',
+    'garden',
+    'forest',
+    'aqua',
+    'lofi',
+    'pastel',
+    'fantasy',
+    'wireframe',
+    'black',
+    'luxury',
+    'dracula',
+    'cmyk',
+    'autumn',
+    'business',
+    'acid',
+    'lemonade',
+    'night',
+    'coffee',
+    'winter',
+    'procyon',
+  ];
+
+  return {
+    themeConfig: {
+      defaultTheme: config?.themeConfig?.defaultTheme || themes[0],
+      disableSwitch: config?.themeConfig?.disableSwitch || false,
+      respectPrefersColorScheme:
+        config?.themeConfig?.respectPrefersColorScheme || false,
+      hideAvatarRing: config?.themeConfig?.hideAvatarRing || false,
+      themes: themes,
+      customTheme: customTheme,
+    },
+  };
+};
+
 export const sanitizeConfig = (config) => {
   const customTheme = config?.themeConfig?.customTheme || {
     primary: '#fc055b',
