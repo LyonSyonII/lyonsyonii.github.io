@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { Fragment } from 'preact';
 import { useCallback, useEffect, useState } from 'preact/hooks';
+import Helmet from 'preact-helmet';
 import HeadTagEditor from '../head-tag-editor';
 import ErrorPage from '../error-page';
 import ThemeChanger from '../theme-changer';
@@ -22,11 +22,10 @@ import {
 import PropTypes from 'prop-types';
 import '../../assets/index.css';
 import { formatDistance } from 'date-fns';
+import Page from '../page';
 import OtherProjects from '../other-project';
 import MainProjects from '../main-project';
 import CardContainer from '../card-container';
-
-const bgColor = 'bg-base-300';
 
 const Home = ({ config }) => {
   const [error, setError] = useState(
@@ -46,7 +45,7 @@ const Home = ({ config }) => {
       loadData();
     }
   }, [sanitizedConfig]);
-
+  
   useEffect(() => {
     theme && document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
@@ -82,9 +81,9 @@ const Home = ({ config }) => {
         let query = `user:${
           sanitizedConfig.github.username
         }+fork:${!sanitizedConfig.github.exclude.forks}${excludeRepo}`;
-
+        
         let url = `https://api.github.com/search/repositories?q=${query}&sort=${sanitizedConfig.github.sortBy}&per_page=${sanitizedConfig.github.limit}&type=Repositories`;
-
+        
         axios
           .get(url, {
             headers: {
@@ -107,7 +106,7 @@ const Home = ({ config }) => {
         setLoading(false);
       });
   }, [setLoading]);
-
+  
   const handleError = (error) => {
     console.error('Error:', error);
     try {
@@ -133,6 +132,7 @@ const Home = ({ config }) => {
 
   return (
     <div>
+      <Helmet bodyAttributes={{ style: 'background-color: #f1f1f1' }} />
       {sanitizedConfig && (
         <HeadTagEditor
           profile={profile}
@@ -150,80 +150,78 @@ const Home = ({ config }) => {
           />
         ) : (
           sanitizedConfig && (
-            <Fragment>
-              <div className={`p-4 lg:p-10 min-h-full ${bgColor}`}>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 rounded-box">
-                  <div className="col-span-1">
-                    <div className="grid grid-cols-1 gap-6">
-                      {!sanitizedConfig.themeConfig.disableSwitch && (
-                        <ThemeChanger
-                          theme={theme}
-                          setTheme={setTheme}
-                          loading={loading}
-                          themeConfig={sanitizedConfig.themeConfig}
-                        />
-                      )}
-                      <AvatarCard
-                        profile={profile}
+            <Page>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 rounded-box">
+                <div className="col-span-1">
+                  <div className="grid grid-cols-1 gap-6">
+                    {!sanitizedConfig.themeConfig.disableSwitch && (
+                      <ThemeChanger
+                        theme={theme}
+                        setTheme={setTheme}
                         loading={loading}
-                        avatarRing={!sanitizedConfig.themeConfig.hideAvatarRing}
-                        resume={sanitizedConfig.resume}
+                        themeConfig={sanitizedConfig.themeConfig}
                       />
-                      <Details
-                        profile={profile}
+                    )}
+                    <AvatarCard
+                      profile={profile}
+                      loading={loading}
+                      avatarRing={!sanitizedConfig.themeConfig.hideAvatarRing}
+                      resume={sanitizedConfig.resume}
+                    />
+                    <Details
+                      profile={profile}
+                      loading={loading}
+                      github={sanitizedConfig.github}
+                      social={sanitizedConfig.social}
+                    />
+                    <CardContainer loading={loading}>
+                      <Skills
                         loading={loading}
-                        github={sanitizedConfig.github}
-                        social={sanitizedConfig.social}
+                        skills={sanitizedConfig.skills}
+                        title={'Tech Stack'}
                       />
-                      <CardContainer loading={loading}>
-                        <Skills
-                          loading={loading}
-                          skills={sanitizedConfig.skills}
-                          title={'Tech Stack'}
-                        />
-                        <Skills
-                          loading={loading}
-                          skills={sanitizedConfig.some_experience_with}
-                          title={'Some experience with...'}
-                        />
-                      </CardContainer>
-                      <Experience
+                      <Skills
                         loading={loading}
-                        experiences={sanitizedConfig.experiences}
+                        skills={sanitizedConfig.some_experience_with}
+                        title={'Some experience with...'}
                       />
-                      <Education
-                        loading={loading}
-                        education={sanitizedConfig.education}
-                      />
-                      <Certification
-                        loading={loading}
-                        certifications={sanitizedConfig.certifications}
-                      />
-                    </div>
+                    </CardContainer>
+                    <Experience
+                      loading={loading}
+                      experiences={sanitizedConfig.experiences}
+                    />
+                    <Education
+                      loading={loading}
+                      education={sanitizedConfig.education}
+                    />
+                    <Certification
+                      loading={loading}
+                      certifications={sanitizedConfig.certifications}
+                    />
                   </div>
-                  <div className="lg:col-span-2 col-span-1">
-                    <div className="grid grid-cols-1 gap-6">
-                      <MainProjects
-                        loading={loading}
-                        mainProjects={sanitizedConfig.mainProjects}
-                        googleAnalytics={sanitizedConfig.googleAnalytics}
-                      />
-                      <OtherProjects
-                        loading={loading}
-                        otherProjects={sanitizedConfig.otherProjects}
-                        googleAnalytics={sanitizedConfig.googleAnalytics}
-                      />
-                      <GithubProjects
-                        repo={repo}
-                        loading={loading}
-                        github={sanitizedConfig.github}
-                        googleAnalytics={sanitizedConfig.googleAnalytics}
-                      />
-                    </div>
+                </div>
+                <div className="lg:col-span-2 col-span-1">
+                  <div className="grid grid-cols-1 gap-6">
+                    <MainProjects
+                      loading={loading}
+                      mainProjects={sanitizedConfig.mainProjects}
+                      googleAnalytics={sanitizedConfig.googleAnalytics}
+                    />
+                    <OtherProjects
+                      loading={loading}
+                      otherProjects={sanitizedConfig.otherProjects}
+                      googleAnalytics={sanitizedConfig.googleAnalytics}
+                    />
+                    <GithubProjects
+                      repo={repo}
+                      loading={loading}
+                      github={sanitizedConfig.github}
+                      googleAnalytics={sanitizedConfig.googleAnalytics}
+                    />
                   </div>
                 </div>
               </div>
-            </Fragment>
+            </Page>
           )
         )}
       </div>

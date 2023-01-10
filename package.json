@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "preact": "^10.11.3",
+    "preact-helmet": "^4.0.0-alpha-3",
     "preact-router": "^4.1.0"
   },
   "devDependencies": {

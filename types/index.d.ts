@@ -289,13 +289,21 @@ export interface Config {
   themeConfig?: ThemeConfig;
 }
 
-export interface GitProfileProps {
+export interface HomeProps {
   /**
    * Config values
    */
   config: Config;
 }
 
-declare class GitProfile extends Component<GitProfileProps> {}
+declare class Home extends Component<HomeProps> {}
 
-export default GitProfile;
+export default Home;
+
+export interface PageProps {
+  children: Component[];
+}
+
+export interface Page extends Component<PageProps> {}
+
+export default Page;
