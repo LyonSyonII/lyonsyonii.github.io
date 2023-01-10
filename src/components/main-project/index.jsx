@@ -77,6 +77,7 @@ const MainProject = ({ mainProjects, loading }) => {
         onClick={() => {
           route(item.link);
         }}
+        target="_blank"
       >
         <div className="p-6 h-full w-full">
           <div className="flex items-center flex-col">

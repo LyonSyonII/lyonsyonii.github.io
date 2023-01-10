@@ -5,7 +5,7 @@ import Page from '../page';
 
 function H1({ children }) {
   return (
-    <h1 className="mt-3 text-6xl font-bold leading-[4rem] tracking-tight text-black">
+    <h1 className="mt-3 lg:text-5xl text-3xl font-bold leading-[4rem] tracking-tight text-black">
       {children}
     </h1>
   );
@@ -13,7 +13,7 @@ function H1({ children }) {
 
 function H2({ children }) {
   return (
-    <h2 className="mt-3 text-5xl font-bold leading-[4rem] tracking-tight text-black">
+    <h2 className="mt-3 lg:text-4xl text-2xl font-bold leading-[4rem] tracking-tight text-black">
       {children}
     </h2>
   );
@@ -21,7 +21,7 @@ function H2({ children }) {
 
 function H3({ children, link }) {
   return (
-    <h3 className="pt-3 text-3xl font-bold leading-[4rem] tracking-tight">
+    <h3 className="pt-3 lg:text-2xl text-xl font-bold leading-[4rem] tracking-tight">
       {link ? (
         <a
           href={link}
@@ -44,7 +44,7 @@ function Text({ children }) {
 
 function SecondaryCard({ title, children }) {
   return (
-    <div className="flex-initial mx-auto w-1/2 py-3 justify-center">
+    <div className="flex-initial mx-auto w-1/2 min-w-fit max-w-full py-3 justify-center">
       <CardContainer loading={false}>
         <div className="px-8 py-4">
           <div className="text-center">
@@ -59,12 +59,12 @@ function SecondaryCard({ title, children }) {
 
 function MainCard() {
   return (
-    <div className="pt-16 pb-20 flex-initial mx-auto w-1/2 justify-center">
+    <div className="pt-16 pb-20 flex-initial mx-auto w-1/2 min-w-fit max-w-full justify-center">
       <CardContainer loading={false}>
         <div className="mx-auto px-4 py-4">
           <div className="text-center">
             <H1>Lyon&apos;s Deck Toolbox</H1>
-            <p className="mt-3 text-2xl leading-relaxed text-slate-400">
+            <p className="mt-3 text-lg lg:text-2xl leading-relaxed text-slate-400">
               An installer for a collection of tools and utilities to enhance
               the experience with the Steam Deck.
             </p>
@@ -95,6 +95,7 @@ function MainCard() {
 function InstallCard() {
   return (
     <SecondaryCard title="How to install">
+      <div className='max-w-8xl'>
       <H3>Easy</H3>
       <Text>
         Download the <code>Lyon&apos;s Deck Toolbox.desktop</code> executable
@@ -112,6 +113,7 @@ function InstallCard() {
         cd lyon-deck-toolbox <br />
         ./lyon-deck-toolbox <br />
       </div>
+      </div>
     </SecondaryCard>
   );
 }
@@ -119,7 +121,7 @@ function InstallCard() {
 function ToolsCard() {
   return (
     <SecondaryCard title="Tools">
-      <div className="pt-4">
+      <div className="pt-4 max-w-5xl">
         <p className="text-center text-2xl leading-relaxed text-slate-400">
           Currently the Toolbox can install:
         </p>
