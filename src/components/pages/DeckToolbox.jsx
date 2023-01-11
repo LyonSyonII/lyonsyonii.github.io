@@ -6,7 +6,7 @@ import CodeBlock from '../code-block';
 
 function H1({ children }) {
   return (
-    <h1 className="mt-3 md:text-6xl text-4xl font-bold leading-[4rem] tracking-tight text-black">
+    <h1 className="md:mt-3 md:text-6xl text-5xl font-bold leading-[4rem] tracking-tight text-black">
       {children}
     </h1>
   );
@@ -14,7 +14,7 @@ function H1({ children }) {
 
 function H2({ children }) {
   return (
-    <h2 className="mt-3 md:text-5xl text-3xl font-bold leading-[4rem] tracking-tight text-black">
+    <h2 className="md:mt-3 md:text-5xl text-4xl font-bold tracking-tight text-black">
       {children}
     </h2>
   );
@@ -22,7 +22,7 @@ function H2({ children }) {
 
 function H3({ children, link }) {
   return (
-    <h3 className="pt-3 md:text-3xl text-2xl font-bold leading-[4rem] tracking-tight">
+    <h3 className="md:pt-6 pt-3 md:pb-3 pb-2 md:text-3xl text-2xl font-bold tracking-tight">
       {link ? (
         <a
           href={link}
@@ -40,14 +40,16 @@ function H3({ children, link }) {
 }
 
 function Text({ children }) {
-  return <body className=" text-base md:text-lg text-slate-600">{children}</body>;
+  return (
+    <body className=" text-base md:text-lg text-slate-600">{children}</body>
+  );
 }
 
 function SecondaryCard({ title, children }) {
   return (
     <div className="flex-initial mx-auto w-2/3 min-w-fit md:min-w-min max-w-full md:py-3 justify-center">
       <CardContainer loading={false}>
-        <div className="px-8 py-4">
+        <div className="px-2 md:px-8 md:py-4">
           <div className="text-center">
             <H2>{title}</H2>
           </div>
