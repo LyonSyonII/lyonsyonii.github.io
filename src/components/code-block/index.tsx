@@ -3,27 +3,25 @@ import { string } from 'prop-types';
 import * as React from 'react';
 
 function nodesToText(children: JSX.Element): string {
-  console.log("Patata")
+  console.log('Patata');
   if (Array.isArray(children)) {
     return children.reduce((prev: string, curr: JSX.Element | string) => {
-      if (typeof curr === "string") {
+      if (typeof curr === 'string') {
         return prev.concat(curr);
       } else {
-        return prev.concat("\n");
+        return prev.concat('\n');
       }
-    })
+    });
   }
 }
 
 function CodeBlock({ children, className }: Props) {
   const [copied, setCopied] = useState(false);
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
 
   const handleClick = async () => {
     try {
-      await navigator.clipboard.writeText(
-        text
-      );
+      await navigator.clipboard.writeText(text);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -42,7 +40,7 @@ function CodeBlock({ children, className }: Props) {
         >
           {copied ? 'Copied!' : 'Copy'}
         </button>
-        <code className="text-white text-lg font-bold font-mono whitespace-pre-wrap">
+        <code className="text-white md:text-lg font-bold font-mono text-sm whitespace-pre-wrap">
           {children}
         </code>
       </pre>

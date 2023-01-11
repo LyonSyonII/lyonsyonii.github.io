@@ -40,7 +40,7 @@ function H3({ children, link }) {
 }
 
 function Text({ children }) {
-  return <body className="text-lg text-slate-600">{children}</body>;
+  return <body className=" text-base md:text-lg text-slate-600">{children}</body>;
 }
 
 function SecondaryCard({ title, children }) {
