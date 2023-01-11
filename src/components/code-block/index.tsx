@@ -2,10 +2,10 @@ import { useState, useEffect } from 'preact/hooks';
 import { string } from 'prop-types';
 import * as React from 'react';
 
-function nodesToText(children: JSX.Element): string {
+function nodesToText(children: React.ReactNode): string {
   console.log('Patata');
   if (Array.isArray(children)) {
-    return children.reduce((prev: string, curr: JSX.Element | string) => {
+    return children.reduce((prev: string, curr: React.ReactNode) => {
       if (typeof curr === 'string') {
         return prev.concat(curr);
       } else {
@@ -49,7 +49,7 @@ function CodeBlock({ children, className }: Props) {
 }
 
 type Props = {
-  children: JSX.Element;
+  children: React.ReactNode;
   className?: string;
 };
 
