@@ -139,7 +139,7 @@ const Home = ({ config }) => {
           social={sanitizedConfig.social}
         />
       )}
-      <div className="fade-in h-screen">
+      <div className="h-screen">
         {error ? (
           <ErrorPage
             status={`${error.status}`}

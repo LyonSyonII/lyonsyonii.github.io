@@ -1,5 +1,5 @@
 import { AiFillGithub } from 'react-icons/ai';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import CardContainer from '../card-container';
 import Page from '../page';
 import CodeBlock from '../code-block';
@@ -41,7 +41,7 @@ function H3({ children, link }) {
 
 function Text({ children }) {
   return (
-    <body className=" text-base md:text-lg text-slate-600">{children}</body>
+    <body className="text-base md:text-lg text-slate-600">{children}</body>
   );
 }
 
@@ -98,7 +98,7 @@ function MainCard() {
 function InstallCard() {
   return (
     <SecondaryCard title="How to install">
-      <div className="max-w-8xl">
+      <div className="max-w-8xl prose-sm md:prose-lg">
         <H3>Easy</H3>
         <Text>
           Download the <code>Lyon&apos;s Deck Toolbox.desktop</code> executable
@@ -183,41 +183,5 @@ function DeckToolbox() {
   );
 }
 
-SecondaryCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
-};
-
-H1.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
-};
-
-H2.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
-};
-
-H3.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
-  link: PropTypes.string,
-};
-
-Text.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
-};
 
 export default DeckToolbox;
