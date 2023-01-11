@@ -2,10 +2,19 @@ import { defineConfig } from 'vite';
 import preact from '@preact/preset-vite';
 import tailwind from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
-import tailwindConfig from './tailwind.config.mjs';
+import tailwindConfig from './tailwind.config.js';
 import { visualizer } from 'rollup-plugin-visualizer';
+import config from './gitprofile.config';
 
-// https://vitejs.dev/config/
+function getTailwindConfig() {
+  let cfg = tailwindConfig;
+  cfg.daisyui.themes = [
+    ...config.themeConfig.themes,
+    { procyon: config.themeConfig.customTheme },
+  ];
+  return cfg;
+}
+
 export default defineConfig({
   // If you are deploying to https://<USERNAME>.github.io/, set base to '/'.
   // If you are deploying to https://<USERNAME>.github.io/<REPO>/, for example your repository is at https://github.com/<USERNAME>/<REPO>, then set base to '/<REPO>/'.
@@ -17,7 +26,7 @@ export default defineConfig({
   },
   css: {
     postcss: {
-      plugins: [tailwind(tailwindConfig), autoprefixer],
+      plugins: [tailwind(getTailwindConfig()), autoprefixer],
     },
   },
 });

@@ -2,6 +2,7 @@ import { AiFillGithub } from 'react-icons/ai';
 import PropTypes from 'prop-types';
 import CardContainer from '../card-container';
 import Page from '../page';
+import CodeBlock from '../code-block';
 
 function H1({ children }) {
   return (
@@ -107,12 +108,14 @@ function InstallCard() {
           Clone the repository and run the <code>lyon-deck-toolbox</code>{' '}
           executable.
         </Text>
+
         <div className="py-2" />
-        <div className="text-lg py-3 px-3 font-bold font-mono bg-black text-white rounded-lg">
+
+        <CodeBlock className="py-3">
           git clone https://github.com/LyonSyonII/lyon-deck-toolbox <br />
           cd lyon-deck-toolbox <br />
           ./lyon-deck-toolbox <br />
-        </div>
+        </CodeBlock>
       </div>
     </SecondaryCard>
   );

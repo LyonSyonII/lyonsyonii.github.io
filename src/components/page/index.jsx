@@ -7,10 +7,7 @@ function Page({ children }) {
 }
 
 Page.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.object,
-  ]).isRequired,
+  children: PropTypes.node,
 };
 
 export default Page;

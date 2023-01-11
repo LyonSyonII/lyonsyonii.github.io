@@ -4,19 +4,15 @@ import { skeleton } from '../../helpers/utils';
 import LazyImage from '../lazy-image';
 import { Link } from 'react-router-dom';
 
-const displaySection = (externalProjects) => {
-  if (
+function displaySection(externalProjects) {
+  return (
     externalProjects &&
     Array.isArray(externalProjects) &&
-    externalProjects.length
-  ) {
-    return true;
-  } else {
-    return false;
-  }
-};
+    externalProjects.length > 0
+  );
+}
 
-const MainProject = ({ mainProjects, loading }) => {
+function MainProject({ mainProjects, loading }) {
   const renderSkeleton = () => {
     let array = [];
     for (let index = 0; index < mainProjects.length; index++) {
@@ -143,7 +139,7 @@ const MainProject = ({ mainProjects, loading }) => {
       )}
     </Fragment>
   );
-};
+}
 
 MainProject.propTypes = {
   mainProjects: PropTypes.array,
