@@ -1,23 +1,22 @@
-import { useState, useEffect } from 'preact/hooks';
-import { string } from 'prop-types';
-import * as React from 'react';
+import { useState, useEffect, useCallback, useMemo } from "preact/hooks";
+import { ReactNode } from "react";
+import { BsClipboard, BsClipboardCheck } from "react-icons/bs";
 
-function nodesToText(children: React.ReactNode): string {
-  console.log('Patata');
+function nodesToText(children: ReactNode = []): string {
+  const nodeToString = (node: ReactNode, fallback = ""): string =>
+    (typeof node === "string" && node) || fallback;
+
   if (Array.isArray(children)) {
-    return children.reduce((prev: string, curr: React.ReactNode) => {
-      if (typeof curr === 'string') {
-        return prev.concat(curr);
-      } else {
-        return prev.concat('\n');
-      }
-    });
-  }
+    return children.reduce(
+      (prev: string, curr: ReactNode) => prev.concat(nodeToString(curr, "\n")),
+      ""
+    );
+  } else return nodeToString(children);
 }
 
-function CodeBlock({ children, className }: Props) {
+function CodeBlock({ children, className = "" }: Props) {
   const [copied, setCopied] = useState(false);
-  const [text, setText] = useState('');
+  const text = useMemo(() => nodesToText(children), []);
 
   const handleClick = async () => {
     try {
@@ -25,22 +24,20 @@ function CodeBlock({ children, className }: Props) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy text: ', err);
+      console.error("Failed to copy text: ", err);
     }
   };
 
-  useEffect(() => setText(nodesToText(children)), []);
-
   return (
-    <div className={className}>
-      <pre className="relative bg-gray-800 rounded-lg p-4">
+    <div className={`not-prose ${className}`}>
+      <pre className={`relative rounded-lg bg-gray-800 p-4 ${!children && "py-7"}`}>
         <button
-          className="absolute top-2 right-2 p-2 text-white bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none"
+          className="absolute top-2 right-2 rounded-md bg-gray-700 py-0 px-2 text-white hover:bg-gray-600 focus:outline-none"
           onClick={handleClick}
         >
-          {copied ? 'Copied!' : 'Copy'}
+          {copied ? "Copied!" : "Copy"}
         </button>
-        <code className="text-white text-xs md:text-lg font-bold font-mono whitespace-pre-wrap">
+        <code className="whitespace-pre-wrap font-mono text-xs font-bold text-white lg:text-lg">
           {children}
         </code>
       </pre>
@@ -49,7 +46,7 @@ function CodeBlock({ children, className }: Props) {
 }
 
 type Props = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
 };
 

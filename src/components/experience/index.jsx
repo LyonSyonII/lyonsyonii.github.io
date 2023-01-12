@@ -1,12 +1,12 @@
-import { skeleton } from '../../helpers/utils';
-import { Fragment } from 'preact';
-import PropTypes from 'prop-types';
+import { skeleton } from "../../helpers/utils";
+import { Fragment } from "preact";
+import PropTypes from "prop-types";
 
 const ListItem = ({ time, position, company, companyLink }) => (
   <li className="mb-5 ml-4">
     <div
-      className="absolute w-2 h-2 bg-base-300 rounded-full border border-base-300 mt-1.5"
-      style={{ left: '-4.5px' }}
+      className="absolute mt-1.5 h-2 w-2 rounded-full border border-base-300 bg-base-300"
+      style={{ left: "-4.5px" }}
     ></div>
     <div className="my-0.5 text-xs">{time}</div>
     <h3 className="font-semibold">{position}</h3>
@@ -26,15 +26,15 @@ const Experience = ({ experiences, loading }) => {
         <ListItem
           key={index}
           time={skeleton({
-            width: 'w-5/12',
-            height: 'h-4',
+            width: "w-5/12",
+            height: "h-4",
           })}
           position={skeleton({
-            width: 'w-6/12',
-            height: 'h-4',
-            className: 'my-1.5',
+            width: "w-6/12",
+            height: "h-4",
+            className: "my-1.5",
           })}
-          company={skeleton({ width: 'w-6/12', height: 'h-3' })}
+          company={skeleton({ width: "w-6/12", height: "h-3" })}
         />
       );
     }
@@ -44,21 +44,19 @@ const Experience = ({ experiences, loading }) => {
   return (
     <>
       {experiences?.length !== 0 && (
-        <div className="card shadow-lg compact bg-base-100">
+        <div className="card compact bg-base-100 shadow-lg">
           <div className="card-body">
             <div className="mx-3">
               <h5 className="card-title">
                 {loading ? (
-                  skeleton({ width: 'w-32', height: 'h-8' })
+                  skeleton({ width: "w-32", height: "h-8" })
                 ) : (
-                  <span className="text-base-content opacity-70">
-                    Experience
-                  </span>
+                  <span className="text-base-content opacity-70">Experience</span>
                 )}
               </h5>
             </div>
             <div className="text-base-content text-opacity-60">
-              <ol className="relative border-l border-base-300 border-opacity-30 my-2 mx-4">
+              <ol className="relative my-2 mx-4 border-l border-base-300 border-opacity-30">
                 {loading ? (
                   renderSkeleton()
                 ) : (
@@ -69,9 +67,7 @@ const Experience = ({ experiences, loading }) => {
                         time={`${experience.from} - ${experience.to}`}
                         position={experience.position}
                         company={experience.company}
-                        companyLink={
-                          experience.companyLink ? experience.companyLink : null
-                        }
+                        companyLink={experience.companyLink ? experience.companyLink : null}
                       />
                     ))}
                   </Fragment>

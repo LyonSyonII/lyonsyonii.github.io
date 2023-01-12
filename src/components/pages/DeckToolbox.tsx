@@ -1,42 +1,21 @@
-import { AiFillGithub } from 'react-icons/ai';
-import * as React from 'react';
-import CardContainer from '../card-container';
-import Page from '../page';
-import CodeBlock from '../code-block';
+import { TextLink } from "./../text-link/index";
+import { AiFillGithub } from "react-icons/ai";
+import * as React from "react";
+import CardContainer from "../card-container";
+import Page from "../page";
+import CodeBlock from "../code-block";
 
-type TextLinkProps = {
-  children: React.ReactNode,
-  link: string,
-  className?: string
+type SecondaryCardProps = {
+  title?: string;
+  children: React.ReactNode;
 };
 
-function TextLink({ children, link, className }: TextLinkProps) {
+function SecondaryCard({ title, children }: SecondaryCardProps) {
   return (
-    <h3>
-      {link ? (
-        <a
-          href={link}
-          target="_blank"
-          rel="noreferrer"
-          className={`text-blue-600 underline decoration-2 font-bold ${className}`}
-        >
-          {children}
-        </a>
-      ) : (
-        <div className={className}>
-          {children}
-        </div>
-      )}
-    </h3>
-  );
-}
-
-function SecondaryCard({ title, children }: {title ?: string, children: React.ReactNode}) {
-  return (
-    <div className="flex-initial mx-auto w-2/3 min-w-fit md:min-w-min max-w-full md:py-3 justify-center">
+    <div className="mx-auto w-2/3 min-w-full max-w-full flex-initial justify-center lg:min-w-min lg:py-3">
       <CardContainer loading={false}>
-        <div className="px-2 md:px-4">
-          <div className="text-center md:mt-3 md:text-5xl text-4xl font-bold tracking-tight text-black">
+        <div className="px-2 lg:px-4">
+          <div className="text-center text-4xl font-bold tracking-tight text-black lg:mt-3 lg:text-5xl">
             <h1>{title}</h1>
           </div>
           {children}
@@ -48,14 +27,16 @@ function SecondaryCard({ title, children }: {title ?: string, children: React.Re
 
 function MainCard() {
   return (
-    <div className="md:pt-16 md:pb-20 flex-initial mx-auto w-2/3 min-w-fit md:min-w-min max-w-full justify-center">
+    <div className="mx-auto w-2/3 min-w-full max-w-full flex-initial justify-center lg:min-w-min lg:pt-16 lg:pb-20">
       <CardContainer loading={false}>
         <div className="mx-auto px-4 py-4">
           <div className="text-center">
-            <h1 className="md:mt-3 md:text-6xl text-5xl font-bold leading-[4rem] tracking-tight text-black">Lyon&apos;s Deck Toolbox</h1>
-            <p className="mt-3 text-md md:text-lg lg:text-2xl leading-relaxed text-slate-400">
-              An installer for a collection of tools and utilities to enhance
-              the experience with the Steam Deck.
+            <h1 className="text-5xl font-bold leading-[4rem] tracking-tight text-black lg:mt-3 lg:text-6xl">
+              Lyon&apos;s Deck Toolbox
+            </h1>
+            <p className="text-md mt-3 leading-relaxed text-slate-400 md:text-lg lg:text-2xl">
+              An installer for a collection of tools and utilities to enhance the experience with
+              the Steam Deck.
             </p>
           </div>
 
@@ -84,22 +65,25 @@ function MainCard() {
 function InstallCard() {
   return (
     <SecondaryCard title="How to install">
-      <div className="max-w-5xl prose prose-md md:prose-xl">
+      <div className="prose-md prose max-w-full lg:prose-xl">
         <h2>Easy</h2>
         <p>
-          Download the <code>Lyon&apos;s Deck Toolbox.desktop</code> executable
-          file and double click it in the file explorer. <br />
+          Download the <code>Lyon&apos;s Deck Toolbox.desktop</code> executable file and double
+          click it in the file explorer. <br />
           It will automatically update itself, so no need to download it again.
         </p>
         <h2>For nerds</h2>
-        <p>
-          Clone the repository and run the <code>lyon-deck-toolbox</code> executable.
-        </p>
-
-        <CodeBlock>
+        Clone the repository and run the <code>lyon-deck-toolbox</code> executable.
+        <CodeBlock className="pb-4">
           git clone https://github.com/LyonSyonII/lyon-deck-toolbox <br />
           cd lyon-deck-toolbox <br />
           ./lyon-deck-toolbox <br />
+        </CodeBlock>
+        Or compile it from source (requires a Rust toolchain installed).
+        <CodeBlock className="pb-2">
+          git clone https://github.com/LyonSyonII/lyon-deck-toolbox <br />
+          cd lyon-deck-toolbox <br />
+          cargo install --path . <br />
         </CodeBlock>
       </div>
     </SecondaryCard>
@@ -109,44 +93,32 @@ function InstallCard() {
 function ToolsCard() {
   return (
     <SecondaryCard title="Tools">
-      <div className="py-4 max-w-5xl prose prose-md md:prose-xl">
+      <div className="prose-md prose max-w-5xl py-4 lg:prose-xl">
         <p className="text-center leading-relaxed text-slate-400">
           Currently the Toolbox can install:
         </p>
         <TextLink link="https://github.com/ValShaped/rwfus">Rwfus</TextLink>
         <p>
-          Like a vinyl couch cover for your filesystem, Rwfus covers your
-          Deck&apos;s /usr/ directory (and some others) allowing you to
-          initialize and use pacman (the Arch Linux package manager) on the
-          Steam Deck without losing packages when the next update comes out.
+          Like a vinyl couch cover for your filesystem, Rwfus covers your Deck&apos;s /usr/
+          directory (and some others) allowing you to initialize and use pacman (the Arch Linux
+          package manager) on the Steam Deck without losing packages when the next update comes out.
         </p>
-        <TextLink link="https://github.com/CryoByte33/steam-deck-utilities">
-          CryoUtilities
-        </TextLink>
-        <p>
-          Scripts and utilities to enhance the Steam Deck experience,
-          particularly performance.
-        </p>
+        <TextLink link="https://github.com/CryoByte33/steam-deck-utilities">CryoUtilities</TextLink>
+        <p>Scripts and utilities to enhance the Steam Deck experience, particularly performance.</p>
         <TextLink link="https://github.com/dragoonDorise/EmuDeck">Emudeck</TextLink>
         <p>
-          EmuDeck is a collection of scripts that allows you to autoconfigure
-          your Steam Deck, it creates your roms directory structure and
-          downloads all of the needed Emulators for you along with the best
-          configurations for each of them.
+          EmuDeck is a collection of scripts that allows you to autoconfigure your Steam Deck, it
+          creates your roms directory structure and downloads all of the needed Emulators for you
+          along with the best configurations for each of them.
         </p>
-        <TextLink link="https://github.com/SteamDeckHomebrew/decky-loader">
-          Decky-loader
-        </TextLink>
-        <p>
-          Decky Loader is a homebrew plugin launcher for the Steam Deck.
-        </p>
+        <TextLink link="https://github.com/SteamDeckHomebrew/decky-loader">Decky-loader</TextLink>
+        <p>Decky Loader is a homebrew plugin launcher for the Steam Deck.</p>
         <TextLink link="https://github.com/popsUlfr/steamos-btrfs">SteamOS Btrfs</TextLink>
         <p>
-          Btrfs is an alternative linux filesystem that allows to compress all
-          files automatically, potentially saving a lot of storage. It can be
-          especially useful to users of the 64GB deck model. This injector will
-          install the necessary payload to keep a btrfs formatted /home even
-          through system updates.
+          Btrfs is an alternative linux filesystem that allows to compress all files automatically,
+          potentially saving a lot of storage. It can be especially useful to users of the 64GB deck
+          model. This injector will install the necessary payload to keep a btrfs formatted /home
+          even through system updates.
         </p>
       </div>
     </SecondaryCard>
@@ -164,6 +136,5 @@ function DeckToolbox() {
     </div>
   );
 }
-
 
 export default DeckToolbox;

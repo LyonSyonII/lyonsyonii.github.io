@@ -1,15 +1,15 @@
-import axios from 'axios';
-import { useCallback, useEffect, useState } from 'preact/hooks';
-import HeadTagEditor from '../head-tag-editor';
-import ErrorPage from '../error-page';
-import ThemeChanger from '../theme-changer';
-import AvatarCard from '../avatar-card';
-import Details from '../details';
-import Skills from '../skill';
-import Experience from '../experience';
-import Certification from '../certification';
-import Education from '../education';
-import GithubProjects from '../github-project';
+import axios from "axios";
+import { useCallback, useEffect, useState } from "preact/hooks";
+import HeadTagEditor from "../head-tag-editor";
+import ErrorPage from "../error-page";
+import ThemeChanger from "../theme-changer";
+import AvatarCard from "../avatar-card";
+import Details from "../details";
+import Skills from "../skill";
+import Experience from "../experience";
+import Certification from "../certification";
+import Education from "../education";
+import GithubProjects from "../github-project";
 import {
   genericError,
   getInitialTheme,
@@ -17,21 +17,21 @@ import {
   notFoundError,
   tooManyRequestError,
   sanitizeConfig,
-} from '../../helpers/utils';
-import PropTypes from 'prop-types';
-import '../../assets/index.css';
-import { formatDistance } from 'date-fns';
-import Page from '../page';
-import OtherProjects from '../other-project';
-import MainProjects from '../main-project';
-import CardContainer from '../card-container';
+} from "../../helpers/utils";
+import PropTypes from "prop-types";
+import "../../assets/index.css";
+import { formatDistance } from "date-fns";
+import Page from "../page";
+import OtherProjects from "../other-project";
+import MainProjects from "../main-project";
+import CardContainer from "../card-container";
 
 const Home = ({ config }) => {
   const [error, setError] = useState(
-    typeof config === 'undefined' && !config ? noConfigError : null
+    typeof config === "undefined" && !config ? noConfigError : null
   );
   const [sanitizedConfig] = useState(
-    typeof config === 'undefined' && !config ? null : sanitizeConfig(config)
+    typeof config === "undefined" && !config ? null : sanitizeConfig(config)
   );
   const [theme, setTheme] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -46,7 +46,7 @@ const Home = ({ config }) => {
   }, [sanitizedConfig]);
 
   useEffect(() => {
-    theme && document.documentElement.setAttribute('data-theme', theme);
+    theme && document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   const loadData = useCallback(() => {
@@ -57,10 +57,10 @@ const Home = ({ config }) => {
 
         let profileData = {
           avatar: data.avatar_url,
-          name: data.name ? data.name : '',
-          bio: data.bio ? data.bio : '',
-          location: data.location ? data.location : '',
-          company: data.company ? data.company : '',
+          name: data.name ? data.name : "",
+          bio: data.bio ? data.bio : "",
+          location: data.location ? data.location : "",
+          company: data.company ? data.company : "",
         };
 
         setProfile(profileData);
@@ -77,16 +77,15 @@ const Home = ({ config }) => {
           excludeRepo += `+-repo:${sanitizedConfig.github.username}/${project}`;
         });
 
-        let query = `user:${
-          sanitizedConfig.github.username
-        }+fork:${!sanitizedConfig.github.exclude.forks}${excludeRepo}`;
+        let query = `user:${sanitizedConfig.github.username}+fork:${!sanitizedConfig.github.exclude
+          .forks}${excludeRepo}`;
 
         let url = `https://api.github.com/search/repositories?q=${query}&sort=${sanitizedConfig.github.sortBy}&per_page=${sanitizedConfig.github.limit}&type=Repositories`;
 
         axios
           .get(url, {
             headers: {
-              'Content-Type': 'application/vnd.github.v3+json',
+              "Content-Type": "application/vnd.github.v3+json",
             },
           })
           .then((response) => {
@@ -107,10 +106,10 @@ const Home = ({ config }) => {
   }, [setLoading]);
 
   const handleError = (error) => {
-    console.error('Error:', error);
+    console.error("Error:", error);
     try {
       let reset = formatDistance(
-        new Date(error.response.headers['x-ratelimit-reset'] * 1000),
+        new Date(error.response.headers["x-ratelimit-reset"] * 1000),
         new Date(),
         {
           addSuffix: true,
@@ -141,15 +140,11 @@ const Home = ({ config }) => {
       )}
       <div className="h-screen">
         {error ? (
-          <ErrorPage
-            status={`${error.status}`}
-            title={error.title}
-            subTitle={error.subTitle}
-          />
+          <ErrorPage status={`${error.status}`} title={error.title} subTitle={error.subTitle} />
         ) : (
           sanitizedConfig && (
             <Page>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 rounded-box">
+              <div className="rounded-box grid grid-cols-1 gap-6 lg:grid-cols-3">
                 <div className="col-span-1">
                   <div className="grid grid-cols-1 gap-6">
                     {!sanitizedConfig.themeConfig.disableSwitch && (
@@ -176,29 +171,23 @@ const Home = ({ config }) => {
                       <Skills
                         loading={loading}
                         skills={sanitizedConfig.skills}
-                        title={'Tech Stack'}
+                        title={"Tech Stack"}
                       />
                       <Skills
                         loading={loading}
                         skills={sanitizedConfig.some_experience_with}
-                        title={'Some experience with...'}
+                        title={"Some experience with..."}
                       />
                     </CardContainer>
-                    <Experience
-                      loading={loading}
-                      experiences={sanitizedConfig.experiences}
-                    />
-                    <Education
-                      loading={loading}
-                      education={sanitizedConfig.education}
-                    />
+                    <Experience loading={loading} experiences={sanitizedConfig.experiences} />
+                    <Education loading={loading} education={sanitizedConfig.education} />
                     <Certification
                       loading={loading}
                       certifications={sanitizedConfig.certifications}
                     />
                   </div>
                 </div>
-                <div className="lg:col-span-2 col-span-1">
+                <div className="col-span-1 lg:col-span-2">
                   <div className="grid grid-cols-1 gap-6">
                     <MainProjects
                       loading={loading}
@@ -231,7 +220,7 @@ Home.propTypes = {
   config: PropTypes.shape({
     github: PropTypes.shape({
       username: PropTypes.string.isRequired,
-      sortBy: PropTypes.oneOf(['stars', 'updated']),
+      sortBy: PropTypes.oneOf(["stars", "updated"]),
       limit: PropTypes.number,
       exclude: PropTypes.shape({
         forks: PropTypes.bool,
@@ -305,9 +294,9 @@ Home.propTypes = {
         secondary: PropTypes.string,
         accent: PropTypes.string,
         neutral: PropTypes.string,
-        'base-100': PropTypes.string,
-        '--rounded-box': PropTypes.string,
-        '--rounded-btn': PropTypes.string,
+        "base-100": PropTypes.string,
+        "--rounded-box": PropTypes.string,
+        "--rounded-btn": PropTypes.string,
       }),
     }),
   }).isRequired,

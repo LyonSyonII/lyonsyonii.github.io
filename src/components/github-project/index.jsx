@@ -1,8 +1,8 @@
-import { Fragment } from 'preact';
-import { AiOutlineStar, AiOutlineFork } from 'react-icons/ai';
-import PropTypes from 'prop-types';
-import { ga, languageColor, skeleton } from '../../helpers/utils';
-import { MdInsertLink } from 'react-icons/md';
+import { Fragment } from "preact";
+import { AiOutlineStar, AiOutlineFork } from "react-icons/ai";
+import PropTypes from "prop-types";
+import { ga, languageColor, skeleton } from "../../helpers/utils";
+import { MdInsertLink } from "react-icons/md";
 
 const GithubProject = ({ repo, loading, github, googleAnalytics }) => {
   if (!loading && Array.isArray(repo) && repo.length === 0) {
@@ -13,41 +13,41 @@ const GithubProject = ({ repo, loading, github, googleAnalytics }) => {
     let array = [];
     for (let index = 0; index < github.limit; index++) {
       array.push(
-        <div className="card shadow-lg compact bg-base-100" key={index}>
-          <div className="flex justify-between flex-col p-8 h-full w-full">
+        <div className="card compact bg-base-100 shadow-lg" key={index}>
+          <div className="flex h-full w-full flex-col justify-between p-8">
             <div>
               <div className="flex items-center">
                 <span>
                   <h5 className="card-title text-lg">
                     {skeleton({
-                      width: 'w-32',
-                      height: 'h-8',
-                      className: 'mb-1',
+                      width: "w-32",
+                      height: "h-8",
+                      className: "mb-1",
                     })}
                   </h5>
                 </span>
               </div>
               <div className="mb-5 mt-1">
                 {skeleton({
-                  width: 'w-full',
-                  height: 'h-4',
-                  className: 'mb-2',
+                  width: "w-full",
+                  height: "h-4",
+                  className: "mb-2",
                 })}
-                {skeleton({ width: 'w-full', height: 'h-4' })}
+                {skeleton({ width: "w-full", height: "h-4" })}
               </div>
             </div>
             <div className="flex justify-between">
               <div className="flex flex-grow">
                 <span className="mr-3 flex items-center">
-                  {skeleton({ width: 'w-12', height: 'h-4' })}
+                  {skeleton({ width: "w-12", height: "h-4" })}
                 </span>
                 <span className="flex items-center">
-                  {skeleton({ width: 'w-12', height: 'h-4' })}
+                  {skeleton({ width: "w-12", height: "h-4" })}
                 </span>
               </div>
               <div>
                 <span className="flex items-center">
-                  {skeleton({ width: 'w-12', height: 'h-4' })}
+                  {skeleton({ width: "w-12", height: "h-4" })}
                 </span>
               </div>
             </div>
@@ -62,7 +62,7 @@ const GithubProject = ({ repo, loading, github, googleAnalytics }) => {
   const renderProjects = () => {
     return repo.map((item, index) => (
       <a
-        className="card shadow-lg compact bg-base-100 cursor-pointer"
+        className="card compact cursor-pointer bg-base-100 shadow-lg"
         href={item.html_url}
         key={index}
         onClick={(e) => {
@@ -71,7 +71,7 @@ const GithubProject = ({ repo, loading, github, googleAnalytics }) => {
           try {
             if (googleAnalytics?.id) {
               ga.event({
-                action: 'Click project',
+                action: "Click project",
                 params: {
                   project: item.name,
                 },
@@ -81,18 +81,18 @@ const GithubProject = ({ repo, loading, github, googleAnalytics }) => {
             console.error(error);
           }
 
-          window?.open(item.html_url, '_blank');
+          window?.open(item.html_url, "_blank");
         }}
       >
-        <div className="flex justify-between flex-col p-8 h-full w-full">
+        <div className="flex h-full w-full flex-col justify-between p-8">
           <div>
             <div className="flex items-center">
-              <div className="card-title text-lg tracking-wide flex text-base-content opacity-60">
+              <div className="card-title flex text-lg tracking-wide text-base-content opacity-60">
                 <MdInsertLink className="my-auto" />
                 <span className="capitalize">{item.name}</span>
               </div>
             </div>
-            <p className="mb-5 mt-1 text-base-content text-opacity-60 text-sm">
+            <p className="mb-5 mt-1 text-sm text-base-content text-opacity-60">
               {item.description}
             </p>
           </div>
@@ -110,7 +110,7 @@ const GithubProject = ({ repo, loading, github, googleAnalytics }) => {
             <div>
               <span className="flex items-center">
                 <div
-                  className="w-3 h-3 rounded-full mr-1 opacity-60"
+                  className="mr-1 h-3 w-3 rounded-full opacity-60"
                   style={{ backgroundColor: languageColor(item.language) }}
                 />
                 <span>{item.language}</span>
@@ -127,20 +127,18 @@ const GithubProject = ({ repo, loading, github, googleAnalytics }) => {
       <div className="col-span-1 lg:col-span-2">
         <div className="grid grid-cols-2 gap-6">
           <div className="col-span-2">
-            <div className="card compact bg-base-100 shadow bg-opacity-40">
+            <div className="card compact bg-base-100 bg-opacity-40 shadow">
               <div className="card-body">
-                <div className="mx-3 flex items-center justify-between mb-2">
+                <div className="mx-3 mb-2 flex items-center justify-between">
                   <h5 className="card-title">
                     {loading ? (
-                      skeleton({ width: 'w-40', height: 'h-8' })
+                      skeleton({ width: "w-40", height: "h-8" })
                     ) : (
-                      <span className="text-base-content opacity-70">
-                        GitHub Projects
-                      </span>
+                      <span className="text-base-content opacity-70">GitHub Projects</span>
                     )}
                   </h5>
                   {loading ? (
-                    skeleton({ width: 'w-10', height: 'h-5' })
+                    skeleton({ width: "w-10", height: "h-5" })
                   ) : (
                     <a
                       href={`https://github.com/${github.username}?tab=repositories`}
@@ -153,7 +151,7 @@ const GithubProject = ({ repo, loading, github, googleAnalytics }) => {
                   )}
                 </div>
                 <div className="col-span-2">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     {loading || !repo ? renderSkeleton() : renderProjects()}
                   </div>
                 </div>

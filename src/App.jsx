@@ -1,7 +1,7 @@
-import { HashRouter, Route, Routes } from 'react-router-dom';
-import config from '../gitprofile.config';
-import Home from './components/pages/Home';
-import DeckToolbox from './components/pages/DeckToolbox';
+import { HashRouter, Route, Routes } from "react-router-dom";
+import config from "../gitprofile.config";
+import Home from "./components/pages/Home";
+import DeckToolbox from "./components/pages/DeckToolbox";
 
 function App() {
   return (

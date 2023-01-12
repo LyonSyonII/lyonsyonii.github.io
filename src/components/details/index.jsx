@@ -1,14 +1,10 @@
-import { MdLocationOn, MdMail } from 'react-icons/md';
-import {
-  AiFillGithub,
-  AiFillInstagram,
-  AiFillMediumSquare,
-} from 'react-icons/ai';
-import { SiTwitter } from 'react-icons/si';
-import { GrLinkedinOption } from 'react-icons/gr';
-import { CgDribbble } from 'react-icons/cg';
-import { RiPhoneFill } from 'react-icons/ri';
-import { Fragment } from 'preact';
+import { MdLocationOn, MdMail } from "react-icons/md";
+import { AiFillGithub, AiFillInstagram, AiFillMediumSquare } from "react-icons/ai";
+import { SiTwitter } from "react-icons/si";
+import { GrLinkedinOption } from "react-icons/gr";
+import { CgDribbble } from "react-icons/cg";
+import { RiPhoneFill } from "react-icons/ri";
+import { Fragment } from "preact";
 import {
   FaBehanceSquare,
   FaBuilding,
@@ -16,9 +12,9 @@ import {
   FaFacebook,
   FaGlobe,
   FaStackOverflow,
-} from 'react-icons/fa';
-import PropTypes from 'prop-types';
-import { skeleton } from '../../helpers/utils';
+} from "react-icons/fa";
+import PropTypes from "prop-types";
+import { skeleton } from "../../helpers/utils";
 
 const ListItem = ({ icon, title, value, link, skeleton = false }) => {
   return (
@@ -26,18 +22,18 @@ const ListItem = ({ icon, title, value, link, skeleton = false }) => {
       href={link}
       target="_blank"
       rel="noreferrer"
-      className="flex justify-start py-2 px-1 items-center"
+      className="flex items-center justify-start py-2 px-1"
     >
-      <span className="w-2 m-2">{icon}</span>
-      <div className="flex-grow font-medium px-2">{title}</div>
+      <span className="m-2 w-2">{icon}</span>
+      <div className="flex-grow px-2 font-medium">{title}</div>
       <div
-        className={`${
-          skeleton ? 'flex-grow' : ''
-        } text-sm font-normal text-right mr-2 ml-3 ${link ? 'truncate' : ''}`}
+        className={`${skeleton ? "flex-grow" : ""} mr-2 ml-3 text-right text-sm font-normal ${
+          link ? "truncate" : ""
+        }`}
       >
         <div
           style={{
-            wordBreak: 'break-word',
+            wordBreak: "break-word",
           }}
         >
           {value}
@@ -48,7 +44,7 @@ const ListItem = ({ icon, title, value, link, skeleton = false }) => {
 };
 
 const isCompanyMention = (company) => {
-  return company.startsWith('@') && !company.includes(' ');
+  return company.startsWith("@") && !company.includes(" ");
 };
 
 const companyLink = (company) => {
@@ -63,9 +59,9 @@ const Details = ({ profile, loading, social, github }) => {
         <ListItem
           key={index}
           skeleton={true}
-          icon={skeleton({ width: 'w-4', height: 'h-4' })}
-          title={skeleton({ width: 'w-24', height: 'h-4' })}
-          value={skeleton({ width: 'w-full', height: 'h-4' })}
+          icon={skeleton({ width: "w-4", height: "h-4" })}
+          title={skeleton({ width: "w-24", height: "h-4" })}
+          value={skeleton({ width: "w-full", height: "h-4" })}
         />
       );
     }
@@ -74,7 +70,7 @@ const Details = ({ profile, loading, social, github }) => {
   };
 
   return (
-    <div className="card shadow-lg compact bg-base-100">
+    <div className="card compact bg-base-100 shadow-lg">
       <div className="card-body">
         <div className="text-base-content text-opacity-60">
           {loading || !profile ? (
@@ -174,7 +170,7 @@ const Details = ({ profile, loading, social, github }) => {
                 <ListItem
                   icon={<FaStackOverflow className="mr-2" />}
                   title="Stack Overflow:"
-                  value={social.stackoverflow.split('/').slice(-1)}
+                  value={social.stackoverflow.split("/").slice(-1)}
                   link={`https://stackoverflow.com/users/${social.stackoverflow}`}
                 />
               )}

@@ -2,7 +2,7 @@
 // Project https://github.com/arifszn/gitprofile
 // Author: Ariful Alam <arifulalamszn@gmail.com>
 
-import { Component } from 'preact';
+import { Component } from "preact";
 
 export interface Github {
   /**
@@ -150,17 +150,17 @@ export interface CustomTheme {
   /**
    * Base color of page
    */
-  'base-100'?: string;
+  "base-100"?: string;
 
   /**
    * Border radius of rounded-box
    */
-  '--rounded-box'?: string;
+  "--rounded-box"?: string;
 
   /**
    * Border radius of rounded-btn
    */
-  '--rounded-btn'?: string;
+  "--rounded-btn"?: string;
 }
 
 export interface ThemeConfig {
