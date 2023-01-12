@@ -4,22 +4,6 @@ import CardContainer from '../card-container';
 import Page from '../page';
 import CodeBlock from '../code-block';
 
-function H1({ children }) {
-  return (
-    <h1 className="md:mt-3 md:text-6xl text-5xl font-bold leading-[4rem] tracking-tight text-black">
-      {children}
-    </h1>
-  );
-}
-
-function H2({ children }) {
-  return (
-    <h2 className="">
-      {children}
-    </h2>
-  );
-}
-
 type TextLinkProps = {
   children: React.ReactNode,
   link: string,
@@ -47,13 +31,7 @@ function TextLink({ children, link, className }: TextLinkProps) {
   );
 }
 
-function Text({ children }) {
-  return (
-    <body className="text-base md:text-lg text-slate-600">{children}</body>
-  );
-}
-
-function SecondaryCard({ title, children }) {
+function SecondaryCard({ title, children }: {title ?: string, children: React.ReactNode}) {
   return (
     <div className="flex-initial mx-auto w-2/3 min-w-fit md:min-w-min max-w-full md:py-3 justify-center">
       <CardContainer loading={false}>
@@ -106,7 +84,7 @@ function MainCard() {
 function InstallCard() {
   return (
     <SecondaryCard title="How to install">
-      <div className="max-w-5xl prose prose-sm md:prose-lg">
+      <div className="max-w-5xl prose prose-md md:prose-xl">
         <h2>Easy</h2>
         <p>
           Download the <code>Lyon&apos;s Deck Toolbox.desktop</code> executable

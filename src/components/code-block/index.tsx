@@ -40,7 +40,7 @@ function CodeBlock({ children, className }: Props) {
         >
           {copied ? 'Copied!' : 'Copy'}
         </button>
-        <code className="text-white md:text-lg font-bold font-mono text-sm whitespace-pre-wrap">
+        <code className="text-white text-xs md:text-lg font-bold font-mono whitespace-pre-wrap">
           {children}
         </code>
       </pre>
