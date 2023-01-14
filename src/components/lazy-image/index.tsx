@@ -20,7 +20,7 @@ type LazyImageProps = {
   placeholder?: ComponentChildren;
   alt?: string;
   src?: string;
-  children?: ComponentChildren;
+  className?: string;
 };
 
 export default LazyImage;

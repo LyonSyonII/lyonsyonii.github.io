@@ -1,8 +1,8 @@
 import { skeleton } from "../../helpers/utils";
-import PropTypes from "prop-types";
 import LazyImage from "../lazy-image";
+import { Skill as SkillConfigType } from "gitprofile.config";
 
-const Skill = ({ loading, skills, title }) => {
+const Skill = ({ loading, skills, title }: SkillProps) => {
   const renderSkeleton = () => {
     let array = [];
     for (let index = 0; index < 12; index++) {
@@ -68,16 +68,10 @@ const Skill = ({ loading, skills, title }) => {
   );
 };
 
-Skill.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  skills: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      url: PropTypes.string,
-      imageUrl: PropTypes.string,
-    })
-  ),
-  title: PropTypes.string.isRequired,
+type SkillProps = {
+  loading: boolean;
+  skills: SkillConfigType[];
+  title: string;
 };
 
 export default Skill;
