@@ -106,8 +106,6 @@ const Home = ({ config }: HomeProps) => {
 
     config.date = Date.now();
     localStorage.setItem("config", JSON.stringify(config));
-
-    console.log(config.repo[0]);
   }, [setLoading]);
 
   const handleError = (error: {

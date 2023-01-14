@@ -1,13 +1,11 @@
 import { ComponentChildren } from "preact";
-import { useState, useEffect, useCallback, useMemo } from "preact/hooks";
-import { BsClipboard, BsClipboardCheck } from "react-icons/bs";
+import { useState, useMemo } from "preact/hooks";
 
 function nodesToText(children: ComponentChildren = []): string {
   const nodeToString = (node: ComponentChildren, fallback = ""): string =>
     (typeof node === "string" && node) || fallback;
-
+  
   if (Array.isArray(children)) {
-    // @ts-expect-error TS(2322): Type 'ComponentChild' is not assignable to type 's... Remove this comment to see the full error message
     return children.reduce(
       (prev: string, curr: ComponentChildren) => prev.concat(nodeToString(curr, "\n")),
       ""
