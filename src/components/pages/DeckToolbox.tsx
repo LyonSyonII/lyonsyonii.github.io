@@ -1,13 +1,13 @@
+import { ComponentChildren } from "preact";
 import { TextLink } from "./../text-link/index";
 import { AiFillGithub } from "react-icons/ai";
-import * as React from "react";
 import CardContainer from "../card-container";
 import Page from "../page";
 import CodeBlock from "../code-block";
 
 type SecondaryCardProps = {
   title?: string;
-  children: React.ReactNode;
+  children: ComponentChildren;
 };
 
 function SecondaryCard({ title, children }: SecondaryCardProps) {

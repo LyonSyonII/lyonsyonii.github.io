@@ -51,7 +51,7 @@ const Home = ({ config }: HomeProps) => {
 
   const loadData = useCallback(async () => {
     let localConfig = localStorage.getItem("config");
-    let config: CachedConfig | undefined = (localConfig && JSON.parse(localConfig)) || undefined;
+    let config: CachedConfig = (localConfig && JSON.parse(localConfig)) || undefined;
     if (config && config.date + 86400000 /* day -> milliseconds */ > Date.now()) {
       setProfile(config.profileData);
       setRepo(config.repo);
@@ -108,7 +108,9 @@ const Home = ({ config }: HomeProps) => {
     localStorage.setItem("config", JSON.stringify(config));
   }, [setLoading]);
 
-  const handleError = (error) => {
+  const handleError = (error: {
+    response: { headers: { [x: string]: number }; status: number };
+  }) => {
     console.error("Error:", error);
     try {
       let reset = formatDistance(

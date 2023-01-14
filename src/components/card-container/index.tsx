@@ -1,11 +1,10 @@
-import { Fragment } from "preact";
+import { ComponentChildren, Fragment } from "preact";
 import { skeleton } from "../../helpers/utils";
-import { ReactNode } from "react";
 
 type CardContainerProps = {
   title?: string;
   loading: boolean;
-  children?: ReactNode;
+  children?: ComponentChildren;
 };
 
 const CardContainer = ({ title, loading, children }: CardContainerProps) => {

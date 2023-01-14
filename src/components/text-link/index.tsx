@@ -1,5 +1,7 @@
+import { ComponentChildren } from "preact";
+
 export type TextLinkProps = {
-  children: React.ReactNode;
+  children: ComponentChildren;
   link: string;
   className?: string;
 };

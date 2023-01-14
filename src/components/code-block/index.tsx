@@ -1,14 +1,14 @@
+import { ComponentChildren } from "preact";
 import { useState, useEffect, useCallback, useMemo } from "preact/hooks";
-import { ReactNode } from "react";
 import { BsClipboard, BsClipboardCheck } from "react-icons/bs";
 
-function nodesToText(children: ReactNode = []): string {
-  const nodeToString = (node: ReactNode, fallback = ""): string =>
+function nodesToText(children: ComponentChildren = []): string {
+  const nodeToString = (node: ComponentChildren, fallback = ""): string =>
     (typeof node === "string" && node) || fallback;
 
   if (Array.isArray(children)) {
     return children.reduce(
-      (prev: string, curr: ReactNode) => prev.concat(nodeToString(curr, "\n")),
+      (prev: string, curr: ComponentChildren) => prev.concat(nodeToString(curr, "\n")),
       ""
     );
   } else return nodeToString(children);
@@ -46,7 +46,7 @@ function CodeBlock({ children, className = "" }: Props) {
 }
 
 type Props = {
-  children?: React.ReactNode;
+  children?: ComponentChildren;
   className?: string;
 };
 
