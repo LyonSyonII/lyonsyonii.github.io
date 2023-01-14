@@ -18,7 +18,6 @@ import {
   tooManyRequestError,
   sanitizeConfig,
 } from "../../helpers/utils";
-import PropTypes from "prop-types";
 import "../../assets/index.css";
 import { formatDistance } from "date-fns";
 import Page from "../page";
@@ -49,10 +48,21 @@ const Home = ({ config }) => {
     theme && document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
-  const loadData = useCallback(() => {
-    axios
-      .get(`https://api.github.com/users/${sanitizedConfig.github.username}`)
-      .then((response) => {
+  const loadData = useCallback(async () => {
+    let localConfig = localStorage.getItem("config");
+    let config: CachedConfig | undefined = (localConfig && JSON.parse(localConfig)) || undefined;
+    console.log("config: ", config);
+    if (config && config.date + 86400000 /* day -> milliseconds */ > Date.now()) {
+      console.log("Loading config from localStorage");
+      setProfile(config.profileData);
+      setRepo(config.repo);
+      setLoading(false);
+    } else {
+      console.log("Loading config from cloud");
+      try {
+        let response = await axios.get(
+          `https://api.github.com/users/${sanitizedConfig.github.username}`
+        );
         let data = response.data;
 
         let profileData = {
@@ -64,11 +74,9 @@ const Home = ({ config }) => {
         };
 
         setProfile(profileData);
-        return data;
-      })
-      .then((userData) => {
+
         let excludeRepo = ``;
-        if (userData.public_repos === 0) {
+        if (data.public_repos === 0) {
           setRepo([]);
           return;
         }
@@ -82,27 +90,31 @@ const Home = ({ config }) => {
 
         let url = `https://api.github.com/search/repositories?q=${query}&sort=${sanitizedConfig.github.sortBy}&per_page=${sanitizedConfig.github.limit}&type=Repositories`;
 
-        axios
-          .get(url, {
-            headers: {
-              "Content-Type": "application/vnd.github.v3+json",
-            },
-          })
-          .then((response) => {
-            let data = response.data;
+        response = await axios.get(url, {
+          headers: {
+            "Content-Type": "application/vnd.github.v3+json",
+          },
+        });
 
-            setRepo(data.items);
-          })
-          .catch((error) => {
-            handleError(error);
-          });
-      })
-      .catch((error) => {
-        handleError(error);
-      })
-      .finally(() => {
+        console.log("response: ", response);
+
+        setRepo(response.data.items);
+
+        config = {
+          date: Date.now(),
+          profileData,
+          repo: response.data.items,
+        };
+
         setLoading(false);
-      });
+      } catch (error) {
+        handleError(error);
+      }
+    }
+    
+    config.date = Date.now();
+    console.log("config: ", config);
+    localStorage.setItem("config", JSON.stringify(config));
   }, [setLoading]);
 
   const handleError = (error) => {
@@ -216,90 +228,77 @@ const Home = ({ config }) => {
   );
 };
 
-Home.propTypes = {
-  config: PropTypes.shape({
-    github: PropTypes.shape({
-      username: PropTypes.string.isRequired,
-      sortBy: PropTypes.oneOf(["stars", "updated"]),
-      limit: PropTypes.number,
-      exclude: PropTypes.shape({
-        forks: PropTypes.bool,
-        projects: PropTypes.array,
-      }),
-    }).isRequired,
-    social: PropTypes.shape({
-      linkedin: PropTypes.string,
-      twitter: PropTypes.string,
-      facebook: PropTypes.string,
-      instagram: PropTypes.string,
-      dribbble: PropTypes.string,
-      behance: PropTypes.string,
-      medium: PropTypes.string,
-      dev: PropTypes.string,
-      stackoverflow: PropTypes.string,
-      website: PropTypes.string,
-      phone: PropTypes.string,
-      email: PropTypes.string,
-    }),
-    skills: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        imageUrl: PropTypes.string,
-        url: PropTypes.string,
-      })
-    ),
-    externalProjects: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        link: PropTypes.string.isRequired,
-        imageUrl: PropTypes.string,
-      })
-    ),
-    experiences: PropTypes.arrayOf(
-      PropTypes.shape({
-        company: PropTypes.string,
-        position: PropTypes.string,
-        from: PropTypes.string,
-        to: PropTypes.string,
-      })
-    ),
-    certifications: PropTypes.arrayOf(
-      PropTypes.shape({
-        body: PropTypes.string,
-        name: PropTypes.string,
-        year: PropTypes.string,
-        link: PropTypes.string,
-      })
-    ),
-    education: PropTypes.arrayOf(
-      PropTypes.shape({
-        institution: PropTypes.string,
-        degree: PropTypes.string,
-        from: PropTypes.string,
-        to: PropTypes.string,
-      })
-    ),
-    googleAnalytics: PropTypes.shape({
-      id: PropTypes.string,
-    }),
-    themeConfig: PropTypes.shape({
-      defaultTheme: PropTypes.string,
-      disableSwitch: PropTypes.bool,
-      respectPrefersColorScheme: PropTypes.bool,
-      hideAvatarRing: PropTypes.bool,
-      themes: PropTypes.array,
-      customTheme: PropTypes.shape({
-        primary: PropTypes.string,
-        secondary: PropTypes.string,
-        accent: PropTypes.string,
-        neutral: PropTypes.string,
-        "base-100": PropTypes.string,
-        "--rounded-box": PropTypes.string,
-        "--rounded-btn": PropTypes.string,
-      }),
-    }),
-  }).isRequired,
+type CachedConfig = {
+  date: number;
+  profileData: { avatar: string; name: string; bio: string; location: string; company: string };
+  repo: string[]
+};
+
+type HomeProps = {
+  config: {
+    github: {
+      username: string;
+      sortBy?: "stars" | "updated";
+      limit?: number;
+      exclude?: {
+        forks?: boolean;
+        projects?: string[];
+      };
+    };
+    social: {
+      linkedin?: string;
+      twitter?: string;
+      facebook?: string;
+      instagram?: string;
+      dribbble?: string;
+      behance?: string;
+      medium?: string;
+      dev?: string;
+      stackoverflow?: string;
+      website?: string;
+      phone?: string;
+      email?: string;
+    };
+    skills: { name: string; imageUrl?: string; url?: string }[];
+    externalProjects: {
+      title: string;
+      description: string;
+      link: string;
+      imageUrl?: string;
+    };
+    experiences: { company?: string; position?: string; from?: string; to?: string };
+    certifications: {
+      body?: string;
+      name: string;
+      year: string;
+      link: string;
+    }[];
+    education: {
+      institution: string;
+      degree: string;
+      from: string;
+      to: string;
+    }[];
+    googleAnalytics: {
+      id?: string;
+    };
+    themeConfig: {
+      defaultTheme: string;
+      disableSwitch: boolean;
+      respectPrefersColorScheme: boolean;
+      hideAvatarRing: boolean;
+      themes: any[];
+      customTheme: {
+        primary: string;
+        secondary: string;
+        accent: string;
+        neutral: string;
+        "base-100": string;
+        "--rounded-box": string;
+        "--rounded-btn": string;
+      };
+    };
+  };
 };
 
 export default Home;

@@ -1,6 +1,6 @@
 // gitprofile.config.js
 
-const config = {
+const config: Config = {
   github: {
     username: "lyonsyonii", // Your GitHub org/user name. (Required)
     sortBy: "stars", // stars | updated
@@ -102,31 +102,6 @@ const config = {
       url: "https://www.unrealengine.com/en-US",
     },
   ],
-  /*
-  experiences: [
-    {
-      company: 'Company Name',
-      position: 'Position',
-      from: 'September 2021',
-      to: 'Present',
-      companyLink: 'https://example.com',
-    },
-    {
-      company: 'Company Name',
-      position: 'Position',
-      from: 'July 2019',
-      to: 'August 2021',
-      companyLink: 'https://example.com',
-    },
-  ],*/
-  /* certifications: [
-    {
-      name: 'Lorem ipsum',
-      body: 'Lorem ipsum dolor sit amet',
-      year: 'March 2022',
-      link: 'https://example.com'
-    },
-  ], */
   education: [
     {
       institution: "Facultat d'Informàtica de Barcelona - Universitat Politècnica de Catalunya",
@@ -177,6 +152,81 @@ const config = {
     // Available themes. To remove any theme, exclude from here.
     themes: ["light"],
   },
+};
+
+type Config = {
+  github: {
+    username: string;
+    sortBy?: "stars" | "updated";
+    limit?: number;
+    exclude?: {
+      forks?: boolean;
+      projects?: string[];
+    };
+  };
+  social?: {
+    linkedin?: string;
+    twitter?: string;
+    facebook?: string;
+    instagram?: string;
+    dribbble?: string;
+    behance?: string;
+    medium?: string;
+    dev?: string;
+    stackoverflow?: string;
+    website?: string;
+    phone?: string;
+    email?: string;
+  };
+  resume?: {
+    fileUrl: string;
+  };
+  skills?: { name: string; imageUrl?: string; url?: string }[];
+  some_experience_with?: { name: string; imageUrl?: string; url?: string }[];
+  mainProjects?: {
+    title: string;
+    description: string;
+    link: string;
+    imageUrl?: string;
+  }[];
+  externalProjects?: {
+    title: string;
+    description: string;
+    link: string;
+    imageUrl?: string;
+  }[];
+  experiences?: { company?: string; position?: string; from?: string; to?: string };
+  certifications?: {
+    body?: string;
+    name: string;
+    year: string;
+    link: string;
+  }[];
+  education?: {
+    institution: string;
+    degree: string;
+    from: string;
+    to: string;
+  }[];
+  googleAnalytics?: {
+    id?: string;
+  };
+  themeConfig?: {
+    defaultTheme?: string;
+    disableSwitch?: boolean;
+    respectPrefersColorScheme?: boolean;
+    hideAvatarRing?: boolean;
+    themes?: any[];
+    customTheme?: {
+      primary: string;
+      secondary: string;
+      accent: string;
+      neutral: string;
+      "base-100": string;
+      "--rounded-box": string;
+      "--rounded-btn": string;
+    };
+  };
 };
 
 export default config;
