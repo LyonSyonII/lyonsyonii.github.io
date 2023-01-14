@@ -65,7 +65,7 @@ function MainCard() {
 function InstallCard() {
   return (
     <SecondaryCard title="How to install">
-      <div className="prose-md prose lg:prose-xl max-w-full">
+      <div className="prose-md prose max-w-full lg:prose-xl">
         <h2>Easy</h2>
         <p>
           Download the <code>Lyon&apos;s Deck Toolbox.desktop</code> executable file and double
@@ -93,7 +93,7 @@ function InstallCard() {
 function ToolsCard() {
   return (
     <SecondaryCard title="Tools">
-      <div className="prose-md prose lg:prose-xl max-w-5xl py-4">
+      <div className="prose-md prose max-w-5xl py-4 lg:prose-xl">
         <p className="text-center leading-relaxed text-slate-400">
           Currently the Toolbox can install:
         </p>

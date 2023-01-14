@@ -1,7 +1,7 @@
 import { ComponentChildren, Fragment } from "preact";
 import { skeleton } from "../../helpers/utils";
 
-const CardContainer = ({ children, className = "", innerClassName = ""}: CardContainerProps) => {
+const CardContainer = ({ children, className = "", innerClassName = "" }: CardContainerProps) => {
   return (
     <Fragment>
       {children && (
@@ -17,8 +17,8 @@ const CardContainer = ({ children, className = "", innerClassName = ""}: CardCon
 
 type CardContainerProps = {
   children?: ComponentChildren;
-  className?: string
-  innerClassName?: string
+  className?: string;
+  innerClassName?: string;
 };
 
 export default CardContainer;

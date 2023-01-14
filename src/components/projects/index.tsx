@@ -65,7 +65,7 @@ function Projects({ projects, title = "", loading }: ProjectsProps) {
     return projects.map((item, index) => (
       <Link
         to={item.link}
-        className="card compact bg-base-100 cursor-pointer shadow-lg"
+        className="card compact cursor-pointer bg-base-100 shadow-lg"
         key={index}
       >
         <div className="p-4">
@@ -91,7 +91,7 @@ function Projects({ projects, title = "", loading }: ProjectsProps) {
                       </div>
                     </div>
                   )}
-                  <p className="text-base-content mt-1 text-sm text-opacity-60">
+                  <p className="mt-1 text-sm text-base-content text-opacity-60">
                     {item.description}
                   </p>
                 </div>
@@ -106,9 +106,9 @@ function Projects({ projects, title = "", loading }: ProjectsProps) {
   return (
     <Fragment>
       {displaySection(projects) && (
-        <div className="card compact bg-base-100 bg-opacity-70 shadow max-w-fit max-h-full">
-          <div className="card-body max-w-fit">
-            <div className="mx-3 mb-2 max-w-fit">
+        <div className="card compact max-h-full max-w-full bg-base-100 bg-opacity-70 shadow">
+          <div className="card-body">
+            <div className="mx-3 mb-2">
               <h5 className="card-title">
                 {loading ? (
                   skeleton({ width: "w-40", height: "h-8" })

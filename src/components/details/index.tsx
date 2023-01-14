@@ -71,9 +71,9 @@ const Details = ({ profile, loading, social, github }: DetailsProps) => {
   };
 
   return (
-    <div className="card compact bg-base-100 shadow-lg min-w-fit">
+    <div className="card compact min-w-fit bg-base-100 shadow-lg">
       <div className="card-body min-w-fit">
-        <div className="flex flex-col justify-evenly min-h-full min-w-fit text-base-content text-opacity-60">
+        <div className="flex min-h-full min-w-fit flex-col justify-evenly text-base-content text-opacity-60">
           {loading || !profile ? (
             renderSkeleton()
           ) : (

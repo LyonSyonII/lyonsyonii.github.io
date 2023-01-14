@@ -21,7 +21,7 @@ const AvatarCard = ({ profile, loading, avatarRing, resume }: AvatarCardProps) =
           <div className="avatar opacity-90">
             <div
               className={`mb-4 h-24 w-32 rounded-full ${
-                avatarRing ? "ring-primary ring-offset-base-100 ring ring-offset-2" : ""
+                avatarRing ? "ring ring-primary ring-offset-2 ring-offset-base-100" : ""
               }`}
             >
               {
@@ -46,7 +46,7 @@ const AvatarCard = ({ profile, loading, avatarRing, resume }: AvatarCardProps) =
               <span className="text-base-content opacity-70">{profile.name}</span>
             )}
           </h5>
-          <div className="text-base-content mt-3 font-mono text-opacity-60">
+          <div className="mt-3 font-mono text-base-content text-opacity-60">
             {loading || !profile ? skeleton({ width: "w-48", height: "h-5" }) : profile.bio}
           </div>
         </div>

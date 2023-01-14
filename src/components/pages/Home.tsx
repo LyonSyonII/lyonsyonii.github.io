@@ -143,8 +143,11 @@ const Home = ({ config }: HomeProps) => {
           sanitizedConfig && (
             <Page>
               <div className="rounded-box flex flex-col gap-6">
-                <div className="flex flex-col lg:flex-row gap-6 justify-evenly">
-                  <CardContainer className="min-w-fit max-w-full" innerClassName="grid grid-cols-2 gap-3">
+                <div className="flex flex-col justify-evenly gap-6 lg:flex-row">
+                  <CardContainer
+                    className="min-w-fit max-w-full"
+                    innerClassName="grid grid-cols-1 lg:grid-cols-2 gap-3"
+                  >
                     <AvatarCard
                       profile={profile}
                       loading={loading}
@@ -158,33 +161,10 @@ const Home = ({ config }: HomeProps) => {
                       social={sanitizedConfig.social}
                     />
                   </CardContainer>
-                  <CardContainer className="min-w-fit max-w-full" innerClassName="grid grid-cols-1 gap-3">
-                    <AvatarCard
-                      profile={profile}
-                      loading={loading}
-                      avatarRing={!sanitizedConfig.themeConfig.hideAvatarRing}
-                      resume={sanitizedConfig.resume}
-                    />
-                    <Details
-                      profile={profile}
-                      loading={loading}
-                      github={sanitizedConfig.github}
-                      social={sanitizedConfig.social}
-                    />
-                  </CardContainer>
-                  <CardContainer className="max-w-full" innerClassName="grid grid-cols-1 lg:grid-cols-2 gap-3">
-                    <Skills
-                      loading={loading}
-                      skills={sanitizedConfig.skills}
-                      title={"Tech Stack"}
-                    />
-                    <Skills
-                      loading={loading}
-                      skills={sanitizedConfig.some_experience_with}
-                      title={"Some experience with..."}
-                    />
-                  </CardContainer>
-                  <CardContainer className="max-w-full" innerClassName="grid grid-cols-2 gap-3">
+                  <CardContainer
+                    className="max-w-full"
+                    innerClassName="grid grid-cols-1 lg:grid-cols-2 gap-3"
+                  >
                     <Skills
                       loading={loading}
                       skills={sanitizedConfig.skills}
@@ -204,15 +184,19 @@ const Home = ({ config }: HomeProps) => {
                   />
                 </div>
 
-                <div className="grid grid-flow-col gap-6">
-                  <Projects title="Main Projects" loading={loading} projects={sanitizedConfig.mainProjects} />
+                <div className="grid lg:grid-flow-col lg:grid-cols-2 gap-6">
+                  <Projects
+                    title="Main Projects"
+                    loading={loading}
+                    projects={sanitizedConfig.mainProjects}
+                  />
                   <Projects
                     title="Other Projects"
                     loading={loading}
                     projects={sanitizedConfig.otherProjects}
                   />
                 </div>
-                  <GithubProjects repo={repo} loading={loading} github={sanitizedConfig.github} />
+                <GithubProjects repo={repo} loading={loading} github={sanitizedConfig.github} />
               </div>
             </Page>
           )

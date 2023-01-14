@@ -5,7 +5,7 @@ import { Certification as CertificationType } from "../../../gitprofile.config";
 const ListItem = ({ year, name, body, link }: ListItemProps) => (
   <li className="mb-5 ml-4">
     <div
-      className="border-base-300 bg-base-300 absolute mt-1.5 h-2 w-2 rounded-full border"
+      className="absolute mt-1.5 h-2 w-2 rounded-full border border-base-300 bg-base-300"
       style={{ left: "-4.5px" }}
     ></div>
     <div className="my-0.5 text-xs">{year}</div>
@@ -57,7 +57,7 @@ const Certification = ({ certifications, loading }: CertificationProps) => {
               </h5>
             </div>
             <div className="text-base-content text-opacity-60">
-              <ol className="border-base-300 relative my-2 mx-4 border-l border-opacity-30">
+              <ol className="relative my-2 mx-4 border-l border-base-300 border-opacity-30">
                 {loading ? (
                   renderSkeleton()
                 ) : (
