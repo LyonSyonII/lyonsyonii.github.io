@@ -15,6 +15,7 @@ import {
 } from "react-icons/fa";
 import { Github, skeleton } from "../../helpers/utils";
 import { Social } from "../../../gitprofile.config";
+import { Profile } from "../pages/Home";
 
 const ListItem = ({ icon, title, value, link, skeleton = false }: ListItemProps) => {
   return (
@@ -212,12 +213,6 @@ type ListItemProps = {
   value?: ComponentChildren;
   link?: string;
   skeleton?: boolean;
-};
-
-type Profile = {
-  location?: string;
-  company?: string;
-  email?: string;
 };
 
 type DetailsProps = {

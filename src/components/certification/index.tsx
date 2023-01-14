@@ -1,8 +1,8 @@
 import { skeleton } from "../../helpers/utils";
-import { Fragment } from "preact";
-import PropTypes from "prop-types";
+import { ComponentChildren, Fragment } from "preact";
+import { Certification as CertificationType } from "../../../gitprofile.config";
 
-const ListItem = ({ year, name, body, link }) => (
+const ListItem = ({ year, name, body, link }: ListItemProps) => (
   <li className="mb-5 ml-4">
     <div
       className="border-base-300 bg-base-300 absolute mt-1.5 h-2 w-2 rounded-full border"
@@ -18,9 +18,9 @@ const ListItem = ({ year, name, body, link }) => (
   </li>
 );
 
-const Certification = ({ certifications, loading }) => {
+const Certification = ({ certifications, loading }: CertificationProps) => {
   const renderSkeleton = () => {
-    let array = [];
+    let array: ComponentChildren[] = [];
     for (let index = 0; index < 2; index++) {
       array.push(
         <ListItem
@@ -82,16 +82,16 @@ const Certification = ({ certifications, loading }) => {
   );
 };
 
-ListItem.propTypes = {
-  year: PropTypes.node,
-  name: PropTypes.node,
-  body: PropTypes.node,
-  link: PropTypes.string,
+type ListItemProps = {
+  year?: ComponentChildren;
+  name?: ComponentChildren;
+  body?: ComponentChildren;
+  link?: string;
 };
 
-Certification.propTypes = {
-  certifications: PropTypes.array.isRequired,
-  loading: PropTypes.bool.isRequired,
+type CertificationProps = {
+  certifications: CertificationType[];
+  loading: boolean;
 };
 
 export default Certification;

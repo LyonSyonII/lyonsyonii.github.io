@@ -180,20 +180,24 @@ export type Social = {
 export type Resume = {
   fileUrl: string;
 };
-export type Skill = { name: string; imageUrl?: string; url?: string };
-export type MainProject = {
+export type Skill = {
+  name: string;
+  imageUrl?: string;
+  url?: string;
+};
+export type Project = {
   title: string;
   description: string;
   link: string;
   imageUrl?: string;
 };
-export type OtherProject = {
-  title: string;
-  description: string;
-  link: string;
-  imageUrl?: string;
+export type Experience = {
+  company?: string;
+  companyLink?: string;
+  position?: string;
+  from?: string;
+  to?: string;
 };
-export type Experience = { company?: string; position?: string; from?: string; to?: string };
 export type Certification = {
   body?: string;
   name: string;
@@ -235,90 +239,13 @@ export type RawConfig = {
   resume?: Resume;
   skills?: Skill[];
   some_experience_with?: Skill[];
-  mainProjects?: MainProject[];
-  otherProjects?: OtherProject[];
+  mainProjects?: Project[];
+  otherProjects?: Project[];
   experiences?: Experience[];
   certifications?: Certification[];
   education?: Education[];
   blog?: Blog;
   themeConfig?: ThemeConfig;
 };
-
-// export type RawConfig = {
-//   github: {
-//     username: string;
-//     sortBy?: "stars" | "updated";
-//     limit?: number;
-//     exclude?: {
-//       forks?: boolean;
-//       projects?: string[];
-//     };
-//   };
-//   social?: {
-//     linkedin?: string;
-//     twitter?: string;
-//     facebook?: string;
-//     instagram?: string;
-//     dribbble?: string;
-//     behance?: string;
-//     medium?: string;
-//     dev?: string;
-//     stackoverflow?: string;
-//     website?: string;
-//     phone?: string;
-//     email?: string;
-//   };
-//   resume?: {
-//     fileUrl: string;
-//   };
-//   skills?: { name: string; imageUrl?: string; url?: string }[];
-//   some_experience_with?: { name: string; imageUrl?: string; url?: string }[];
-//   mainProjects?: {
-//     title: string;
-//     description: string;
-//     link: string;
-//     imageUrl?: string;
-//   }[];
-//   externalProjects?: {
-//     title: string;
-//     description: string;
-//     link: string;
-//     imageUrl?: string;
-//   }[];
-//   experiences?: { company?: string; position?: string; from?: string; to?: string };
-//   certifications?: {
-//     body?: string;
-//     name: string;
-//     year: string;
-//     link: string;
-//   }[];
-//   education?: {
-//     institution: string;
-//     degree: string;
-//     from: string;
-//     to: string;
-//   }[];
-//   blog?: {
-//     source?: string;
-//     username?: string;
-//     limit?: number;
-//   };
-//   themeConfig?: {
-//     defaultTheme?: string;
-//     disableSwitch?: boolean;
-//     respectPrefersColorScheme?: boolean;
-//     hideAvatarRing?: boolean;
-//     themes?: any[];
-//     customTheme?: {
-//       primary: string;
-//       secondary: string;
-//       accent: string;
-//       neutral: string;
-//       "base-100": string;
-//       "--rounded-box": string;
-//       "--rounded-btn": string;
-//     };
-//   };
-// };
 
 export default config;

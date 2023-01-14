@@ -2,8 +2,7 @@ import {
   Certification,
   Education,
   Experience,
-  OtherProject,
-  MainProject,
+  Project,
   RawConfig,
   Resume,
   Skill,
@@ -292,8 +291,8 @@ type SanitizedConfig = {
   resume: Resume;
   skills?: Skill[];
   some_experience_with?: Skill[];
-  mainProjects?: MainProject[];
-  otherProjects?: OtherProject[];
+  mainProjects?: Project[];
+  otherProjects?: Project[];
   experiences?: Experience[];
   certifications?: Certification[];
   education?: Education[];

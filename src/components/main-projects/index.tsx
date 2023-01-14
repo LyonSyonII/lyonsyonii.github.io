@@ -1,14 +1,14 @@
 import { Fragment } from "preact";
-import PropTypes from "prop-types";
 import { skeleton } from "../../helpers/utils";
 import LazyImage from "../lazy-image";
 import { Link } from "react-router-dom";
+import { Project } from "../../../gitprofile.config";
 
-function displaySection(otherProjects) {
-  return otherProjects && Array.isArray(otherProjects) && otherProjects.length > 0;
+function displaySection(mainProjects: Project[]) {
+  return mainProjects && Array.isArray(mainProjects) && mainProjects.length > 0;
 }
 
-function MainProject({ mainProjects, loading }) {
+function MainProjects({ mainProjects, loading }: MainProjectProps) {
   const renderSkeleton = () => {
     let array = [];
     for (let index = 0; index < mainProjects.length; index++) {
@@ -135,9 +135,9 @@ function MainProject({ mainProjects, loading }) {
   );
 }
 
-MainProject.propTypes = {
-  mainProjects: PropTypes.array,
-  loading: PropTypes.bool.isRequired,
+type MainProjectProps = {
+  mainProjects?: Project[];
+  loading: boolean;
 };
 
-export default MainProject;
+export default MainProjects;

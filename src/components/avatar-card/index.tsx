@@ -1,8 +1,9 @@
-import PropTypes from "prop-types";
 import { fallbackImage, skeleton } from "../../helpers/utils";
 import LazyImage from "../lazy-image";
+import { Profile } from "../pages/Home";
+import { Resume } from "../../../gitprofile.config";
 
-const AvatarCard = ({ profile, loading, avatarRing, resume }) => {
+const AvatarCard = ({ profile, loading, avatarRing, resume }: AvatarCardProps) => {
   return (
     <div className="card compact bg-base-100 shadow-lg">
       <div className="grid place-items-center py-8">
@@ -68,13 +69,11 @@ const AvatarCard = ({ profile, loading, avatarRing, resume }) => {
   );
 };
 
-AvatarCard.propTypes = {
-  profile: PropTypes.object,
-  loading: PropTypes.bool.isRequired,
-  avatarRing: PropTypes.bool.isRequired,
-  resume: PropTypes.shape({
-    fileUrl: PropTypes.string,
-  }),
+type AvatarCardProps = {
+  profile?: Profile;
+  loading: boolean;
+  avatarRing: boolean;
+  resume?: Resume;
 };
 
 export default AvatarCard;

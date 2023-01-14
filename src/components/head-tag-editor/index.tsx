@@ -1,9 +1,9 @@
 import { Fragment } from "preact";
-//import { Helmet } from 'react-helmet-async';
-import PropTypes from "prop-types";
 import { isDarkishTheme } from "../../helpers/utils";
+import { Profile } from "../pages/Home";
+import { Social } from "../../../gitprofile.config";
 
-const HeadTagEditor = ({ profile, theme, social }) => {
+const HeadTagEditor = ({ profile, theme, social }: HeadTagEditorProps) => {
   return (
     <Fragment>
       {profile && (
@@ -36,10 +36,10 @@ const HeadTagEditor = ({ profile, theme, social }) => {
   );
 };
 
-HeadTagEditor.propTypes = {
-  profile: PropTypes.object,
-  theme: PropTypes.string,
-  social: PropTypes.object.isRequired,
+type HeadTagEditorProps = {
+  profile?: Profile;
+  theme?: string;
+  social: Social;
 };
 
 export default HeadTagEditor;

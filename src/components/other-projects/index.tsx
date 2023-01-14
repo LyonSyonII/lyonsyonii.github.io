@@ -1,17 +1,13 @@
 import { Fragment } from "preact";
-import PropTypes from "prop-types";
 import { skeleton } from "../../helpers/utils";
 import LazyImage from "../lazy-image";
+import { Project } from "gitprofile.config";
 
-const displaySection = (otherProject) => {
-  if (otherProject && Array.isArray(otherProject) && otherProject.length) {
-    return true;
-  } else {
-    return false;
-  }
+const displaySection = (otherProject: Project[]) => {
+  return otherProject && Array.isArray(otherProject) && otherProject.length > 0;
 };
 
-const OtherProject = ({ otherProjects, loading }) => {
+const OtherProjects = ({ otherProjects, loading }: OtherProjectsProps) => {
   const renderSkeleton = () => {
     let array = [];
     for (let index = 0; index < otherProjects.length; index++) {
@@ -143,9 +139,9 @@ const OtherProject = ({ otherProjects, loading }) => {
   );
 };
 
-OtherProject.propTypes = {
-  otherProjects: PropTypes.array,
-  loading: PropTypes.bool.isRequired,
+type OtherProjectsProps = {
+  otherProjects?: Project[];
+  loading: boolean;
 };
 
-export default OtherProject;
+export default OtherProjects;

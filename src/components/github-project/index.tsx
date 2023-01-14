@@ -1,10 +1,10 @@
 import { Fragment } from "preact";
 import { AiOutlineStar, AiOutlineFork } from "react-icons/ai";
-import PropTypes from "prop-types";
-import { languageColor, skeleton } from "../../helpers/utils";
+import { Github, languageColor, skeleton } from "../../helpers/utils";
 import { MdInsertLink } from "react-icons/md";
+import { Repo } from "../pages/Home";
 
-const GithubProject = ({ repo, loading, github }) => {
+const GithubProject = ({ repo, loading, github }: GithubProjectProps) => {
   if (!loading && Array.isArray(repo) && repo.length === 0) {
     return <></>;
   }
@@ -151,10 +151,10 @@ const GithubProject = ({ repo, loading, github }) => {
   );
 };
 
-GithubProject.propTypes = {
-  repo: PropTypes.array,
-  loading: PropTypes.bool.isRequired,
-  github: PropTypes.object.isRequired,
+type GithubProjectProps = {
+  repo?: Repo[];
+  loading: boolean;
+  github: Github;
 };
 
 export default GithubProject;

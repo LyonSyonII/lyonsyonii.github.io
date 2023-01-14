@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useCallback, useEffect, useState } from "preact/hooks";
+import { StateUpdater, useCallback, useEffect, useState } from "preact/hooks";
 import HeadTagEditor from "../head-tag-editor";
 import ErrorPage from "../error-page";
 import ThemeChanger from "../theme-changer";
@@ -21,8 +21,8 @@ import {
 import "../../assets/index.css";
 import { formatDistance } from "date-fns";
 import Page from "../page";
-import OtherProjects from "../other-project";
-import MainProjects from "../main-project";
+import OtherProjects from "../other-projects";
+import MainProjects from "../main-projects";
 import CardContainer from "../card-container";
 import { RawConfig } from "../../../gitprofile.config";
 
@@ -35,8 +35,8 @@ const Home = ({ config }: HomeProps) => {
   );
   const [theme, setTheme] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [profile, setProfile] = useState(null);
-  const [repo, setRepo] = useState(null);
+  const [profile, setProfile]: [Profile, StateUpdater<Profile>] = useState(null);
+  const [repo, setRepo]: [Repo[], StateUpdater<Repo[]>] = useState(null);
 
   useEffect(() => {
     if (sanitizedConfig) {
@@ -106,6 +106,8 @@ const Home = ({ config }: HomeProps) => {
 
     config.date = Date.now();
     localStorage.setItem("config", JSON.stringify(config));
+
+    console.log(config.repo[0]);
   }, [setLoading]);
 
   const handleError = (error: {
@@ -206,14 +208,124 @@ const Home = ({ config }: HomeProps) => {
   );
 };
 
+export type Profile = {
+  avatar: string;
+  name: string;
+  bio: string;
+  location: string;
+  company: string;
+};
+
 type CachedConfig = {
   date: number;
-  profileData: { avatar: string; name: string; bio: string; location: string; company: string };
-  repo: string[];
+  profileData: Profile;
+  repo: Repo[];
 };
 
 type HomeProps = {
   config: RawConfig;
+};
+
+export type Repo = {
+  id: number;
+  node_id: string;
+  name: string;
+  full_name: string;
+  private: boolean;
+  owner: {
+    login: string;
+    id: number;
+    node_id: string;
+    avatar_url: string;
+    gravatar_id: string;
+    url: string;
+    html_url: string;
+    followers_url: string;
+    following_url: string;
+    gists_url: string;
+    starred_url: string;
+    subscriptions_url: string;
+    organizations_url: string;
+    repos_url: string;
+    events_url: string;
+    received_events_url: string;
+    type: string;
+    site_admin: boolean;
+  };
+  html_url: string;
+  description: string;
+  fork: boolean;
+  url: string;
+  forks_url: string;
+  keys_url: string;
+  collaborators_url: string;
+  teams_url: string;
+  hooks_url: string;
+  issue_events_url: string;
+  events_url: string;
+  assignees_url: string;
+  branches_url: string;
+  tags_url: string;
+  blobs_url: string;
+  git_tags_url: string;
+  git_refs_url: string;
+  trees_url: string;
+  statuses_url: string;
+  languages_url: string;
+  stargazers_url: string;
+  contributors_url: string;
+  subscribers_url: string;
+  subscription_url: string;
+  commits_url: string;
+  git_commits_url: string;
+  comments_url: string;
+  issue_comment_url: string;
+  contents_url: string;
+  compare_url: string;
+  merges_url: string;
+  archive_url: string;
+  downloads_url: string;
+  issues_url: string;
+  pulls_url: string;
+  milestones_url: string;
+  notifications_url: string;
+  labels_url: string;
+  releases_url: string;
+  deployments_url: string;
+  created_at: string;
+  updated_at: string;
+  pushed_at: string;
+  git_url: string;
+  ssh_url: string;
+  clone_url: string;
+  svn_url: string;
+  homepage: string;
+  size: number;
+  stargazers_count: number;
+  watchers_count: number;
+  language: string;
+  has_issues: boolean;
+  has_projects: boolean;
+  has_downloads: boolean;
+  has_wiki: boolean;
+  has_pages: boolean;
+  forks_count: number;
+  mirror_url: string;
+  archived: boolean;
+  disabled: boolean;
+  open_issues_count: number;
+  license: {
+    key: string;
+    name: string;
+    spdx_id: string;
+    url: string;
+    node_id: string;
+  };
+  forks: number;
+  open_issues: number;
+  watchers: number;
+  default_branch: string;
+  score: number;
 };
 
 export default Home;

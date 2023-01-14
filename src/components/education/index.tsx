@@ -1,24 +1,20 @@
+import { Education as EducationConfigType } from "../../../gitprofile.config";
 import { skeleton } from "../../helpers/utils";
-import { Fragment } from "preact";
-import PropTypes from "prop-types";
+import { ComponentChildren, Fragment } from "preact";
 
-const ListItem = ({ time, position, company, companyLink }) => (
+const ListItem = ({ time, degree, institution }: ListItemProps) => (
   <li className="mb-5 ml-4">
     <div
       className="border-base-300 bg-base-300 absolute mt-1.5 h-2 w-2 rounded-full border"
       style={{ left: "-4.5px" }}
     ></div>
     <div className="my-0.5 text-xs">{time}</div>
-    <h3 className="font-semibold">{position}</h3>
-    <div className="mb-4 font-normal">
-      <a href={companyLink} target="_blank" rel="noreferrer">
-        {company}
-      </a>
-    </div>
+    <h3 className="font-semibold">{degree}</h3>
+    <div className="mb-4 font-normal">{institution}</div>
   </li>
 );
 
-const Experience = ({ experiences, loading }) => {
+const Education = ({ loading, education }: EducationProps) => {
   const renderSkeleton = () => {
     let array = [];
     for (let index = 0; index < 2; index++) {
@@ -29,21 +25,22 @@ const Experience = ({ experiences, loading }) => {
             width: "w-5/12",
             height: "h-4",
           })}
-          position={skeleton({
+          degree={skeleton({
             width: "w-6/12",
             height: "h-4",
             className: "my-1.5",
           })}
-          company={skeleton({ width: "w-6/12", height: "h-3" })}
+          institution={skeleton({ width: "w-6/12", height: "h-3" })}
         />
       );
     }
 
     return array;
   };
+
   return (
     <>
-      {experiences?.length !== 0 && (
+      {education?.length !== 0 && (
         <div className="card compact bg-base-100 shadow-lg">
           <div className="card-body">
             <div className="mx-3">
@@ -51,7 +48,7 @@ const Experience = ({ experiences, loading }) => {
                 {loading ? (
                   skeleton({ width: "w-32", height: "h-8" })
                 ) : (
-                  <span className="text-base-content opacity-70">Experience</span>
+                  <span className="text-base-content opacity-70">Education</span>
                 )}
               </h5>
             </div>
@@ -61,13 +58,12 @@ const Experience = ({ experiences, loading }) => {
                   renderSkeleton()
                 ) : (
                   <Fragment>
-                    {experiences.map((experience, index) => (
+                    {education.map((item, index) => (
                       <ListItem
                         key={index}
-                        time={`${experience.from} - ${experience.to}`}
-                        position={experience.position}
-                        company={experience.company}
-                        companyLink={experience.companyLink ? experience.companyLink : null}
+                        time={`${item.from} - ${item.to}`}
+                        degree={item.degree}
+                        institution={item.institution}
                       />
                     ))}
                   </Fragment>
@@ -81,16 +77,15 @@ const Experience = ({ experiences, loading }) => {
   );
 };
 
-ListItem.propTypes = {
-  time: PropTypes.node,
-  position: PropTypes.node,
-  company: PropTypes.node,
-  companyLink: PropTypes.string,
+type EducationProps = {
+  loading: boolean;
+  education: EducationConfigType[];
 };
 
-Experience.propTypes = {
-  experiences: PropTypes.array.isRequired,
-  loading: PropTypes.bool.isRequired,
+type ListItemProps = {
+  time?: ComponentChildren;
+  degree?: ComponentChildren;
+  institution?: ComponentChildren;
 };
 
-export default Experience;
+export default Education;
