@@ -24,9 +24,10 @@ import Page from "../page";
 import OtherProjects from "../other-project";
 import MainProjects from "../main-project";
 import CardContainer from "../card-container";
+import { Config } from "../../../gitprofile.config";
 
-const Home = ({ config }) => {
-  const [error, setError] = useState(
+const Home = ({ config }: HomeProps) => {
+  const [error, setError]: [any, any] = useState(
     typeof config === "undefined" && !config ? noConfigError : null
   );
   const [sanitizedConfig] = useState(
@@ -51,20 +52,16 @@ const Home = ({ config }) => {
   const loadData = useCallback(async () => {
     let localConfig = localStorage.getItem("config");
     let config: CachedConfig | undefined = (localConfig && JSON.parse(localConfig)) || undefined;
-    console.log("config: ", config);
     if (config && config.date + 86400000 /* day -> milliseconds */ > Date.now()) {
-      console.log("Loading config from localStorage");
       setProfile(config.profileData);
       setRepo(config.repo);
       setLoading(false);
     } else {
-      console.log("Loading config from cloud");
       try {
         let response = await axios.get(
           `https://api.github.com/users/${sanitizedConfig.github.username}`
         );
         let data = response.data;
-
         let profileData = {
           avatar: data.avatar_url,
           name: data.name ? data.name : "",
@@ -72,7 +69,6 @@ const Home = ({ config }) => {
           location: data.location ? data.location : "",
           company: data.company ? data.company : "",
         };
-
         setProfile(profileData);
 
         let excludeRepo = ``;
@@ -87,16 +83,12 @@ const Home = ({ config }) => {
 
         let query = `user:${sanitizedConfig.github.username}+fork:${!sanitizedConfig.github.exclude
           .forks}${excludeRepo}`;
-
         let url = `https://api.github.com/search/repositories?q=${query}&sort=${sanitizedConfig.github.sortBy}&per_page=${sanitizedConfig.github.limit}&type=Repositories`;
-
         response = await axios.get(url, {
           headers: {
             "Content-Type": "application/vnd.github.v3+json",
           },
         });
-
-        console.log("response: ", response);
 
         setRepo(response.data.items);
 
@@ -111,9 +103,8 @@ const Home = ({ config }) => {
         handleError(error);
       }
     }
-    
+
     config.date = Date.now();
-    console.log("config: ", config);
     localStorage.setItem("config", JSON.stringify(config));
   }, [setLoading]);
 
@@ -143,12 +134,7 @@ const Home = ({ config }) => {
   return (
     <div>
       {sanitizedConfig && (
-        <HeadTagEditor
-          profile={profile}
-          theme={theme}
-          googleAnalytics={sanitizedConfig.googleAnalytics}
-          social={sanitizedConfig.social}
-        />
+        <HeadTagEditor profile={profile} theme={theme} social={sanitizedConfig.social} />
       )}
       <div className="h-screen">
         {error ? (
@@ -201,22 +187,12 @@ const Home = ({ config }) => {
                 </div>
                 <div className="col-span-1 lg:col-span-2">
                   <div className="grid grid-cols-1 gap-6">
-                    <MainProjects
-                      loading={loading}
-                      mainProjects={sanitizedConfig.mainProjects}
-                      googleAnalytics={sanitizedConfig.googleAnalytics}
-                    />
+                    <MainProjects loading={loading} mainProjects={sanitizedConfig.mainProjects} />
                     <OtherProjects
                       loading={loading}
                       otherProjects={sanitizedConfig.otherProjects}
-                      googleAnalytics={sanitizedConfig.googleAnalytics}
                     />
-                    <GithubProjects
-                      repo={repo}
-                      loading={loading}
-                      github={sanitizedConfig.github}
-                      googleAnalytics={sanitizedConfig.googleAnalytics}
-                    />
+                    <GithubProjects repo={repo} loading={loading} github={sanitizedConfig.github} />
                   </div>
                 </div>
               </div>
@@ -231,74 +207,11 @@ const Home = ({ config }) => {
 type CachedConfig = {
   date: number;
   profileData: { avatar: string; name: string; bio: string; location: string; company: string };
-  repo: string[]
+  repo: string[];
 };
 
 type HomeProps = {
-  config: {
-    github: {
-      username: string;
-      sortBy?: "stars" | "updated";
-      limit?: number;
-      exclude?: {
-        forks?: boolean;
-        projects?: string[];
-      };
-    };
-    social: {
-      linkedin?: string;
-      twitter?: string;
-      facebook?: string;
-      instagram?: string;
-      dribbble?: string;
-      behance?: string;
-      medium?: string;
-      dev?: string;
-      stackoverflow?: string;
-      website?: string;
-      phone?: string;
-      email?: string;
-    };
-    skills: { name: string; imageUrl?: string; url?: string }[];
-    externalProjects: {
-      title: string;
-      description: string;
-      link: string;
-      imageUrl?: string;
-    };
-    experiences: { company?: string; position?: string; from?: string; to?: string };
-    certifications: {
-      body?: string;
-      name: string;
-      year: string;
-      link: string;
-    }[];
-    education: {
-      institution: string;
-      degree: string;
-      from: string;
-      to: string;
-    }[];
-    googleAnalytics: {
-      id?: string;
-    };
-    themeConfig: {
-      defaultTheme: string;
-      disableSwitch: boolean;
-      respectPrefersColorScheme: boolean;
-      hideAvatarRing: boolean;
-      themes: any[];
-      customTheme: {
-        primary: string;
-        secondary: string;
-        accent: string;
-        neutral: string;
-        "base-100": string;
-        "--rounded-box": string;
-        "--rounded-btn": string;
-      };
-    };
-  };
+  config: Config;
 };
 
 export default Home;

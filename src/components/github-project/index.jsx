@@ -1,10 +1,10 @@
 import { Fragment } from "preact";
 import { AiOutlineStar, AiOutlineFork } from "react-icons/ai";
 import PropTypes from "prop-types";
-import { ga, languageColor, skeleton } from "../../helpers/utils";
+import { languageColor, skeleton } from "../../helpers/utils";
 import { MdInsertLink } from "react-icons/md";
 
-const GithubProject = ({ repo, loading, github, googleAnalytics }) => {
+const GithubProject = ({ repo, loading, github }) => {
   if (!loading && Array.isArray(repo) && repo.length === 0) {
     return <></>;
   }
@@ -67,19 +67,6 @@ const GithubProject = ({ repo, loading, github, googleAnalytics }) => {
         key={index}
         onClick={(e) => {
           e.preventDefault();
-
-          try {
-            if (googleAnalytics?.id) {
-              ga.event({
-                action: "Click project",
-                params: {
-                  project: item.name,
-                },
-              });
-            }
-          } catch (error) {
-            console.error(error);
-          }
 
           window?.open(item.html_url, "_blank");
         }}
@@ -168,7 +155,6 @@ GithubProject.propTypes = {
   repo: PropTypes.array,
   loading: PropTypes.bool.isRequired,
   github: PropTypes.object.isRequired,
-  googleAnalytics: PropTypes.object.isRequired,
 };
 
 export default GithubProject;

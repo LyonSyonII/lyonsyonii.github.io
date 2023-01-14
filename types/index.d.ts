@@ -119,13 +119,6 @@ export interface Blog {
   limit?: number;
 }
 
-export interface GoogleAnalytics {
-  /**
-   * GA3 tracking id/GA4 tag id UA-XXXXXXXXX-X | G-XXXXXXXXXX
-   */
-  id?: string;
-}
-
 export interface CustomTheme {
   /**
    * Primary color
@@ -272,16 +265,6 @@ export interface Config {
    * Blog config
    */
   blog?: Blog;
-
-  /**
-   * Google Analytics config
-   */
-  googleAnalytics?: GoogleAnalytics;
-
-  /**
-   * Hotjar config
-   */
-  hotjar?: Hotjar;
 
   /**
    * Theme config

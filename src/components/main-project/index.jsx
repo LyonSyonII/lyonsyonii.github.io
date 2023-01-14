@@ -138,7 +138,6 @@ function MainProject({ mainProjects, loading }) {
 MainProject.propTypes = {
   mainProjects: PropTypes.array,
   loading: PropTypes.bool.isRequired,
-  googleAnalytics: PropTypes.object,
 };
 
 export default MainProject;

@@ -1,6 +1,6 @@
 import { Fragment } from "preact";
 import PropTypes from "prop-types";
-import { ga, skeleton } from "../../helpers/utils";
+import { skeleton } from "../../helpers/utils";
 import LazyImage from "../lazy-image";
 
 const displaySection = (otherProject) => {
@@ -11,7 +11,7 @@ const displaySection = (otherProject) => {
   }
 };
 
-const OtherProject = ({ otherProjects, loading, googleAnalytics }) => {
+const OtherProject = ({ otherProjects, loading }) => {
   const renderSkeleton = () => {
     let array = [];
     for (let index = 0; index < otherProjects.length; index++) {
@@ -72,19 +72,6 @@ const OtherProject = ({ otherProjects, loading, googleAnalytics }) => {
         href={item.link}
         onClick={(e) => {
           e.preventDefault();
-
-          try {
-            if (googleAnalytics?.id) {
-              ga.event({
-                action: "Click External Project",
-                params: {
-                  post: item.title,
-                },
-              });
-            }
-          } catch (error) {
-            console.error(error);
-          }
 
           window?.open(item.link, "_blank");
         }}
@@ -159,7 +146,6 @@ const OtherProject = ({ otherProjects, loading, googleAnalytics }) => {
 OtherProject.propTypes = {
   otherProjects: PropTypes.array,
   loading: PropTypes.bool.isRequired,
-  googleAnalytics: PropTypes.object,
 };
 
 export default OtherProject;

@@ -154,7 +154,7 @@ const config: Config = {
   },
 };
 
-type Config = {
+export type Config = {
   github: {
     username: string;
     sortBy?: "stars" | "updated";
@@ -208,8 +208,10 @@ type Config = {
     from: string;
     to: string;
   }[];
-  googleAnalytics?: {
-    id?: string;
+  blog?: {
+    source?: string;
+    username?: string;
+    limit?: number;
   };
   themeConfig?: {
     defaultTheme?: string;

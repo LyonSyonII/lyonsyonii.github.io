@@ -3,25 +3,11 @@ import { Fragment } from "preact";
 import PropTypes from "prop-types";
 import { isDarkishTheme } from "../../helpers/utils";
 
-const HeadTagEditor = ({ profile, theme, googleAnalytics, social }) => {
+const HeadTagEditor = ({ profile, theme, social }) => {
   return (
     <Fragment>
       {profile && (
         <div>
-          {googleAnalytics?.id && (
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalytics.id}`}
-            ></script>
-          )}
-          {googleAnalytics?.id && (
-            <script>
-              {`window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${googleAnalytics.id}');`}
-            </script>
-          )}
           <title>{profile.name}&apos;s Portfolio</title>
           <meta name="theme-color" content={isDarkishTheme(theme) ? "#000000" : "#ffffff"} />
 
@@ -53,7 +39,6 @@ const HeadTagEditor = ({ profile, theme, googleAnalytics, social }) => {
 HeadTagEditor.propTypes = {
   profile: PropTypes.object,
   theme: PropTypes.string,
-  googleAnalytics: PropTypes.object.isRequired,
   social: PropTypes.object.isRequired,
 };
 
