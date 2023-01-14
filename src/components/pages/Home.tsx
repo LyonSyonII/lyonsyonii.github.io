@@ -163,7 +163,7 @@ const Home = ({ config }: HomeProps) => {
                   </CardContainer>
                   <CardContainer
                     className="max-w-full"
-                    innerClassName="grid grid-cols-1 lg:grid-cols-2 gap-3"
+                    innerClassName="grid grid-cols-1 lg:grid-cols-2 gap-3 min-h-full"
                   >
                     <Skills
                       loading={loading}

@@ -28,38 +28,36 @@ const Skill = ({ loading, skills, title }: SkillProps) => {
                 )}
               </h5>
             </div>
-            <div className="flow-root p-3">
-              <div className="-m-1 flex flex-wrap justify-center gap-2">
-                {loading
-                  ? renderSkeleton()
-                  : skills.map((skill, index) => (
-                      <a
-                        href={skill.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        title={skill.name}
-                        key={index}
-                      >
-                        {skill.imageUrl && (
-                          <LazyImage
-                            src={skill.imageUrl}
-                            className="h-10 w-10"
-                            alt={"thumbnail"}
-                            placeholder={skeleton({
-                              width: "w-full",
-                              height: "h-full",
-                              shape: "",
-                            })}
-                          />
-                        )}
-                        {!skill.imageUrl && (
-                          <div className="leading-sm badge-primary m-1 inline-flex items-center rounded-full bg-opacity-90 px-3 py-1 text-xs font-bold">
-                            {skill.name}
-                          </div>
-                        )}
-                      </a>
-                    ))}
-              </div>
+            <div className="-m-1 px-6 pb-6 lg:pb-4 flex flex-wrap justify-center gap-2 min-h-full items-center">
+              {loading
+                ? renderSkeleton()
+                : skills.map((skill, index) => (
+                    <a
+                      href={skill.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      title={skill.name}
+                      key={index}
+                    >
+                      {skill.imageUrl && (
+                        <LazyImage
+                          src={skill.imageUrl}
+                          className="h-10 w-10"
+                          alt={"thumbnail"}
+                          placeholder={skeleton({
+                            width: "w-full",
+                            height: "h-full",
+                            shape: "",
+                          })}
+                        />
+                      )}
+                      {!skill.imageUrl && (
+                        <div className="leading-sm badge-primary m-1 inline-flex items-center rounded-full bg-opacity-90 px-3 py-1 text-xs font-bold">
+                          {skill.name}
+                        </div>
+                      )}
+                    </a>
+                  ))}
             </div>
           </div>
         </div>
