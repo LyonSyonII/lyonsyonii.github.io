@@ -24,7 +24,7 @@ import Page from "../page";
 import OtherProjects from "../other-project";
 import MainProjects from "../main-project";
 import CardContainer from "../card-container";
-import { Config } from "../../../gitprofile.config";
+import { RawConfig } from "../../../gitprofile.config";
 
 const Home = ({ config }: HomeProps) => {
   const [error, setError]: [any, any] = useState(
@@ -213,7 +213,7 @@ type CachedConfig = {
 };
 
 type HomeProps = {
-  config: Config;
+  config: RawConfig;
 };
 
 export default Home;

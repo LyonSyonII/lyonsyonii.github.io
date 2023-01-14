@@ -4,7 +4,7 @@ import { SiTwitter } from "react-icons/si";
 import { GrLinkedinOption } from "react-icons/gr";
 import { CgDribbble } from "react-icons/cg";
 import { RiPhoneFill } from "react-icons/ri";
-import { Fragment } from "preact";
+import { ComponentChildren, Fragment } from "preact";
 import {
   FaBehanceSquare,
   FaBuilding,
@@ -14,9 +14,18 @@ import {
   FaStackOverflow,
 } from "react-icons/fa";
 import PropTypes from "prop-types";
-import { skeleton } from "../../helpers/utils";
+import { Github, skeleton } from "../../helpers/utils";
+import { Social } from "../../../gitprofile.config";
 
-const ListItem = ({ icon, title, value, link, skeleton = false }) => {
+type ListItemProps = {
+  icon?: ComponentChildren;
+  title?: ComponentChildren;
+  value?: ComponentChildren;
+  link?: string;
+  skeleton?: boolean;
+};
+
+const ListItem = ({ icon, title, value, link, skeleton = false }: ListItemProps) => {
   return (
     <a
       href={link}
@@ -51,7 +60,7 @@ const companyLink = (company) => {
   return `https://github.com/${company.substring(1)}`;
 };
 
-const Details = ({ profile, loading, social, github }) => {
+const Details = ({ profile, loading, social, github }: DetailsProps) => {
   const renderSkeleton = () => {
     let array = [];
     for (let index = 0; index < 4; index++) {
@@ -206,19 +215,24 @@ const Details = ({ profile, loading, social, github }) => {
   );
 };
 
+type Profile = {
+  location?: string;
+  company?: string;
+  email?: string;
+};
+
+type DetailsProps = {
+  profile?: Profile;
+  loading: boolean;
+  social: Social;
+  github: Github;
+};
+
 Details.propTypes = {
   profile: PropTypes.object,
   loading: PropTypes.bool.isRequired,
   social: PropTypes.object.isRequired,
   github: PropTypes.object.isRequired,
-};
-
-ListItem.propTypes = {
-  icon: PropTypes.node,
-  title: PropTypes.node,
-  value: PropTypes.node,
-  link: PropTypes.string,
-  skeleton: PropTypes.bool,
 };
 
 export default Details;

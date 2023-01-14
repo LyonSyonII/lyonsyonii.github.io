@@ -1,4 +1,15 @@
-import { Config } from "../../gitprofile.config";
+import {
+  Certification,
+  Education,
+  Experience,
+  ExternalProject,
+  MainProject,
+  RawConfig,
+  Resume,
+  Skill,
+  Social,
+  Theme,
+} from "../../gitprofile.config";
 import colors from "../data/colors.json";
 
 export const getInitialTheme = (themeConfig) => {
@@ -114,7 +125,7 @@ export const loadTheme = (config) => {
   };
 };
 
-export const sanitizeConfig = (config: Config) => {
+export const sanitizeConfig = (config: RawConfig): SanitizedConfig => {
   const customTheme = config?.themeConfig?.customTheme || {
     primary: "#fc055b",
     secondary: "#219aaf",
@@ -188,7 +199,7 @@ export const sanitizeConfig = (config: Config) => {
     skills: config?.skills || [],
     some_experience_with: config?.some_experience_with || [],
     mainProjects: config?.mainProjects || [],
-    otherProjects: config?.externalProjects || [],
+    externalProjects: config?.externalProjects || [],
     experiences: config?.experiences || [],
     certifications: config?.certifications || [],
     education: config?.education || [],
@@ -248,4 +259,44 @@ export const genericError = {
   status: 500,
   title: "Ops!!",
   subTitle: "Something went wrong.",
+};
+
+export type Github = {
+  username: string;
+  sortBy: "stars" | "updated";
+  limit: number;
+  exclude: {
+    forks: boolean;
+    projects: string[];
+  };
+};
+
+export type Blog = {
+  source?: string;
+  username?: string;
+  limit: number;
+};
+
+export type ThemeConfig = {
+  defaultTheme: string;
+  disableSwitch: boolean;
+  respectPrefersColorScheme: boolean;
+  hideAvatarRing: boolean;
+  themes?: string[];
+  customTheme?: Theme;
+};
+
+type SanitizedConfig = {
+  github: Github;
+  social?: Social;
+  resume: Resume;
+  skills?: Skill[];
+  some_experience_with?: Skill[];
+  mainProjects?: MainProject[];
+  externalProjects?: ExternalProject[];
+  experiences?: Experience[];
+  certifications?: Certification[];
+  education?: Education[];
+  blog?: Blog;
+  themeConfig: ThemeConfig;
 };
