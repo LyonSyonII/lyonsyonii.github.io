@@ -4,14 +4,14 @@ import LazyImage from "../lazy-image";
 import { Link } from "react-router-dom";
 import { Project } from "../../../gitprofile.config";
 
-function displaySection(mainProjects: Project[]) {
-  return mainProjects && Array.isArray(mainProjects) && mainProjects.length > 0;
+function displaySection(projects: Project[]) {
+  return projects && Array.isArray(projects) && projects.length > 0;
 }
 
-function MainProjects({ mainProjects, loading }: MainProjectProps) {
+function Projects({ projects, title = "", loading }: ProjectsProps) {
   const renderSkeleton = () => {
     let array = [];
-    for (let index = 0; index < mainProjects.length; index++) {
+    for (let index = 0; index < projects.length; index++) {
       array.push(
         <div className="card compact bg-base-100 shadow-lg" key={index}>
           <div className="h-full w-full p-6">
@@ -61,14 +61,14 @@ function MainProjects({ mainProjects, loading }: MainProjectProps) {
     return array;
   };
 
-  const renderMainProjects = () => {
-    return mainProjects.map((item, index) => (
+  const renderProjects = () => {
+    return projects.map((item, index) => (
       <Link
         to={item.link}
         className="card compact bg-base-100 cursor-pointer shadow-lg"
         key={index}
       >
-        <div className="h-full w-full p-6">
+        <div className="p-4">
           <div className="flex flex-col items-center">
             <div className="w-full">
               <div className="px-4">
@@ -105,28 +105,20 @@ function MainProjects({ mainProjects, loading }: MainProjectProps) {
 
   return (
     <Fragment>
-      {displaySection(mainProjects) && (
-        <div className="col-span-1 lg:col-span-2">
-          <div className="grid grid-cols-2 gap-6">
-            <div className="col-span-2">
-              <div className="card compact bg-base-100 bg-opacity-70 shadow">
-                <div className="card-body">
-                  <div className="mx-3 mb-2 flex items-center justify-between">
-                    <h5 className="card-title">
-                      {loading ? (
-                        skeleton({ width: "w-40", height: "h-8" })
-                      ) : (
-                        <span className="text-base-content opacity-70">Main Projects</span>
-                      )}
-                    </h5>
-                  </div>
-                  <div className="col-span-2">
-                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                      {loading ? renderSkeleton() : renderMainProjects()}
-                    </div>
-                  </div>
-                </div>
-              </div>
+      {displaySection(projects) && (
+        <div className="card compact bg-base-100 bg-opacity-70 shadow max-w-fit max-h-full">
+          <div className="card-body max-w-fit">
+            <div className="mx-3 mb-2 max-w-fit">
+              <h5 className="card-title">
+                {loading ? (
+                  skeleton({ width: "w-40", height: "h-8" })
+                ) : (
+                  <span className="text-base-content opacity-70">{title}</span>
+                )}
+              </h5>
+            </div>
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              {loading ? renderSkeleton() : renderProjects()}
             </div>
           </div>
         </div>
@@ -135,9 +127,10 @@ function MainProjects({ mainProjects, loading }: MainProjectProps) {
   );
 }
 
-type MainProjectProps = {
-  mainProjects?: Project[];
+type ProjectsProps = {
+  projects?: Project[];
+  title?: string;
   loading: boolean;
 };
 
-export default MainProjects;
+export default Projects;

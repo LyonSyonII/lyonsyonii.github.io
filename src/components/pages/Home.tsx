@@ -2,7 +2,6 @@ import axios from "axios";
 import { StateUpdater, useCallback, useEffect, useState } from "preact/hooks";
 import HeadTagEditor from "../head-tag-editor";
 import ErrorPage from "../error-page";
-import ThemeChanger from "../theme-changer";
 import AvatarCard from "../avatar-card";
 import Details from "../details";
 import Skills from "../skill";
@@ -21,10 +20,9 @@ import {
 import "../../assets/index.css";
 import { formatDistance } from "date-fns";
 import Page from "../page";
-import OtherProjects from "../other-projects";
-import MainProjects from "../main-projects";
 import CardContainer from "../card-container";
 import { RawConfig } from "../../../gitprofile.config";
+import Projects from "../projects";
 
 const Home = ({ config }: HomeProps) => {
   const [error, setError]: [any, any] = useState(
@@ -144,17 +142,9 @@ const Home = ({ config }: HomeProps) => {
         ) : (
           sanitizedConfig && (
             <Page>
-              <div className="rounded-box grid grid-cols-1 gap-6 lg:grid-cols-3">
-                <div className="col-span-1">
-                  <div className="grid grid-cols-1 gap-6">
-                    {!sanitizedConfig.themeConfig.disableSwitch && (
-                      <ThemeChanger
-                        theme={theme}
-                        setTheme={setTheme}
-                        loading={loading}
-                        themeConfig={sanitizedConfig.themeConfig}
-                      />
-                    )}
+              <div className="rounded-box flex flex-col gap-6">
+                <div className="flex flex-col lg:flex-row gap-6 justify-evenly">
+                  <CardContainer className="min-w-fit max-w-full" innerClassName="grid grid-cols-2 gap-3">
                     <AvatarCard
                       profile={profile}
                       loading={loading}
@@ -167,36 +157,62 @@ const Home = ({ config }: HomeProps) => {
                       github={sanitizedConfig.github}
                       social={sanitizedConfig.social}
                     />
-                    <CardContainer loading={loading}>
-                      <Skills
-                        loading={loading}
-                        skills={sanitizedConfig.skills}
-                        title={"Tech Stack"}
-                      />
-                      <Skills
-                        loading={loading}
-                        skills={sanitizedConfig.some_experience_with}
-                        title={"Some experience with..."}
-                      />
-                    </CardContainer>
-                    <Experience loading={loading} experiences={sanitizedConfig.experiences} />
-                    <Education loading={loading} education={sanitizedConfig.education} />
-                    <Certification
+                  </CardContainer>
+                  <CardContainer className="min-w-fit max-w-full" innerClassName="grid grid-cols-1 gap-3">
+                    <AvatarCard
+                      profile={profile}
                       loading={loading}
-                      certifications={sanitizedConfig.certifications}
+                      avatarRing={!sanitizedConfig.themeConfig.hideAvatarRing}
+                      resume={sanitizedConfig.resume}
                     />
-                  </div>
-                </div>
-                <div className="col-span-1 lg:col-span-2">
-                  <div className="grid grid-cols-1 gap-6">
-                    <MainProjects loading={loading} mainProjects={sanitizedConfig.mainProjects} />
-                    <OtherProjects
+                    <Details
+                      profile={profile}
                       loading={loading}
-                      otherProjects={sanitizedConfig.otherProjects}
+                      github={sanitizedConfig.github}
+                      social={sanitizedConfig.social}
                     />
-                    <GithubProjects repo={repo} loading={loading} github={sanitizedConfig.github} />
-                  </div>
+                  </CardContainer>
+                  <CardContainer className="max-w-full" innerClassName="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                    <Skills
+                      loading={loading}
+                      skills={sanitizedConfig.skills}
+                      title={"Tech Stack"}
+                    />
+                    <Skills
+                      loading={loading}
+                      skills={sanitizedConfig.some_experience_with}
+                      title={"Some experience with..."}
+                    />
+                  </CardContainer>
+                  <CardContainer className="max-w-full" innerClassName="grid grid-cols-2 gap-3">
+                    <Skills
+                      loading={loading}
+                      skills={sanitizedConfig.skills}
+                      title={"Tech Stack"}
+                    />
+                    <Skills
+                      loading={loading}
+                      skills={sanitizedConfig.some_experience_with}
+                      title={"Some experience with..."}
+                    />
+                  </CardContainer>
+                  <Experience loading={loading} experiences={sanitizedConfig.experiences} />
+                  <Education loading={loading} education={sanitizedConfig.education} />
+                  <Certification
+                    loading={loading}
+                    certifications={sanitizedConfig.certifications}
+                  />
                 </div>
+
+                <div className="grid grid-flow-col gap-6">
+                  <Projects title="Main Projects" loading={loading} projects={sanitizedConfig.mainProjects} />
+                  <Projects
+                    title="Other Projects"
+                    loading={loading}
+                    projects={sanitizedConfig.otherProjects}
+                  />
+                </div>
+                  <GithubProjects repo={repo} loading={loading} github={sanitizedConfig.github} />
               </div>
             </Page>
           )

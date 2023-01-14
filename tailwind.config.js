@@ -1,6 +1,4 @@
-export type TailwindConfig = import("tailwindcss").Config;
-
-const tailwindConfig: TailwindConfig = {
+module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
@@ -9,6 +7,4 @@ const tailwindConfig: TailwindConfig = {
   daisyui: {
     logs: false,
   },
-};
-
-export default tailwindConfig;
+}

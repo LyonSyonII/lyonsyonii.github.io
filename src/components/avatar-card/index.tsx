@@ -6,7 +6,7 @@ import { Resume } from "../../../gitprofile.config";
 const AvatarCard = ({ profile, loading, avatarRing, resume }: AvatarCardProps) => {
   return (
     <div className="card compact bg-base-100 shadow-lg">
-      <div className="grid place-items-center py-8">
+      <div className="grid place-items-center p-2">
         {loading || !profile ? (
           <div className="avatar opacity-90">
             <div className="mb-8 h-32 w-32 rounded-full">
@@ -20,7 +20,7 @@ const AvatarCard = ({ profile, loading, avatarRing, resume }: AvatarCardProps) =
         ) : (
           <div className="avatar opacity-90">
             <div
-              className={`mb-8 h-24 w-32 rounded-full ${
+              className={`mb-4 h-24 w-32 rounded-full ${
                 avatarRing ? "ring-primary ring-offset-base-100 ring ring-offset-2" : ""
               }`}
             >

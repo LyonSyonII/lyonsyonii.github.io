@@ -12,7 +12,7 @@ const config: RawConfig = {
   },
   social: {
     phone: "",
-    email: "liam.garriga@tutanota.com",
+    email: "liam@garriga.dev",
   },
   resume: {
     fileUrl: "",
