@@ -67,7 +67,7 @@ const OtherProject = ({ otherProjects, loading }) => {
   const renderOtherProjects = () => {
     return otherProjects.map((item, index) => (
       <a
-        className="card compact cursor-pointer bg-base-100 shadow-lg"
+        className="card compact bg-base-100 cursor-pointer shadow-lg"
         key={index}
         href={item.link}
         onClick={(e) => {
@@ -99,7 +99,7 @@ const OtherProject = ({ otherProjects, loading }) => {
                       </div>
                     </div>
                   )}
-                  <p className="mt-1 text-sm text-base-content text-opacity-60">
+                  <p className="text-base-content mt-1 text-sm text-opacity-60">
                     {item.description}
                   </p>
                 </div>

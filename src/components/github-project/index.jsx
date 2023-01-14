@@ -62,7 +62,7 @@ const GithubProject = ({ repo, loading, github }) => {
   const renderProjects = () => {
     return repo.map((item, index) => (
       <a
-        className="card compact cursor-pointer bg-base-100 shadow-lg"
+        className="card compact bg-base-100 cursor-pointer shadow-lg"
         href={item.html_url}
         key={index}
         onClick={(e) => {
@@ -74,16 +74,16 @@ const GithubProject = ({ repo, loading, github }) => {
         <div className="flex h-full w-full flex-col justify-between p-8">
           <div>
             <div className="flex items-center">
-              <div className="card-title flex text-lg tracking-wide text-base-content opacity-60">
+              <div className="card-title text-base-content flex text-lg tracking-wide opacity-60">
                 <MdInsertLink className="my-auto" />
                 <span className="capitalize">{item.name}</span>
               </div>
             </div>
-            <p className="mb-5 mt-1 text-sm text-base-content text-opacity-60">
+            <p className="text-base-content mb-5 mt-1 text-sm text-opacity-60">
               {item.description}
             </p>
           </div>
-          <div className="flex justify-between text-sm text-base-content text-opacity-60">
+          <div className="text-base-content flex justify-between text-sm text-opacity-60">
             <div className="flex flex-grow">
               <span className="mr-3 flex items-center">
                 <AiOutlineStar className="mr-0.5" />

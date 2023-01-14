@@ -13,7 +13,7 @@ const ThemeChanger = ({ theme, setTheme, loading, themeConfig }) => {
   };
 
   return (
-    <div className="card compact overflow-visible bg-base-100 shadow-lg">
+    <div className="card compact bg-base-100 overflow-visible shadow-lg">
       <div className="flex flex-row items-center space-x-4 py-4 pl-6 pr-2">
         <div className="flex-1">
           <h5 className="card-title">
@@ -23,7 +23,7 @@ const ThemeChanger = ({ theme, setTheme, loading, themeConfig }) => {
               <span className="text-base-content opacity-70">Theme</span>
             )}
           </h5>
-          <span className="text-sm capitalize text-base-content text-opacity-40">
+          <span className="text-base-content text-sm capitalize text-opacity-40">
             {loading
               ? skeleton({ width: "w-16", height: "h-5" })
               : theme === themeConfig.defaultTheme
@@ -42,7 +42,7 @@ const ThemeChanger = ({ theme, setTheme, loading, themeConfig }) => {
             <div title="Change Theme" className="dropdown-end dropdown">
               <div
                 tabIndex={0}
-                className="btn-ghost btn m-1 normal-case text-base-content opacity-50"
+                className="btn-ghost btn text-base-content m-1 normal-case opacity-50"
               >
                 <AiOutlineControl className="inline-block h-5 w-5 stroke-current md:mr-2" />
                 <span className="hidden md:inline">Change Theme</span>
@@ -56,7 +56,7 @@ const ThemeChanger = ({ theme, setTheme, loading, themeConfig }) => {
               </div>
               <div
                 tabIndex={0}
-                className="dropdown-content rounded-b-box top-px mt-16 max-h-96 w-52 overflow-y-auto bg-base-200 text-base-content shadow-2xl"
+                className="dropdown-content rounded-b-box bg-base-200 text-base-content top-px mt-16 max-h-96 w-52 overflow-y-auto shadow-2xl"
               >
                 <ul className="compact menu p-4">
                   {[

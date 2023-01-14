@@ -1,8 +1,6 @@
-/** @type {import('tailwindcss').Config} */
+export type TailwindConfig = import("tailwindcss").Config;
 
-// import config from './gitprofile.config';
-
-module.exports = {
+const tailwindConfig: TailwindConfig = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
@@ -12,3 +10,5 @@ module.exports = {
     logs: false,
   },
 };
+
+export default tailwindConfig;

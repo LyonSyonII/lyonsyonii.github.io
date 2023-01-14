@@ -4,7 +4,7 @@ import tailwind from "tailwindcss";
 import autoprefixer from "autoprefixer";
 import tailwindConfig from "./tailwind.config.js";
 import { visualizer } from "rollup-plugin-visualizer";
-import config from "./gitprofile.config";
+import config from "./gitprofile.config.js";
 
 function getTailwindConfig() {
   let cfg = tailwindConfig;
@@ -17,9 +17,11 @@ export default defineConfig({
   // If you are deploying to https://<USERNAME>.github.io/<REPO>/, for example your repository is at https://github.com/<USERNAME>/<REPO>, then set base to '/<REPO>/'.
   base: "/",
   plugins: [preact(), visualizer()],
-  alias: {
-    react: "preact/compat",
-    "react-dom": "preact/compat",
+  resolve: {
+    alias: {
+      react: "preact/compat",
+      "react-dom": "preact/compat",
+    },
   },
   css: {
     postcss: {

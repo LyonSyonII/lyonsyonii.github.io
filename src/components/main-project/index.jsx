@@ -65,7 +65,7 @@ function MainProject({ mainProjects, loading }) {
     return mainProjects.map((item, index) => (
       <Link
         to={item.link}
-        className="card compact cursor-pointer bg-base-100 shadow-lg"
+        className="card compact bg-base-100 cursor-pointer shadow-lg"
         key={index}
       >
         <div className="h-full w-full p-6">
@@ -91,7 +91,7 @@ function MainProject({ mainProjects, loading }) {
                       </div>
                     </div>
                   )}
-                  <p className="mt-1 text-sm text-base-content text-opacity-60">
+                  <p className="text-base-content mt-1 text-sm text-opacity-60">
                     {item.description}
                   </p>
                 </div>

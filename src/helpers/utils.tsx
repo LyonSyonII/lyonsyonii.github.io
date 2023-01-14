@@ -46,7 +46,7 @@ export const skeleton = ({
 }) => {
   return (
     <div
-      className={`animate-pulse bg-base-300 ${shape}${className ? ` ${className}` : ""}${
+      className={`bg-base-300 animate-pulse ${shape}${className ? ` ${className}` : ""}${
         width ? ` ${width}` : ""
       }${height ? ` ${height}` : ""}`}
       style={style}
