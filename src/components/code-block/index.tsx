@@ -4,7 +4,7 @@ import { useState, useMemo } from "preact/hooks";
 function nodesToText(children: ComponentChildren = []): string {
   const nodeToString = (node: ComponentChildren, fallback = ""): string =>
     (typeof node === "string" && node) || fallback;
-  
+
   if (Array.isArray(children)) {
     return children.reduce(
       (prev: string, curr: ComponentChildren) => prev.concat(nodeToString(curr, "\n")),
