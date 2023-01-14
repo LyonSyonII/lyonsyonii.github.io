@@ -4,8 +4,8 @@ import { skeleton } from "../../helpers/utils";
 import LazyImage from "../lazy-image";
 import { Link } from "react-router-dom";
 
-function displaySection(externalProjects) {
-  return externalProjects && Array.isArray(externalProjects) && externalProjects.length > 0;
+function displaySection(otherProjects) {
+  return otherProjects && Array.isArray(otherProjects) && otherProjects.length > 0;
 }
 
 function MainProject({ mainProjects, loading }) {

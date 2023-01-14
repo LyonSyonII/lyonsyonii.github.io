@@ -2,7 +2,7 @@ import {
   Certification,
   Education,
   Experience,
-  ExternalProject,
+  OtherProject,
   MainProject,
   RawConfig,
   Resume,
@@ -199,7 +199,7 @@ export const sanitizeConfig = (config: RawConfig): SanitizedConfig => {
     skills: config?.skills || [],
     some_experience_with: config?.some_experience_with || [],
     mainProjects: config?.mainProjects || [],
-    externalProjects: config?.externalProjects || [],
+    otherProjects: config?.otherProjects || [],
     experiences: config?.experiences || [],
     certifications: config?.certifications || [],
     education: config?.education || [],
@@ -293,7 +293,7 @@ type SanitizedConfig = {
   skills?: Skill[];
   some_experience_with?: Skill[];
   mainProjects?: MainProject[];
-  externalProjects?: ExternalProject[];
+  otherProjects?: OtherProject[];
   experiences?: Experience[];
   certifications?: Certification[];
   education?: Education[];

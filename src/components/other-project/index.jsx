@@ -64,7 +64,7 @@ const OtherProject = ({ otherProjects, loading }) => {
     return array;
   };
 
-  const renderExternalProjects = () => {
+  const renderOtherProjects = () => {
     return otherProjects.map((item, index) => (
       <a
         className="card compact cursor-pointer bg-base-100 shadow-lg"
@@ -130,7 +130,7 @@ const OtherProject = ({ otherProjects, loading }) => {
                   </div>
                   <div className="col-span-2">
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                      {loading ? renderSkeleton() : renderExternalProjects()}
+                      {loading ? renderSkeleton() : renderOtherProjects()}
                     </div>
                   </div>
                 </div>

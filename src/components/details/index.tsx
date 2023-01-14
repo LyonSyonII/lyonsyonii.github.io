@@ -13,17 +13,8 @@ import {
   FaGlobe,
   FaStackOverflow,
 } from "react-icons/fa";
-import PropTypes from "prop-types";
 import { Github, skeleton } from "../../helpers/utils";
 import { Social } from "../../../gitprofile.config";
-
-type ListItemProps = {
-  icon?: ComponentChildren;
-  title?: ComponentChildren;
-  value?: ComponentChildren;
-  link?: string;
-  skeleton?: boolean;
-};
 
 const ListItem = ({ icon, title, value, link, skeleton = false }: ListItemProps) => {
   return (
@@ -215,6 +206,14 @@ const Details = ({ profile, loading, social, github }: DetailsProps) => {
   );
 };
 
+type ListItemProps = {
+  icon?: ComponentChildren;
+  title?: ComponentChildren;
+  value?: ComponentChildren;
+  link?: string;
+  skeleton?: boolean;
+};
+
 type Profile = {
   location?: string;
   company?: string;
@@ -226,13 +225,6 @@ type DetailsProps = {
   loading: boolean;
   social: Social;
   github: Github;
-};
-
-Details.propTypes = {
-  profile: PropTypes.object,
-  loading: PropTypes.bool.isRequired,
-  social: PropTypes.object.isRequired,
-  github: PropTypes.object.isRequired,
 };
 
 export default Details;

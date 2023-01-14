@@ -120,7 +120,7 @@ const config: RawConfig = {
       link: "/deck-toolbox",
     },
   ],
-  externalProjects: [
+  otherProjects: [
     {
       title: "Motley",
       description: "Fast-paced game developed with the Unity Game Engine.",
@@ -187,7 +187,7 @@ export type MainProject = {
   link: string;
   imageUrl?: string;
 };
-export type ExternalProject = {
+export type OtherProject = {
   title: string;
   description: string;
   link: string;
@@ -236,7 +236,7 @@ export type RawConfig = {
   skills?: Skill[];
   some_experience_with?: Skill[];
   mainProjects?: MainProject[];
-  externalProjects?: ExternalProject[];
+  otherProjects?: OtherProject[];
   experiences?: Experience[];
   certifications?: Certification[];
   education?: Education[];
