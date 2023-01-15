@@ -1,6 +1,6 @@
 import { Education as EducationConfigType } from "../../../gitprofile.config";
 import { skeleton } from "../../helpers/utils";
-import { ComponentChildren, Fragment } from "preact";
+import { ComponentChildren } from "preact";
 
 const ListItem = ({ time, degree, institution }: ListItemProps) => (
   <li className="mb-5 ml-4">
@@ -14,7 +14,7 @@ const ListItem = ({ time, degree, institution }: ListItemProps) => (
   </li>
 );
 
-const Education = ({ loading, education }: EducationProps) => {
+const Education = ({ loading, education, className = "" }: EducationProps) => {
   const renderSkeleton = () => {
     let array = [];
     for (let index = 0; index < 2; index++) {
@@ -41,7 +41,7 @@ const Education = ({ loading, education }: EducationProps) => {
   return (
     <>
       {education?.length !== 0 && (
-        <div className="card compact bg-base-100 shadow-lg">
+        <div className={`card compact bg-base-100 shadow-lg ${className}`}>
           <div className="card-body">
             <div className="mx-3">
               <h5 className="card-title">
@@ -57,7 +57,7 @@ const Education = ({ loading, education }: EducationProps) => {
                 {loading ? (
                   renderSkeleton()
                 ) : (
-                  <Fragment>
+                  <>
                     {education.map((item, index) => (
                       <ListItem
                         key={index}
@@ -66,7 +66,7 @@ const Education = ({ loading, education }: EducationProps) => {
                         institution={item.institution}
                       />
                     ))}
-                  </Fragment>
+                  </>
                 )}
               </ol>
             </div>
@@ -80,6 +80,7 @@ const Education = ({ loading, education }: EducationProps) => {
 type EducationProps = {
   loading: boolean;
   education: EducationConfigType[];
+  className: string;
 };
 
 type ListItemProps = {

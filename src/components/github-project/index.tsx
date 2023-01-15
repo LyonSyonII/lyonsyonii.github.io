@@ -1,4 +1,4 @@
-import { Fragment } from "preact";
+import {} from "preact";
 import { AiOutlineStar, AiOutlineFork } from "react-icons/ai";
 import { Github, languageColor, skeleton } from "../../helpers/utils";
 import { MdInsertLink } from "react-icons/md";
@@ -110,7 +110,7 @@ const GithubProject = ({ repo, loading, github }: GithubProjectProps) => {
   };
 
   return (
-    <Fragment>
+    <>
       <div className="col-span-1 lg:col-span-2">
         <div className="grid grid-cols-2 gap-6">
           <div className="col-span-2">
@@ -147,7 +147,7 @@ const GithubProject = ({ repo, loading, github }: GithubProjectProps) => {
           </div>
         </div>
       </div>
-    </Fragment>
+    </>
   );
 };
 

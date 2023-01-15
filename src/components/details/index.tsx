@@ -4,7 +4,7 @@ import { SiTwitter } from "react-icons/si";
 import { GrLinkedinOption } from "react-icons/gr";
 import { CgDribbble } from "react-icons/cg";
 import { RiPhoneFill } from "react-icons/ri";
-import { ComponentChildren, Fragment } from "preact";
+import { ComponentChildren } from "preact";
 import {
   FaBehanceSquare,
   FaBuilding,
@@ -77,7 +77,7 @@ const Details = ({ profile, loading, social, github }: DetailsProps) => {
           {loading || !profile ? (
             renderSkeleton()
           ) : (
-            <Fragment>
+            <>
               {profile.location && (
                 <ListItem
                   icon={<MdLocationOn className="mr-2" />}
@@ -199,7 +199,7 @@ const Details = ({ profile, loading, social, github }: DetailsProps) => {
                   link={`mailto:${social.email}`}
                 />
               )}
-            </Fragment>
+            </>
           )}
         </div>
       </div>

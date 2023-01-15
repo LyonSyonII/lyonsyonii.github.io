@@ -145,7 +145,7 @@ const Home = ({ config }: HomeProps) => {
               <div className="rounded-box flex flex-col gap-6">
                 <div className="flex flex-col justify-evenly gap-6 lg:flex-row">
                   <CardContainer
-                    className="min-w-fit max-w-full"
+                    className="min-w-fit max-w-full lg:w-1/4"
                     innerClassName="grid grid-cols-1 lg:grid-cols-2 gap-3"
                   >
                     <AvatarCard
@@ -162,7 +162,7 @@ const Home = ({ config }: HomeProps) => {
                     />
                   </CardContainer>
                   <CardContainer
-                    className="max-w-full"
+                    className="max-w-full lg:w-2/4"
                     innerClassName="grid grid-cols-1 lg:grid-cols-2 gap-3 min-h-full"
                   >
                     <Skills
@@ -177,14 +177,18 @@ const Home = ({ config }: HomeProps) => {
                     />
                   </CardContainer>
                   <Experience loading={loading} experiences={sanitizedConfig.experiences} />
-                  <Education loading={loading} education={sanitizedConfig.education} />
+                  <Education
+                    loading={loading}
+                    education={sanitizedConfig.education}
+                    className="lg:w-1/4"
+                  />
                   <Certification
                     loading={loading}
                     certifications={sanitizedConfig.certifications}
                   />
                 </div>
 
-                <div className="grid lg:grid-flow-col lg:grid-cols-2 gap-6">
+                <div className="grid gap-6 lg:grid-flow-col lg:grid-cols-2">
                   <Projects
                     title="Main Projects"
                     loading={loading}

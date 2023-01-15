@@ -1,11 +1,11 @@
-import { Fragment } from "preact";
+import {} from "preact";
 import { isDarkishTheme } from "../../helpers/utils";
 import { Profile } from "../pages/Home";
 import { Social } from "../../../gitprofile.config";
 
 const HeadTagEditor = ({ profile, theme, social }: HeadTagEditorProps) => {
   return (
-    <Fragment>
+    <>
       {profile && (
         <div>
           <title>{profile.name}&apos;s Portfolio</title>
@@ -32,7 +32,7 @@ const HeadTagEditor = ({ profile, theme, social }: HeadTagEditorProps) => {
           <meta name="twitter:image" content={profile.avatar} />
         </div>
       )}
-    </Fragment>
+    </>
   );
 };
 

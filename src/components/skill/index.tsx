@@ -28,7 +28,7 @@ const Skill = ({ loading, skills, title }: SkillProps) => {
                 )}
               </h5>
             </div>
-            <div className="-m-1 px-6 pb-6 lg:pb-4 flex flex-wrap justify-center gap-2 min-h-full items-center">
+            <div className="-m-1 flex min-h-full flex-wrap items-center justify-center gap-2 px-6 pb-6 lg:pb-4">
               {loading
                 ? renderSkeleton()
                 : skills.map((skill, index) => (

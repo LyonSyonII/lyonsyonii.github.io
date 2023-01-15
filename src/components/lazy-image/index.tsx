@@ -1,4 +1,4 @@
-import { ComponentChildren, Fragment } from "preact";
+import { ComponentChildren } from "preact";
 import { useState, useEffect } from "preact/hooks";
 
 const LazyImage = ({ placeholder, src, alt, ...rest }: LazyImageProps) => {
@@ -13,7 +13,7 @@ const LazyImage = ({ placeholder, src, alt, ...rest }: LazyImageProps) => {
     };
   }, [src]);
 
-  return <Fragment>{loading ? placeholder : <img src={src} alt={alt} {...rest} />}</Fragment>;
+  return <>{loading ? placeholder : <img src={src} alt={alt} {...rest} />}</>;
 };
 
 type LazyImageProps = {

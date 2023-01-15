@@ -1,9 +1,8 @@
-import { ComponentChildren, Fragment } from "preact";
-import { skeleton } from "../../helpers/utils";
+import { ComponentChildren } from "preact";
 
 const CardContainer = ({ children, className = "", innerClassName = "" }: CardContainerProps) => {
   return (
-    <Fragment>
+    <>
       {children && (
         <div className={`card compact bg-base-100 bg-opacity-70 shadow ${className}`}>
           <div className="card-body">
@@ -11,7 +10,7 @@ const CardContainer = ({ children, className = "", innerClassName = "" }: CardCo
           </div>
         </div>
       )}
-    </Fragment>
+    </>
   );
 };
 

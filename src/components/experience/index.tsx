@@ -1,5 +1,5 @@
 import { skeleton } from "../../helpers/utils";
-import { ComponentChildren, Fragment } from "preact";
+import { ComponentChildren } from "preact";
 import { Experience as ExperienceConfigType } from "../../../gitprofile.config";
 
 const ListItem = ({ time, position, company, companyLink }: ListItemProps) => (
@@ -60,7 +60,7 @@ const Experience = ({ experiences, loading }: ExperienceProps) => {
                 {loading ? (
                   renderSkeleton()
                 ) : (
-                  <Fragment>
+                  <>
                     {experiences.map((experience, index) => (
                       <ListItem
                         key={index}
@@ -70,7 +70,7 @@ const Experience = ({ experiences, loading }: ExperienceProps) => {
                         companyLink={experience.companyLink ? experience.companyLink : null}
                       />
                     ))}
-                  </Fragment>
+                  </>
                 )}
               </ol>
             </div>

@@ -1,5 +1,5 @@
 import { skeleton } from "../../helpers/utils";
-import { ComponentChildren, Fragment } from "preact";
+import { ComponentChildren } from "preact";
 import { Certification as CertificationType } from "../../../gitprofile.config";
 
 const ListItem = ({ year, name, body, link }: ListItemProps) => (
@@ -61,7 +61,7 @@ const Certification = ({ certifications, loading }: CertificationProps) => {
                 {loading ? (
                   renderSkeleton()
                 ) : (
-                  <Fragment>
+                  <>
                     {certifications.map((certification, index) => (
                       <ListItem
                         key={index}
@@ -71,7 +71,7 @@ const Certification = ({ certifications, loading }: CertificationProps) => {
                         link={certification.link ? certification.link : null}
                       />
                     ))}
-                  </Fragment>
+                  </>
                 )}
               </ol>
             </div>

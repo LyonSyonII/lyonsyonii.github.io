@@ -3,9 +3,9 @@ import LazyImage from "../lazy-image";
 import { Profile } from "../pages/Home";
 import { Resume } from "../../../gitprofile.config";
 
-const AvatarCard = ({ profile, loading, avatarRing, resume }: AvatarCardProps) => {
+const AvatarCard = ({ profile, loading, avatarRing, resume, className = "" }: AvatarCardProps) => {
   return (
-    <div className="card compact bg-base-100 shadow-lg">
+    <div className={`card compact bg-base-100 shadow-lg ${className}`}>
       <div className="grid place-items-center p-2">
         {loading || !profile ? (
           <div className="avatar opacity-90">
@@ -74,6 +74,7 @@ type AvatarCardProps = {
   loading: boolean;
   avatarRing: boolean;
   resume?: Resume;
+  className?: string;
 };
 
 export default AvatarCard;
