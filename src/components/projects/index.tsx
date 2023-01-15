@@ -37,7 +37,7 @@ function renderProjects(projects: Project[]): ComponentChildren {
   return projects.map((item, index) => (
     <Link
       to={item.link}
-      className="card compact w-1/3 cursor-pointer bg-base-100 shadow-lg"
+      className="card compact lg:w-1/3 cursor-pointer bg-base-100 shadow-lg"
       key={index}
     >
       <div className="p-4">

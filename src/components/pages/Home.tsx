@@ -143,7 +143,8 @@ const Home = ({ config }: HomeProps) => {
           sanitizedConfig && (
             <Page>
               <div className="rounded-box flex flex-col gap-6">
-                <div className="flex flex-col justify-evenly gap-6 lg:flex-row">
+                { /* ROW 1 */ }
+                <div className="flex flex-col lg:flex-row justify-evenly gap-6">
                   <CardContainer
                     className="min-w-fit max-w-full lg:w-1/4"
                     innerClassName="grid grid-cols-1 lg:grid-cols-2 gap-3"
@@ -187,7 +188,7 @@ const Home = ({ config }: HomeProps) => {
                     certifications={sanitizedConfig.certifications}
                   />
                 </div>
-
+                { /* ROW 2 */ }
                 <div className="grid gap-6 lg:grid-flow-col lg:grid-cols-2">
                   <Projects
                     title="Main Projects"
@@ -200,6 +201,7 @@ const Home = ({ config }: HomeProps) => {
                     projects={sanitizedConfig.otherProjects}
                   />
                 </div>
+                { /* ROW 3 */ }
                 <GithubProjects repo={repo} loading={loading} github={sanitizedConfig.github} />
               </div>
             </Page>
