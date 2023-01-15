@@ -1,7 +1,7 @@
 import {} from "preact";
-import { AiOutlineStar, AiOutlineFork } from "react-icons/ai";
-import { Github, languageColor, skeleton } from "../../helpers/utils";
+import { AiOutlineFork, AiOutlineStar } from "react-icons/ai";
 import { MdInsertLink } from "react-icons/md";
+import { Github, languageColor, skeleton } from "../../helpers/utils";
 import { Repo } from "../pages/Home";
 
 const GithubProject = ({ repo, loading, github }: GithubProjectProps) => {

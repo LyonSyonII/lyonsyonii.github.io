@@ -1,10 +1,10 @@
-import { defineConfig } from "vite";
 import preact from "@preact/preset-vite";
-import tailwind from "tailwindcss";
 import autoprefixer from "autoprefixer";
-import tailwindConfig from "./tailwind.config.js";
 import { visualizer } from "rollup-plugin-visualizer";
+import tailwind from "tailwindcss";
+import { defineConfig } from "vite";
 import config from "./gitprofile.config.js";
+import tailwindConfig from "./tailwind.config.js";
 
 function getTailwindConfig() {
   let cfg = tailwindConfig;

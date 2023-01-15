@@ -1,6 +1,6 @@
-import { skeleton } from "../../helpers/utils";
 import { ComponentChildren } from "preact";
 import { Certification as CertificationType } from "../../../gitprofile.config";
+import { skeleton } from "../../helpers/utils";
 
 const ListItem = ({ year, name, body, link }: ListItemProps) => (
   <li className="mb-5 ml-4">

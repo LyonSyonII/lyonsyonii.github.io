@@ -1,6 +1,6 @@
+import { Skill as SkillConfigType } from "gitprofile.config";
 import { skeleton } from "../../helpers/utils";
 import LazyImage from "../lazy-image";
-import { Skill as SkillConfigType } from "gitprofile.config";
 
 const Skill = ({ loading, skills, title }: SkillProps) => {
   const renderSkeleton = () => {
@@ -28,7 +28,8 @@ const Skill = ({ loading, skills, title }: SkillProps) => {
                 )}
               </h5>
             </div>
-            <div className="-m-1 flex min-h-full flex-wrap items-center justify-center gap-2 px-6 pb-6 lg:pb-4">
+            <div className="-m-1 flex min-h-full pb-8 items-center justify-center">
+            <div className="flex flex-wrap gap-2 items-center justify-center pb-3">
               {loading
                 ? renderSkeleton()
                 : skills.map((skill, index) => (
@@ -58,6 +59,7 @@ const Skill = ({ loading, skills, title }: SkillProps) => {
                       )}
                     </a>
                   ))}
+            </div>
             </div>
           </div>
         </div>

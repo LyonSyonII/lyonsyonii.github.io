@@ -1,10 +1,6 @@
-import { MdLocationOn, MdMail } from "react-icons/md";
-import { AiFillGithub, AiFillInstagram, AiFillMediumSquare } from "react-icons/ai";
-import { SiTwitter } from "react-icons/si";
-import { GrLinkedinOption } from "react-icons/gr";
-import { CgDribbble } from "react-icons/cg";
-import { RiPhoneFill } from "react-icons/ri";
 import { ComponentChildren } from "preact";
+import { AiFillGithub, AiFillInstagram, AiFillMediumSquare } from "react-icons/ai";
+import { CgDribbble } from "react-icons/cg";
 import {
   FaBehanceSquare,
   FaBuilding,
@@ -13,8 +9,12 @@ import {
   FaGlobe,
   FaStackOverflow,
 } from "react-icons/fa";
-import { Github, skeleton } from "../../helpers/utils";
+import { GrLinkedinOption } from "react-icons/gr";
+import { MdLocationOn, MdMail } from "react-icons/md";
+import { RiPhoneFill } from "react-icons/ri";
+import { SiTwitter } from "react-icons/si";
 import { Social } from "../../../gitprofile.config";
+import { Github, skeleton } from "../../helpers/utils";
 import { Profile } from "../pages/Home";
 
 const ListItem = ({ icon, title, value, link, skeleton = false }: ListItemProps) => {
@@ -23,7 +23,7 @@ const ListItem = ({ icon, title, value, link, skeleton = false }: ListItemProps)
       href={link}
       target="_blank"
       rel="noreferrer"
-      className="flex items-center justify-start py-2 px-1"
+      className="flex flex-wrap items-center justify-start py-2 px-1"
     >
       <span className="m-2 w-2">{icon}</span>
       <div className="flex-grow px-2 font-medium">{title}</div>
@@ -71,9 +71,9 @@ const Details = ({ profile, loading, social, github }: DetailsProps) => {
   };
 
   return (
-    <div className="card compact min-w-fit bg-base-100 shadow-lg">
-      <div className="card-body min-w-fit">
-        <div className="flex min-h-full min-w-fit flex-col justify-evenly text-base-content text-opacity-60">
+    <div className="card compact bg-base-100 shadow-lg">
+      <div className="card-body">
+        <div className="flex flex-col flex-wrap min-h-full min-w-fit justify-evenly text-base-content text-opacity-60">
           {loading || !profile ? (
             renderSkeleton()
           ) : (

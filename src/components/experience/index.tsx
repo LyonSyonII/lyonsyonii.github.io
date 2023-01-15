@@ -1,6 +1,6 @@
-import { skeleton } from "../../helpers/utils";
 import { ComponentChildren } from "preact";
 import { Experience as ExperienceConfigType } from "../../../gitprofile.config";
+import { skeleton } from "../../helpers/utils";
 
 const ListItem = ({ time, position, company, companyLink }: ListItemProps) => (
   <li className="mb-5 ml-4">

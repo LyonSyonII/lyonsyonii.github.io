@@ -1,5 +1,5 @@
 import { ComponentChildren } from "preact";
-import { useState, useEffect } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 
 const LazyImage = ({ placeholder, src, alt, ...rest }: LazyImageProps) => {
   const [loading, setLoading] = useState(true);

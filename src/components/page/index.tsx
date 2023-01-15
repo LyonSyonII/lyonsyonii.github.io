@@ -1,5 +1,4 @@
 import { ComponentChildren } from "preact";
-import PropTypes from "prop-types";
 
 const bgColor = "bg-base-300";
 

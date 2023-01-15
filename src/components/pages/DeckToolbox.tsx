@@ -1,9 +1,9 @@
 import { ComponentChildren } from "preact";
-import { TextLink } from "./../text-link/index";
 import { AiFillGithub } from "react-icons/ai";
 import CardContainer from "../card-container";
-import Page from "../page";
 import CodeBlock from "../code-block";
+import Page from "../page";
+import { TextLink } from "./../text-link/index";
 
 type SecondaryCardProps = {
   title?: string;

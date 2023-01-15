@@ -1,7 +1,7 @@
+import { Resume } from "../../../gitprofile.config";
 import { fallbackImage, skeleton } from "../../helpers/utils";
 import LazyImage from "../lazy-image";
 import { Profile } from "../pages/Home";
-import { Resume } from "../../../gitprofile.config";
 
 const AvatarCard = ({ profile, loading, avatarRing, resume, className = "" }: AvatarCardProps) => {
   return (

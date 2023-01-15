@@ -1,7 +1,7 @@
 import {} from "preact";
+import { Social } from "../../../gitprofile.config";
 import { isDarkishTheme } from "../../helpers/utils";
 import { Profile } from "../pages/Home";
-import { Social } from "../../../gitprofile.config";
 
 const HeadTagEditor = ({ profile, theme, social }: HeadTagEditorProps) => {
   return (

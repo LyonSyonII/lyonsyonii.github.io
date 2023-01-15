@@ -1,5 +1,5 @@
 import { ComponentChildren } from "preact";
-import { useState, useMemo } from "preact/hooks";
+import { useMemo, useState } from "preact/hooks";
 
 function nodesToText(children: ComponentChildren = []): string {
   const nodeToString = (node: ComponentChildren, fallback = ""): string =>

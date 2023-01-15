@@ -1,6 +1,6 @@
+import { ComponentChildren } from "preact";
 import { Education as EducationConfigType } from "../../../gitprofile.config";
 import { skeleton } from "../../helpers/utils";
-import { ComponentChildren } from "preact";
 
 const ListItem = ({ time, degree, institution }: ListItemProps) => (
   <li className="mb-5 ml-4">

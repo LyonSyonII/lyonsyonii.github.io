@@ -1,28 +1,28 @@
 import axios from "axios";
+import { formatDistance } from "date-fns";
 import { StateUpdater, useCallback, useEffect, useState } from "preact/hooks";
-import HeadTagEditor from "../head-tag-editor";
-import ErrorPage from "../error-page";
-import AvatarCard from "../avatar-card";
-import Details from "../details";
-import Skills from "../skill";
-import Experience from "../experience";
-import Certification from "../certification";
-import Education from "../education";
-import GithubProjects from "../github-project";
+import { RawConfig } from "../../../gitprofile.config";
+import "../../assets/index.css";
 import {
   genericError,
   getInitialTheme,
   noConfigError,
   notFoundError,
-  tooManyRequestError,
   sanitizeConfig,
+  tooManyRequestError,
 } from "../../helpers/utils";
-import "../../assets/index.css";
-import { formatDistance } from "date-fns";
-import Page from "../page";
+import AvatarCard from "../avatar-card";
 import CardContainer from "../card-container";
-import { RawConfig } from "../../../gitprofile.config";
+import Certification from "../certification";
+import Details from "../details";
+import Education from "../education";
+import ErrorPage from "../error-page";
+import Experience from "../experience";
+import GithubProjects from "../github-project";
+import HeadTagEditor from "../head-tag-editor";
+import Page from "../page";
 import Projects from "../projects";
+import Skills from "../skill";
 
 const Home = ({ config }: HomeProps) => {
   const [error, setError]: [any, any] = useState(
@@ -143,7 +143,7 @@ const Home = ({ config }: HomeProps) => {
           sanitizedConfig && (
             <Page>
               <div className="rounded-box flex flex-col gap-6">
-                { /* ROW 1 */ }
+                {/* ROW 1 */}
                 <div className="flex flex-col lg:flex-row justify-evenly gap-6">
                   <CardContainer
                     className="min-w-fit max-w-full lg:w-1/4"
@@ -188,7 +188,7 @@ const Home = ({ config }: HomeProps) => {
                     certifications={sanitizedConfig.certifications}
                   />
                 </div>
-                { /* ROW 2 */ }
+                {/* ROW 2 */}
                 <div className="grid gap-6 lg:grid-flow-col lg:grid-cols-2">
                   <Projects
                     title="Main Projects"
@@ -201,7 +201,7 @@ const Home = ({ config }: HomeProps) => {
                     projects={sanitizedConfig.otherProjects}
                   />
                 </div>
-                { /* ROW 3 */ }
+                {/* ROW 3 */}
                 <GithubProjects repo={repo} loading={loading} github={sanitizedConfig.github} />
               </div>
             </Page>

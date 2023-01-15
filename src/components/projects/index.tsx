@@ -1,12 +1,8 @@
 import { ComponentChildren } from "preact";
 import { Link } from "react-router-dom";
+import { Project } from "../../../gitprofile.config";
 import { skeleton } from "../../helpers/utils";
 import LazyImage from "../lazy-image";
-import { Project } from "../../../gitprofile.config";
-
-function displaySection(projects: Project[]) {
-  return projects.length > 0;
-}
 
 function Projects({ projects = [], title = "", loading }: ProjectsProps) {
   return (
