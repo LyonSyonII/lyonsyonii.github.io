@@ -8,12 +8,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "npm run prettier:fix && vite build",
+    "build": "npm run prettier && vite build",
     "preview": "vite preview",
-    "lint": "eslint --ext .js,.jsx .",
-    "lint:fix": "eslint --ext .js,.jsx --fix .",
-    "prettier": "prettier --check \"./**/*.{js,jsx,ts,tsx,css,md,json}\"",
-    "prettier:fix": "prettier --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\""
+    "prettier": "prettier --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\""
   },
   "dependencies": {
     "preact": "^10.11.3",

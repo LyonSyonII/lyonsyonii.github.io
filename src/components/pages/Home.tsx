@@ -144,10 +144,10 @@ const Home = ({ config }: HomeProps) => {
             <Page>
               <div className="rounded-box flex flex-col gap-6">
                 {/* ROW 1 */}
-                <div className="flex flex-col lg:flex-row justify-evenly gap-6">
+                <div className="flex flex-col justify-evenly gap-6 lg:flex-row">
                   <CardContainer
                     className="min-w-fit max-w-full lg:w-1/4"
-                    innerClassName="grid grid-cols-1 lg:grid-cols-2 gap-3"
+                    innerClassName="grid grid-cols-1 lg:grid-cols-2 gap-3 min-h-full"
                   >
                     <AvatarCard
                       profile={profile}

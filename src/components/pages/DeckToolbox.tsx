@@ -1,9 +1,9 @@
 import { ComponentChildren } from "preact";
 import { AiFillGithub } from "react-icons/ai";
 import CardContainer from "../card-container";
+import { TextLink } from "./../text-link/index";
 import CodeBlock from "../code-block";
 import Page from "../page";
-import { TextLink } from "./../text-link/index";
 
 type SecondaryCardProps = {
   title?: string;
@@ -12,8 +12,8 @@ type SecondaryCardProps = {
 
 function SecondaryCard({ title, children }: SecondaryCardProps) {
   return (
-    <div className="mx-auto w-2/3 min-w-full max-w-full flex-initial justify-center lg:min-w-min lg:py-3">
-      <CardContainer loading={false}>
+    <div className="mx-auto w-2/3 min-w-full max-w-full flex-initial justify-center py-1 lg:min-w-min lg:py-3">
+      <CardContainer>
         <div className="px-2 lg:px-4">
           <div className="text-center text-4xl font-bold tracking-tight text-black lg:mt-3 lg:text-5xl">
             <h1>{title}</h1>
@@ -27,8 +27,8 @@ function SecondaryCard({ title, children }: SecondaryCardProps) {
 
 function MainCard() {
   return (
-    <div className="mx-auto w-2/3 min-w-full max-w-full flex-initial justify-center lg:min-w-min lg:pt-16 lg:pb-20">
-      <CardContainer loading={false}>
+    <div className="mx-auto w-2/3 min-w-full max-w-full flex-initial justify-center pb-1 lg:min-w-min lg:pt-16 lg:pb-20">
+      <CardContainer>
         <div className="mx-auto px-4 py-4">
           <div className="text-center">
             <h1 className="text-5xl font-bold leading-[4rem] tracking-tight text-black lg:mt-3 lg:text-6xl">
