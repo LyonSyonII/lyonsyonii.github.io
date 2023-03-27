@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import config from "../gitprofile.config";
 import DeckToolbox from "./components/pages/DeckToolbox";
 import Home from "./components/pages/Home";

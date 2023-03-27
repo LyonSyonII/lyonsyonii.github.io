@@ -90,6 +90,12 @@ const config: RawConfig = {
       url: "https://reactjs.org/",
     },
     {
+      name: "TailwindCSS",
+      imageUrl:
+        "https://tailwindcss.com/_next/static/media/tailwindcss-mark.79614a5f61617ba49a0891494521226b.svg",
+      url: "https://tailwindcss.com/",
+    },
+    {
       name: "Embedded",
       imageUrl:
         "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/embeddedc/embeddedc-original.svg",
