@@ -1,0 +1,16 @@
+[package]
+name = "dioxus-tailwindcss"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+dioxus = "0.3.2"
+dioxus-web = { version = "0.3.1" }
+
+[profile.release]
+# Configure release to optimize for size
+strip = true
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
