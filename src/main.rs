@@ -2,6 +2,7 @@
 use dioxus::prelude::*;
 
 mod app;
+mod gitprofile;
 use app::App;
 
 fn main() {

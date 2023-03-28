@@ -8,3 +8,4 @@ pub fn App(cx: Scope) -> Element {
 
     cx.render(rsx)
 }
+
