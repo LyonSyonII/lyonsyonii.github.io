@@ -154,9 +154,10 @@ const config: RawConfig = {
 
     // Hide the ring in Profile picture
     hideAvatarRing: true,
-
+    
     // Available themes. To remove any theme, exclude from here.
     themes: ["light"],
+  
   },
 };
 
