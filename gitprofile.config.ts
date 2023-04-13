@@ -128,7 +128,7 @@ const config: RawConfig = {
     {
       title: "Cargo Learn",
       description: "Youtube channel dedicated to teaching programming, with a special focus on the Rust programming language.",
-      imageUrl: "https://yt3.googleusercontent.com/VFcwluQy9HSc0LOMF4ddcRKcWrhu7Q60EOWqN6nWSjylcBM6sytFFBLYO7OEPH4dkTU5cKvkww=s176-c-k-c0x00ffffff-no-rj",
+      imageUrl: "https://raw.githubusercontent.com/LyonSyonII/Cargo-Learn/main/Assets/Images/Logo.svg",
       link: "https://www.youtube.com/@Cargo-Learn/featured"
     }
   ],
