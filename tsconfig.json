@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "jsx": "preserve",
-    "jsxFactory": "h",
-    "jsxFragmentFactory": "Fragment",
+    // "jsx": "preserve",
+    // "jsxFactory": "h",
+    // "jsxFragmentFactory": "Fragment",
+    "jsx": "react-jsx",
     "jsxImportSource": "preact",
     "target": "esnext",
     "module": "esnext",

@@ -1,8 +1,8 @@
 import { ComponentChildren } from "preact";
-import { Link } from "react-router-dom";
 import { Project } from "../../../gitprofile.config";
 import { skeleton } from "../../helpers/utils";
 import LazyImage from "../lazy-image";
+import DynamicLink from "../dynamic-link";
 
 function Projects({ projects = [], title = "", loading }: ProjectsProps) {
   return (
@@ -30,12 +30,11 @@ function Projects({ projects = [], title = "", loading }: ProjectsProps) {
 }
 
 function renderProjects(projects: Project[]): ComponentChildren {
+  const linkClass =
+    "card compact min-w-full cursor-pointer bg-base-100 shadow-lg lg:w-1/3 lg:min-w-min";
+
   return projects.map((item, index) => (
-    <Link
-      to={item.link}
-      className="card compact min-w-full cursor-pointer bg-base-100 shadow-lg lg:w-1/3 lg:min-w-min"
-      key={index}
-    >
+    <DynamicLink to={item.link} className={linkClass} key={index}>
       <div className="p-4">
         <div className="flex flex-col items-center">
           <div className="w-full">
@@ -50,7 +49,7 @@ function renderProjects(projects: Project[]): ComponentChildren {
                       <LazyImage
                         src={item.imageUrl}
                         alt={"thumbnail"}
-                        placeholder={skeleton({
+                        children={skeleton({
                           width: "w-full",
                           height: "h-full",
                           shape: "",
@@ -65,7 +64,7 @@ function renderProjects(projects: Project[]): ComponentChildren {
           </div>
         </div>
       </div>
-    </Link>
+    </DynamicLink>
   ));
 }
 

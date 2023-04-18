@@ -127,10 +127,12 @@ const config: RawConfig = {
     },
     {
       title: "Cargo Learn",
-      description: "Youtube channel dedicated to teaching programming, with a special focus on the Rust programming language.",
-      imageUrl: "https://raw.githubusercontent.com/LyonSyonII/Cargo-Learn/main/Assets/Images/Logo.svg",
-      link: "https://www.youtube.com/@Cargo-Learn/featured"
-    }
+      description:
+        "Youtube channel dedicated to teaching programming, with a special focus on the Rust programming language.",
+      imageUrl:
+        "https://raw.githubusercontent.com/LyonSyonII/Cargo-Learn/main/Assets/Images/Logo.svg",
+      link: "https://www.youtube.com/@Cargo-Learn/featured",
+    },
   ],
   otherProjects: [
     {
@@ -160,10 +162,9 @@ const config: RawConfig = {
 
     // Hide the ring in Profile picture
     hideAvatarRing: true,
-    
+
     // Available themes. To remove any theme, exclude from here.
     themes: ["light"],
-  
   },
 };
 

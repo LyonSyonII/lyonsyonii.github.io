@@ -31,7 +31,7 @@ function CodeBlock({ children, className = "" }: Props) {
     <div className={`not-prose ${className}`}>
       <pre className={`relative rounded-lg bg-gray-800 p-4 ${!children && "py-7"}`}>
         <button
-          className="absolute top-2 right-2 rounded-md bg-gray-700 py-0 px-2 text-white hover:bg-gray-600 focus:outline-none"
+          className="absolute right-2 top-2 rounded-md bg-gray-700 px-2 py-0 text-white hover:bg-gray-600 focus:outline-none"
           onClick={handleClick}
         >
           {copied ? "Copied!" : "Copy"}

@@ -23,12 +23,12 @@ const ListItem = ({ icon, title, value, link, skeleton = false }: ListItemProps)
       href={link}
       target="_blank"
       rel="noreferrer"
-      className="flex flex-wrap items-center justify-start py-2 px-1"
+      className="flex flex-wrap items-center justify-start px-1 py-2"
     >
       <span className="m-2 w-2">{icon}</span>
       <div className="flex-grow px-2 font-medium">{title}</div>
       <div
-        className={`${skeleton ? "flex-grow" : ""} mr-2 ml-3 text-right text-sm font-normal ${
+        className={`${skeleton ? "flex-grow" : ""} ml-3 mr-2 text-right text-sm font-normal ${
           link ? "truncate" : ""
         }`}
       >

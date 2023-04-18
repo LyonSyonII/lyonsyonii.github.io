@@ -27,7 +27,7 @@ function SecondaryCard({ title, children }: SecondaryCardProps) {
 
 function MainCard() {
   return (
-    <div className="mx-auto w-2/3 min-w-full max-w-full flex-initial justify-center pb-3 lg:min-w-min lg:pt-16 lg:pb-20">
+    <div className="mx-auto w-2/3 min-w-full max-w-full flex-initial justify-center pb-3 lg:min-w-min lg:pb-20 lg:pt-16">
       <CardContainer>
         <div className="mx-auto px-4 py-4">
           <div className="text-center">

@@ -1,7 +1,7 @@
 import { ComponentChildren } from "preact";
 import { useEffect, useState } from "preact/hooks";
 
-const LazyImage = ({ placeholder, src, alt, ...rest }: LazyImageProps) => {
+function LazyImage({ children, src, alt, ...rest }: LazyImageProps) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -13,11 +13,11 @@ const LazyImage = ({ placeholder, src, alt, ...rest }: LazyImageProps) => {
     };
   }, [src]);
 
-  return <>{loading ? placeholder : <img src={src} alt={alt} {...rest} />}</>;
-};
+  return <>{loading ? children : <img src={src} alt={alt} {...rest} />}</>;
+}
 
 type LazyImageProps = {
-  placeholder?: ComponentChildren;
+  children?: ComponentChildren;
   alt?: string;
   src?: string;
   className?: string;

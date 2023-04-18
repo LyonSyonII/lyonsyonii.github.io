@@ -53,7 +53,7 @@ const Education = ({ loading, education, className = "" }: EducationProps) => {
               </h5>
             </div>
             <div className="text-base-content text-opacity-60">
-              <ol className="relative my-2 mx-4 border-l border-base-300 border-opacity-30">
+              <ol className="relative mx-4 my-2 border-l border-base-300 border-opacity-30">
                 {loading ? (
                   renderSkeleton()
                 ) : (
