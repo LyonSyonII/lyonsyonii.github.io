@@ -1,0 +1,33 @@
+:root {
+  --bg2: #eff0f0;
+  --border-radius: 0.75rem;
+  --card-gap: 1rem;
+  --card-padding: 1.75rem;
+
+  --text-color: rgba(31, 41, 55, 1);
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+
+  --shadow-sm: drop-shadow(0 4px 3px rgb(0 0 0 / 0.075));
+  --shadow-md: drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+}
+
+.card {
+  background-color: var(--bg2);
+  padding: var(--card-padding);
+  gap: var(--card-gap);
+  border-radius: var(--border-radius);
+  filter: var(--shadow-md);
+}
+
+.card > article {
+  background-color: white;
+  min-width: auto;
+  border: 0px;
+  border-radius: var(--border-radius);
+  filter: var(--shadow-sm);
+}
+
+h1, h2, h3, h4, h5 {
+  line-height: 0;
+}
