@@ -1,8 +1,8 @@
 ---
+import Education from "../components/Education.astro";
 import Profile from "../components/Profile.astro";
 import Skills from "../components/Skills.astro";
 import Layout from "../layouts/Layout.astro";
-import "../styles/main.css";
 ---
 
 <Layout
@@ -12,17 +12,25 @@ import "../styles/main.css";
   <main>
     <Profile />
     <Skills />
+    <Education />
   </main>
 </Layout>
 
 <style>
+  @import "../styles/main.css";
+
   main {
     margin: auto;
     padding: var(--card-padding);
 
     display: grid;
-    grid-template-columns: 1.5fr 2fr 1fr;
-    grid-template-rows: auto auto auto;
     gap: var(--card-padding);
+  }
+
+  @media (--screen-desktop) {
+    main {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: auto auto auto;
+    }
   }
 </style>

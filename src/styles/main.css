@@ -1,3 +1,6 @@
+@custom-media --screen-desktop (min-width: 1372px);
+@custom-media --screen-mobile (min-width: 767px);
+
 :root {
   --bg2: #eff0f0;
   --border-radius: 0.75rem;
@@ -9,6 +12,8 @@
   --text-sm: 0.875rem;
   --text-md: 1rem;
   --text-title: 1.5rem;
+  --text-title-mobile: 1.5rem;
+  --text-opacity: 0.8;
 
   --shadow-sm: drop-shadow(0 4px 3px rgb(0 0 0 / 0.075));
   --shadow-md: drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
@@ -20,6 +25,7 @@
   gap: var(--card-gap);
   border-radius: var(--border-radius);
   filter: var(--shadow-md);
+  min-width: fit-content;
 }
 
 .card > article {
@@ -34,7 +40,26 @@ h1,
 h2,
 h3,
 h4,
-h5 {
-  line-height: 0;
-  min-width: max-content;
+h5,
+b {
+  margin: 0;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--text-color);
+  opacity: var(--text-opacity);
+}
+
+b {
+  min-width: auto;
+}
+
+@media (--desktop-screen) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  b {
+    min-width: max-content;
+  }
 }

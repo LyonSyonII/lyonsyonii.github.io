@@ -1,9 +1,5 @@
 ---
-/// <reference types="astro/astro-jsx" />
-
-import "../styles/main.css";
 import config from "../../gitprofile.config";
-import type { Skill } from "../../gitprofile.config";
 import { Icon, Image } from "astro-preload/components";
 
 const icon_size = 38;
@@ -45,9 +41,17 @@ const icon_size = 38;
 </div>
 
 <style>
+  @import "../styles/main.css";
+
   .card {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (--screen-desktop) {
+    .card {
+      grid-column: span 3;
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   .card > article {
@@ -67,6 +71,6 @@ const icon_size = 38;
 
   h2 {
     font-size: var(--text-title);
-    opacity: 0.65;
+    padding-bottom: var(--card-padding);
   }
 </style>

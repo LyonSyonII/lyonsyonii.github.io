@@ -1,7 +1,4 @@
 ---
-/// <reference types="astro/astro-jsx" />
-
-import "../styles/main.css";
 import config from "../../gitprofile.config";
 import { Icon } from "astro-preload/components";
 
@@ -33,9 +30,17 @@ const icon_size = 24;
 </div>
 
 <style>
+  @import "../styles/main.css";
+
   .card {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+  }
+  
+  @media (--screen-desktop) {
+    .card {
+      grid-template-columns: 1fr 1fr;
+      grid-column: span 2;
+    }
   }
 
   .profile {
@@ -75,6 +80,7 @@ const icon_size = 24;
   h1 {
     min-width: max-content;
     font-size: var(--text-title);
-    font-weight: 800;
+    font-weight: 600;
+    opacity: 0.85;
   }
 </style>

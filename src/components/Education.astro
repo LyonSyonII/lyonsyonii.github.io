@@ -1,0 +1,54 @@
+---
+import config from "../../gitprofile.config";
+---
+
+<div class="card">
+    <article>
+        <h2>Education</h2>
+        {
+            config.education.map(ed => (
+                <h3>{ed.degree} <span>{ed.from} - {ed.to}</span></h3>
+                <b>{ed.institution}</b>
+            ))
+        }
+    </article>
+</div>
+
+<style>
+    @import "../styles/main.css";
+
+    .card {
+
+    }
+
+    @media (--screen-desktop) {
+    .card {
+      display: flex;
+    }
+  }
+    
+    .card > article {
+        display: grid;
+        padding: var(--card-padding);
+    }
+
+    h3, span, b {
+        margin: 0;
+        font-weight: 400;
+    }
+
+    h3 {
+        font-size: var(--text-sm);
+        font-weight: 500;
+    }
+    
+    span {
+        font-size: var(--text-xs);
+    }
+
+    b {
+        line-height: 1rem;
+        font-size: var(--text-xs);
+        word-wrap: break-word;
+    }
+</style>
