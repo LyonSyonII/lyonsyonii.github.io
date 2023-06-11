@@ -6,8 +6,8 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-  title="Liam Garriga's Portfolio"
-  description="A collection of projects by Liam Garriga."
+  title="Liam Garriga Rosés"
+  description="A portfolio with a collection of projects by Liam Garriga Rosés."
 >
   <main>
     <Profile />
@@ -21,10 +21,10 @@ import Layout from "../layouts/Layout.astro";
 
   main {
     margin: auto;
-    padding: var(--card-padding);
+    padding: calc(var(--card-padding) + 1rem);
 
     display: grid;
-    gap: var(--card-padding);
+    gap: calc(var(--card-padding) + 0.75rem);
   }
 
   @media (--screen-desktop) {
