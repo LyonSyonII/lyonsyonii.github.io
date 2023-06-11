@@ -47,7 +47,7 @@ const icon_size = 24;
     display: grid;
     justify-items: center;
     color: var(--text-color);
-    padding-bottom: calc(var(--card-padding) + 1rem);
+    padding-bottom: var(--card-padding-bottom);
   }
 
   img {
@@ -56,8 +56,8 @@ const icon_size = 24;
   .data {
     display: grid;
     align-content: space-evenly;
-    padding-left: calc(var(--card-padding) + 0.25rem);
-    padding-right: calc(var(--card-padding) + 0.25rem);
+    padding-left: var(--card-container-padding);
+    padding-right: var(--card-container-padding);
   }
 
   .data > a {

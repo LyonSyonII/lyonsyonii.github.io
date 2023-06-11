@@ -57,10 +57,10 @@ const icon_size = 38;
   .card > article {
     display: grid;
     grid-template-rows: auto 1fr;
-    padding: var(--card-padding);
-    padding-top: calc(var(--card-padding) + 1rem);
-    padding-left: calc(var(--card-padding) + 1rem);
-    padding-right: calc(var(--card-padding) + 1rem);
+    padding-bottom: var(--card-padding-bottom);
+    padding-top: var(--card-padding);
+    padding-left: var(--card-padding);
+    padding-right: var(--card-padding);
   }
 
   .grid {
@@ -74,7 +74,7 @@ const icon_size = 38;
 
   h2 {
     font-size: var(--text-title);
-    padding-bottom: var(--card-padding);
+    padding-bottom: var(--card-padding-bottom);
     font-weight: 600;
   }
 </style>

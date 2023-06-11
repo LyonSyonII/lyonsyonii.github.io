@@ -5,7 +5,9 @@
   --bg2: #eff0f0;
   --border-radius: 0.75rem;
   --card-gap: 1rem;
-  --card-padding: 0.75rem;
+  --card-container-padding: 0.75rem;
+  --card-padding: 1.75rem;
+  --card-padding-bottom: 0.75rem;
 
   --text-color: rgba(31, 41, 55, 1);
   --text-xs: 0.75rem;
@@ -21,14 +23,14 @@
 
 .card {
   background-color: var(--bg2);
-  padding: var(--card-padding);
+  padding: var(--card-container-padding);
   gap: var(--card-gap);
   border-radius: var(--border-radius);
   filter: var(--shadow-md);
   min-width: fit-content;
 }
 
-.card > article {
+.card>article {
   background-color: white;
   min-width: auto;
   border: 0px;
@@ -44,16 +46,20 @@ h5,
 b {
   margin: 0;
   line-height: 1;
-  font-weight: 400;
-  color: var(--text-color);
   opacity: var(--text-opacity);
+  color: var(--text-color);
 }
 
 b {
   min-width: auto;
 }
 
+h2 {
+  font-weight: 600;
+}
+
 @media (--desktop-screen) {
+
   h1,
   h2,
   h3,
