@@ -12,15 +12,12 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
-    "@astrojs/image": "^0.17.0",
     "astro": "^2.6.0",
     "astro-compress": "^1.1.47",
-    "astro-icon": "^0.8.1",
-    "astro-iconify": "^1.2.0"
+    "astro-preload": "^1.1.0"
   },
   "devDependencies": {
     "prettier": "^2.8.8",
-    "prettier-plugin-astro": "^0.10.0",
-    "svgo": "^3.0.2"
+    "prettier-plugin-astro": "^0.10.0"
   }
 }

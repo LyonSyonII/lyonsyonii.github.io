@@ -1,30 +1,33 @@
 ---
+/// <reference types="astro/astro-jsx" />
+
 import "../styles/main.css";
 import config from "../../gitprofile.config";
-import { Image } from "@astrojs/image/components";
-import { Icon } from "astro-iconify";
+import { Icon } from "astro-preload/components";
 
 const icon_size = 24;
 ---
 
 <div class="card">
   <article class="profile">
-    <Image
-      src="/assets/favicons/android-icon-144x144.png"
+    <img
+      src="/assets/favicons/apple-icon.png"
       width={128}
-      height={0}
-      aspectRatio={1}
+      height={128}
       alt="Profile picture"
-      format="png"
     />
-    <h1>{config.social?.name}</h1>
+    <h1>{config.social.name}</h1>
   </article>
   <article class="data">
     <a href={`https://github.com/${config.github.username}`}>
-      <Icon name="mdi:github" size={icon_size} /><span>{config.github.username}</span>
+      <Icon name="mdi:github" size={icon_size} /><span
+        >{config.github.username}</span
+      >
     </a>
-    <a href={`mailto:${config.social?.email}`}>
-      <Icon name="material-symbols:mail" size={icon_size} /><span>{config.social?.email}</span>
+    <a href={`mailto:${config.social.email}`}>
+      <Icon name="material-symbols:mail" size={icon_size} /><span
+        >{config.social.email}</span
+      >
     </a>
   </article>
 </div>
@@ -53,10 +56,10 @@ const icon_size = 24;
   .data > a {
     display: grid;
     grid-template-columns: auto auto;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     padding: var(--card-padding);
-    
+
     color: var(--text-color);
     opacity: 0.6;
     font-size: var(--text-sm);
@@ -71,5 +74,7 @@ const icon_size = 24;
 
   h1 {
     min-width: max-content;
+    font-size: var(--text-title);
+    font-weight: 800;
   }
 </style>

@@ -1,25 +1,72 @@
 ---
+/// <reference types="astro/astro-jsx" />
+
 import "../styles/main.css";
 import config from "../../gitprofile.config";
+import type { Skill } from "../../gitprofile.config";
+import { Icon, Image } from "astro-preload/components";
+
+const icon_size = 38;
 ---
 
 <div class="card">
-  <article class="tech">
-    <h1>Tech Stack</h1>
+  <article>
+    <h2>Tech Stack</h2>
+    <div class="grid">
+      {
+        config.skills.map((skill) => (
+          <a href={skill.url}>
+            {skill.icon ? (
+              <Icon name={skill.icon} size={icon_size} />
+            ) : (
+              <Image url={skill.imageUrl || ""} size={icon_size} />
+            )}
+          </a>
+        ))
+      }
+    </div>
+  </article>
+  <article>
+    <h2>Some experience with...</h2>
+    <div class="grid">
+      {
+        config.some_experience_with.map((skill) => (
+          <a href={skill.url}>
+            {skill.icon ? (
+              <Icon name={skill.icon} size={icon_size} />
+            ) : (
+              <Image url={skill.imageUrl || ""} size={icon_size} />
+            )}
+          </a>
+        ))
+      }
+    </div>
   </article>
 </div>
 
 <style>
   .card {
-    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
-  
+
   .card > article {
-    display: flex;
+    display: grid;
+    grid-template-rows: auto 1fr;
     padding: var(--card-padding);
   }
 
-  .tech {
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-self: center;
+    justify-self: center;
+    gap: 0.5rem;
+  }
 
+  h2 {
+    font-size: var(--text-title);
+    opacity: 0.65;
   }
 </style>

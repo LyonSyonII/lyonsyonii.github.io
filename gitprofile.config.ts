@@ -19,100 +19,84 @@ const config: RawConfig = {
   skills: [
     {
       name: "Rust",
-      imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg",
+      icon: "devicon-plain:rust",
       url: "https://www.rust-lang.org/",
     },
     {
       name: "C",
-      imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+      icon: "devicon:c",
       url: "https://en.wikipedia.org/wiki/C_(programming_language)",
     },
     {
       name: "Python",
-      imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+      icon: "devicon:python",
       url: "https://www.python.org/",
     },
     {
       name: "Linux",
-      imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-plain.svg",
+      icon: "devicon-plain:linux",
       url: "https://en.wikipedia.org/wiki/Linux",
     },
     {
       name: "Unity",
-      imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg",
+      icon: "devicon:unity",
       url: "https://unity.com/",
     },
     {
       name: "Godot",
-      imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg",
+      icon: "devicon:godot",
       url: "https://godotengine.org/",
     },
   ],
   some_experience_with: [
     {
       name: "C#",
-      imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+      icon: "devicon:csharp",
       url: "https://learn.microsoft.com/en-us/dotnet/csharp/",
     },
     {
       name: "C++",
-      imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+      icon: "devicon:cplusplus",
       url: "https://isocpp.org/",
     },
     {
       name: "JavaScript",
-      imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+      icon: "devicon:javascript",
       url: "https://www.javascript.com/",
     },
     {
       name: "TypeScript",
-      imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+      icon: "devicon:typescript",
       url: "https://www.typescriptlang.org/",
     },
     {
       name: "Haskell",
-      imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg",
+      icon: "devicon:haskell",
       url: "https://www.haskell.org/",
     },
     {
       name: "PostgreSQL",
-      imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg",
+      icon: "devicon-plain:postgresql",
       url: "https://www.postgresql.org/",
     },
     {
       name: "React",
-      imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      icon: "devicon:react",
       url: "https://reactjs.org/",
     },
     {
       name: "TailwindCSS",
-      imageUrl:
-        "https://tailwindcss.com/_next/static/media/tailwindcss-mark.79614a5f61617ba49a0891494521226b.svg",
+      icon: "devicon:tailwindcss",
       url: "https://tailwindcss.com/",
     },
     {
       name: "Embedded",
-      imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/embeddedc/embeddedc-original.svg",
+      icon: "devicon:embeddedc",
       url: "https://en.wikipedia.org/wiki/Embedded_system",
     },
     {
       name: "Unreal Engine",
-      imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg",
+      icon: "devicon:unrealengine",
       url: "https://www.unrealengine.com/en-US",
     },
   ],
@@ -158,7 +142,7 @@ const config: RawConfig = {
         "https://assetstorev1-prd-cdn.unity3d.com/key-image/083c1413-b2ef-4d9e-b483-891519f896f1.png",
       link: "https://assetstore.unity.com/publishers/48993",
     },
-  ]
+  ],
 };
 
 type Github = {
@@ -190,6 +174,7 @@ export type Resume = {
 };
 export type Skill = {
   name: string;
+  icon?: string;
   imageUrl?: string;
   url?: string;
 };
