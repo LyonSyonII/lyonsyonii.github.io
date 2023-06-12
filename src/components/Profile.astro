@@ -17,25 +17,23 @@ const icon_size = 24;
   </article>
   <article class="data">
     <a href={`https://github.com/${config.github.username}`}>
-      <Icon name="mdi:github" size={icon_size} /><span
-        >{config.github.username}</span
-      >
+      <Icon name="mdi:github" size={icon_size} />
+      <span>{config.github.username}</span>
     </a>
     <a href={`mailto:${config.social.email}`}>
-      <Icon name="material-symbols:mail" size={icon_size} /><span
-        >{config.social.email}</span
-      >
+      <Icon name="material-symbols:mail" size={icon_size} />
+      <span>{config.social.email}</span>
     </a>
   </article>
 </div>
 
 <style>
   @import "../styles/main.css";
-  
+
   .card {
     display: grid;
   }
-  
+
   @media (--screen-desktop) {
     .card {
       grid-template-columns: 1fr 1fr;
@@ -48,9 +46,6 @@ const icon_size = 24;
     justify-items: center;
     color: var(--text-color);
     padding-bottom: var(--card-padding-bottom);
-  }
-
-  img {
   }
 
   .data {
@@ -66,23 +61,24 @@ const icon_size = 24;
     justify-content: space-between;
     align-items: center;
     padding: var(--card-padding);
-
-    color: var(--text-color);
-    opacity: 0.6;
+    
     font-size: var(--text-sm);
     text-decoration: none;
+  }
 
+  .data > a > * {
+    opacity: 0.6;
     transition: opacity 0.15s ease-in-out;
   }
 
-  .data > a:hover {
+  .data > a:hover > * {
     opacity: 0.75;
   }
 
-  h1 {
+  article > h1 {
     min-width: max-content;
-    font-size: var(--text-title);
-    font-weight: 600;
+    font-size: calc(var(--text-title) + 0.25rem);
+    font-weight: 700;
     opacity: 0.85;
   }
 </style>

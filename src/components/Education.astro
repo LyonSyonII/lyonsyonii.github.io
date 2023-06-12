@@ -6,10 +6,12 @@ import config from "../../gitprofile.config";
   <article>
     <h2>Education</h2>
     {
-      config.education.map(ed => (
-        <h3>{ed.degree}</h3>
-        <h4>{ed.from} - {ed.to}</h4>
-        <b>{ed.institution}</b>
+      config.education.map((ed) => (
+        <>
+          <h3>{ed.degree}</h3>
+          <h4>{ed.from} - {ed.to}</h4>
+          <b>{ed.institution}</b>
+        </>
       ))
     }
   </article>
@@ -17,9 +19,8 @@ import config from "../../gitprofile.config";
 
 <style>
   @import "../styles/main.css";
-  
+
   .card {
-  
   }
 
   @media (--screen-desktop) {
@@ -27,7 +28,7 @@ import config from "../../gitprofile.config";
       display: flex;
     }
   }
-  
+
   .card > article {
     display: flex;
     flex-direction: column;
@@ -41,23 +42,24 @@ import config from "../../gitprofile.config";
     text-align: center;
   }
   
-  article > h2 {
-    font-size: var(--text-title);
-    padding-bottom: var(--card-padding-bottom);
-    font-weight: 600; 
-  }
+  /* Card Title */
   
+  /* Degree */
   article > h3 {
     font-size: var(--text-sm);
     font-weight: 600;
   }
-
+  
+  /* From - To */
   article > h4 {
     font-size: var(--text-xs);
     font-weight: 600;
     margin-bottom: 0.5rem;
+    margin-top: 0.15rem;
+    opacity: 0.55;
   }
   
+  /* Institution */
   article > b {
     font-weight: 400;
     line-height: 1rem;

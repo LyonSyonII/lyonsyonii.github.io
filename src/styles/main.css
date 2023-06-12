@@ -8,6 +8,7 @@
   --card-container-padding: 0.75rem;
   --card-padding: 1.75rem;
   --card-padding-bottom: 0.75rem;
+  --card-title-margin: 0.75rem;
 
   --text-color: rgba(31, 41, 55, 1);
   --text-xs: 0.75rem;
@@ -21,6 +22,41 @@
   --shadow-md: drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+b,
+span {
+  margin: 0;
+  line-height: 1;
+  opacity: var(--text-opacity);
+  color: var(--text-color);
+}
+
+h2 {
+  font-size: var(--text-title);
+  padding-bottom: var(--card-title-margin);
+  font-weight: 600;
+}
+
+b {
+  min-width: auto;
+  font-weight: 400;
+}
+
+@media (--desktop-screen) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  b {
+    min-width: max-content;
+  }
+}
+
 .card {
   background-color: var(--bg2);
   padding: var(--card-container-padding);
@@ -30,42 +66,10 @@
   min-width: fit-content;
 }
 
-.card>article {
+.card > article {
   background-color: white;
   min-width: auto;
   border: 0px;
   border-radius: var(--border-radius);
   filter: var(--shadow-sm);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-b {
-  margin: 0;
-  line-height: 1;
-  opacity: var(--text-opacity);
-  color: var(--text-color);
-}
-
-b {
-  min-width: auto;
-}
-
-h2 {
-  font-weight: 600;
-}
-
-@media (--desktop-screen) {
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  b {
-    min-width: max-content;
-  }
 }
