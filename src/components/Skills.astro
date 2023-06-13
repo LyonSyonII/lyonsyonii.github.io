@@ -11,7 +11,7 @@ const icon_size = 42;
     <div class="grid">
       {
         config.skills.map((skill) => (
-          <a href={skill.url}>
+          <a href={skill.url} target="_blank">
             {skill.icon ? (
               <Icon name={skill.icon} size={icon_size} />
             ) : (
@@ -27,7 +27,7 @@ const icon_size = 42;
     <div class="grid">
       {
         config.some_experience_with.map((skill) => (
-          <a href={skill.url}>
+          <a href={skill.url} target="_blank">
             {skill.icon ? (
               <Icon name={skill.icon} size={icon_size} />
             ) : (
@@ -57,10 +57,8 @@ const icon_size = 42;
   .card > article {
     display: grid;
     grid-template-rows: auto 1fr;
+    padding: var(--card-padding);
     padding-bottom: var(--card-padding-bottom);
-    padding-top: var(--card-padding);
-    padding-left: var(--card-padding);
-    padding-right: var(--card-padding);
   }
 
   .grid {

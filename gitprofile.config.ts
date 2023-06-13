@@ -85,6 +85,11 @@ const config: RawConfig = {
       url: "https://reactjs.org/",
     },
     {
+      name: "Astro",
+      icon: "devicon:astro",
+      url: "https://astro.build/",
+    },
+    {
       name: "TailwindCSS",
       icon: "devicon:tailwindcss",
       url: "https://tailwindcss.com/",

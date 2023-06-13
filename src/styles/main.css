@@ -22,6 +22,10 @@
   --shadow-md: drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
 }
 
+* {
+  margin: 0;
+}
+
 h1,
 h2,
 h3,
@@ -29,12 +33,12 @@ h4,
 h5,
 b,
 span {
-  margin: 0;
   line-height: 1;
   opacity: var(--text-opacity);
   color: var(--text-color);
 }
 
+/* Card Title */
 h2 {
   font-size: var(--text-title);
   padding-bottom: var(--card-title-margin);
@@ -66,10 +70,15 @@ b {
   min-width: fit-content;
 }
 
-.card > article {
+.card article {
   background-color: white;
   min-width: auto;
   border: 0px;
   border-radius: var(--border-radius);
   filter: var(--shadow-sm);
+}
+
+/* Avoid showing `alt` on firefox */
+img:-moz-loading {
+  visibility: hidden;
 }
