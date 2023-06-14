@@ -1,0 +1,23 @@
+---
+import GithubProjects from "./GithubProjects.svelte";
+
+---
+
+<div class="card">
+  <h2>Github Projects</h2>
+  <GithubProjects client:only />
+</div>
+
+<style>
+  @import "../styles/main.css";
+  
+  h2 {
+    margin-left: calc(var(--card-padding) - var(--card-container-padding));
+  }
+
+  @media (--screen-desktop) {
+    .card {
+      grid-column: span 6;
+    }
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import config from "../../gitprofile.config";
 import Education from "../components/Education.astro";
+import Github from "../components/Github.astro";
 import Profile from "../components/Profile.astro";
 import Projects from "../components/Projects.astro";
 import Skills from "../components/Skills.astro";
@@ -17,6 +18,7 @@ import Layout from "../layouts/Layout.astro";
     <Education />
     <Projects title="Main Projects" projects={config.mainProjects} />
     <Projects title="Other Projects" projects={config.otherProjects} />
+    <Github />
   </main>
 </Layout>
 
