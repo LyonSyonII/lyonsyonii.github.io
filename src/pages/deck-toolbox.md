@@ -1,7 +1,5 @@
 # Hello world!
 
-```tsx
+```jsx
 let a = 5;
 ```
-
-hola que tal
