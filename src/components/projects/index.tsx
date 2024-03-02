@@ -45,7 +45,7 @@ function renderProjects(projects: Project[]): ComponentChildren {
                 </h2>
                 {item.imageUrl && (
                   <div className="avatar overflow-visible opacity-90">
-                    <div className="w-16 h-16">
+                    <div className="h-16 w-16">
                       <LazyImage
                         src={item.imageUrl}
                         alt={"thumbnail"}

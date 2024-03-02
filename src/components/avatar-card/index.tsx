@@ -57,7 +57,7 @@ const AvatarCard = ({ profile, loading, avatarRing, resume, className = "" }: Av
             <a
               href={resume.fileUrl}
               target="_blank"
-              className="btn-outline btn-sm btn mt-6 text-xs opacity-50"
+              className="btn btn-outline btn-sm mt-6 text-xs opacity-50"
               download
               rel="noreferrer"
             >

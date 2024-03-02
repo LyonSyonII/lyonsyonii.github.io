@@ -30,7 +30,8 @@ const config: RawConfig = {
     },
     {
       name: "Python",
-      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+      imageUrl:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
       url: "https://www.python.org/",
     },
     {
@@ -45,19 +46,22 @@ const config: RawConfig = {
     },
     {
       name: "Unity",
-      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg",
+      imageUrl:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg",
       url: "https://unity.com/",
     },
     {
       name: "Godot",
-      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/godot/godot-original.svg",
+      imageUrl:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/godot/godot-original.svg",
       url: "https://godotengine.org/",
     },
   ],
   some_experience_with: [
     {
       name: "C#",
-      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg",
+      imageUrl:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg",
       url: "https://learn.microsoft.com/en-us/dotnet/csharp/",
     },
     {
@@ -80,7 +84,8 @@ const config: RawConfig = {
     },
     {
       name: "Haskell",
-      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/haskell/haskell-original.svg",
+      imageUrl:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/haskell/haskell-original.svg",
       url: "https://www.haskell.org/",
     },
     {
@@ -91,7 +96,8 @@ const config: RawConfig = {
     },
     {
       name: "React",
-      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+      imageUrl:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
       url: "https://reactjs.org/",
     },
     {
@@ -126,7 +132,7 @@ const config: RawConfig = {
       title: "Rust Quest",
       description: "A book about learning to program from zero!",
       imageUrl: "/assets/icons/rust-quest.svg",
-      link: "https://rust-quest.com/"
+      link: "https://rust-quest.com/",
     },
     {
       title: "Lyon's Deck Toolbox",
@@ -136,7 +142,7 @@ const config: RawConfig = {
         "https://raw.githubusercontent.com/LyonSyonII/lyon-deck-toolbox/main/assets/icon.png",
       link: "/deck-toolbox",
     },
-/*     {
+    /*     {
       title: "Cargo Learn",
       description:
         "Youtube channel dedicated to teaching programming, with a special focus on the Rust programming language.",
