@@ -12,7 +12,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.build-publish.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
     - name: Checkout if required
@@ -28,12 +28,12 @@ jobs:
       run: yarn && yarn build
       
     - name: 'upload'
-      uses: actions/upload-pages-artifact@v1.0.4
+      uses: actions/upload-pages-artifact@v3
       with: 
         path: dist
 
     - id: deploy
       name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v1
+      uses: actions/deploy-pages@v4
       with:
         token: ${{ github.token }}
