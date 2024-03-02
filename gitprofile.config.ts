@@ -7,7 +7,7 @@ const config: RawConfig = {
     limit: 10, // How many projects to display.
     exclude: {
       forks: true, // Forked projects will not be displayed if set to true.
-      projects: [], // These projects will not be displayed. example: ['my-project1', 'my-project2']
+      projects: ["PE-BLOC-T"], // These projects will not be displayed. example: ['my-project1', 'my-project2']
     },
   },
   social: {
@@ -20,73 +20,78 @@ const config: RawConfig = {
   skills: [
     {
       name: "Rust",
-      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg",
+      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg",
       url: "https://www.rust-lang.org/",
     },
     {
       name: "C",
-      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg",
       url: "https://en.wikipedia.org/wiki/C_(programming_language)",
     },
     {
       name: "Python",
-      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
       url: "https://www.python.org/",
     },
     {
+      name: "Astro",
+      imageUrl: "https://astro.build/assets/press/astro-icon-dark.svg",
+      url: "https://astro.build/",
+    },
+    {
       name: "Linux",
-      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-plain.svg",
+      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-plain.svg",
       url: "https://en.wikipedia.org/wiki/Linux",
     },
     {
       name: "Unity",
-      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg",
+      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg",
       url: "https://unity.com/",
     },
     {
       name: "Godot",
-      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg",
+      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/godot/godot-original.svg",
       url: "https://godotengine.org/",
     },
   ],
   some_experience_with: [
     {
       name: "C#",
-      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg",
       url: "https://learn.microsoft.com/en-us/dotnet/csharp/",
     },
     {
       name: "C++",
       imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg",
       url: "https://isocpp.org/",
     },
     {
       name: "JavaScript",
       imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
       url: "https://www.javascript.com/",
     },
     {
       name: "TypeScript",
       imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
       url: "https://www.typescriptlang.org/",
     },
     {
       name: "Haskell",
-      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg",
+      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/haskell/haskell-original.svg",
       url: "https://www.haskell.org/",
     },
     {
       name: "PostgreSQL",
       imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-plain.svg",
       url: "https://www.postgresql.org/",
     },
     {
       name: "React",
-      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
       url: "https://reactjs.org/",
     },
     {
@@ -98,13 +103,13 @@ const config: RawConfig = {
     {
       name: "Embedded",
       imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/embeddedc/embeddedc-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/embeddedc/embeddedc-original.svg",
       url: "https://en.wikipedia.org/wiki/Embedded_system",
     },
     {
       name: "Unreal Engine",
       imageUrl:
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unrealengine/unrealengine-original.svg",
       url: "https://www.unrealengine.com/en-US",
     },
   ],
@@ -118,6 +123,12 @@ const config: RawConfig = {
   ],
   mainProjects: [
     {
+      title: "Rust Quest",
+      description: "A book about learning to program from zero!",
+      imageUrl: "/assets/icons/rust-quest.svg",
+      link: "https://rust-quest.com/"
+    },
+    {
       title: "Lyon's Deck Toolbox",
       description:
         "An installer for a collection of tools and utilities to enhance the experience with the Steam Deck.",
@@ -125,14 +136,14 @@ const config: RawConfig = {
         "https://raw.githubusercontent.com/LyonSyonII/lyon-deck-toolbox/main/assets/icon.png",
       link: "/deck-toolbox",
     },
-    {
+/*     {
       title: "Cargo Learn",
       description:
         "Youtube channel dedicated to teaching programming, with a special focus on the Rust programming language.",
       imageUrl:
         "https://raw.githubusercontent.com/LyonSyonII/Cargo-Learn/main/Assets/Images/Logo.svg",
       link: "https://www.youtube.com/@Cargo-Learn/featured",
-    },
+    }, */
   ],
   otherProjects: [
     {
